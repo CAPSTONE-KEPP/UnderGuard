@@ -1,69 +1,69 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="SalesSystem.Contact" Collapsed="true">
+  <Class Name="SalesDesktopApp.Contact" Collapsed="true">
     <Position X="1.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>QASiAEAEgCAAAAAoIAAACCAAAAIAAAQiAAAEIgAAIgI=</HashCode>
       <FileName>Contact.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="SalesSystem.Company" Collapsed="true">
+  <Class Name="SalesDesktopApp.Company" Collapsed="true">
     <Position X="0.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAIEAAgAAAAAAAAAAAA=</HashCode>
       <FileName>Company.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="SalesSystem.CompanyContact" Collapsed="true">
+  <Class Name="SalesDesktopApp.CompanyContact" Collapsed="true">
     <Position X="2" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAABAUAAQQBAAEAAAAQAAAAEAAAAAQAAAAEACAAAAAk=</HashCode>
       <FileName>CompanyContact.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="SalesSystem.Order" Collapsed="true">
+  <Class Name="SalesDesktopApp.Order" Collapsed="true">
     <Position X="5.25" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>CQAAAgAAAAICAEAAAgAAAAAAAAAAAAAAAAQAAAkAAAA=</HashCode>
       <FileName>Order.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="SalesSystem.OrderDetails" Collapsed="true">
+  <Class Name="SalesDesktopApp.OrderDetails" Collapsed="true">
     <Position X="6.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAABAAAAAAAAAAAAAAAAAAAAAACAAAAAhAAAAAQ=</HashCode>
       <FileName>OrderDetails.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="SalesSystem.Product" Collapsed="true">
+  <Class Name="SalesDesktopApp.Product" Collapsed="true">
     <Position X="3.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>EAAAABAAAAAAAAAAAAAAAAQAAAAEAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Products.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="SalesSystem.Catalog" Collapsed="true">
+  <Class Name="SalesDesktopApp.Catalog" Collapsed="true">
     <Position X="3.75" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>QQACAAAAAAAgAAAAICAAAAQgAAAEAAAAAAAABEEAAgQ=</HashCode>
       <FileName>Catalog.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Enum Name="SalesSystem.Status" Collapsed="true">
+  <Enum Name="SalesDesktopApp.Status" Collapsed="true">
     <Position X="3.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AABAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAIAAAAA=</HashCode>
       <FileName>Status.cs</FileName>
     </TypeIdentifier>
   </Enum>
-  <Enum Name="SalesSystem.Salutation" Collapsed="true">
+  <Enum Name="SalesDesktopApp.Salutation" Collapsed="true">
     <Position X="5.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAAIBBAIAAAAAAAAAAA=</HashCode>
       <FileName>Salutation.cs</FileName>
     </TypeIdentifier>
   </Enum>
-  <Enum Name="SalesSystem.OrderStatus" Collapsed="true">
+  <Enum Name="SalesDesktopApp.OrderStatus" Collapsed="true">
     <Position X="6.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>EAAAAAAAAACAAAoAAAAAAAACAAAQAAgAAAAAAAAAAAA=</HashCode>

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SalesSystem
+namespace SalesDesktopApp
 {
     abstract class Contact
     {
