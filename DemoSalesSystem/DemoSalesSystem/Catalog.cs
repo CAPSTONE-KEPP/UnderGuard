@@ -63,5 +63,16 @@ namespace DemoSalesSystem
             get { return status; }
             set { status = value; }
         }
+
+        public Product Product
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+            set
+            {
+            }
+        }
     }
 }

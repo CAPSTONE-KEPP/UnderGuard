@@ -32,5 +32,16 @@ namespace DemoSalesSystem
             get { return slogan; }
             set { slogan = value; }
         }
+
+        public CompanyContact CompanyContact
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+            set
+            {
+            }
+        }
     }
 }
