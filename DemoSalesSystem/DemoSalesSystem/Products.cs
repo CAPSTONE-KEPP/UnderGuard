@@ -16,7 +16,7 @@ namespace DemoSalesSystem
         private Image image;
         private string color;
         private DateTime dateEntered;
-        private bool statusl;
+        private bool status;
 
         public int ProductID
         {
@@ -40,6 +40,48 @@ namespace DemoSalesSystem
             set
             {
             }
+        }
+
+        public string Description
+        {
+            get { return description; }
+            set { description = value; }
+        }
+
+        public double Price
+        {
+            get { return price; }
+            set { price = value; }
+        }
+
+        public string Size
+        {
+            get { return size; }
+            set { size = value; }
+        }
+
+        public Image Image
+        {
+            get { return image; }
+            set { image = value; }
+        }
+
+        public string Color
+        {
+            get { return color; }
+            set { color = value; }
+        }
+
+        public DateTime DateEntered
+        {
+            get { return dateEntered; }
+            set { dateEntered = value; }
+        }
+
+        public bool Status
+        {
+            get { return status; }
+            set { status = value; }
         }
     }
 }

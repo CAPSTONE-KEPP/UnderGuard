@@ -41,7 +41,25 @@ namespace DemoSalesSystem
             get { return note; }
             set { note = value; }
         }
+
+        public string Type
+        {
+            get { return type; }
+            set { type = value; }
+        }
+
         #endregion
+
+        public Product Product
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+            set
+            {
+            }
+        }
 
         public OrderDetails OrderDetails
         {
@@ -65,26 +83,5 @@ namespace DemoSalesSystem
             }
         }
 
-        public OrderLineItem OrderLineItem
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
-
-        public Product Product
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
     }
 }

@@ -15,6 +15,24 @@ namespace DemoSalesSystem
         
         }
 
+        public string Name
+        {
+            get { return name; }
+            set { name = value; }
+        }
+
+        public string MissionStatement
+        {
+            get { return missionStatement; }
+            set { missionStatement = value; }
+        }
+
+        public string Slogan
+        {
+            get { return slogan; }
+            set { slogan = value; }
+        }
+
         public CompanyContact CompanyContact
         {
             get

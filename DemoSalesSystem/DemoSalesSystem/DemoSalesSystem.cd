@@ -1,24 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
   <Class Name="DemoSalesSystem.Contact">
-    <Position X="4" Y="6.5" Width="1.5" />
+    <Position X="1.25" Y="7" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>QASiAEAEgAAAAAAIIAEACCAAAAIAAAAiAAEAIgAAIgI=</HashCode>
+      <HashCode>QASiAEAEgAAAAAAIIAEACCAAACIAAAAiAAEAIgAAIgI=</HashCode>
       <FileName>Contact.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="DemoSalesSystem.Company">
-    <Position X="8.75" Y="9.25" Width="1.5" />
+    <Position X="5.5" Y="7" Width="1.5" />
     <InheritanceLine Type="DemoSalesSystem.Contact" FixedToPoint="true">
       <Path>
-        <Point X="5.125" Y="6.5" />
-        <Point X="5.125" Y="6.125" />
-        <Point X="9.438" Y="6.125" />
-        <Point X="9.438" Y="9.25" />
+        <Point X="2" Y="7" />
+        <Point X="2" Y="6.625" />
+        <Point X="6.25" Y="6.625" />
+        <Point X="6.25" Y="7" />
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAQIEAAAAAAQAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAABAgQAAQIEAAAAAAQAAAAAAAA=</HashCode>
       <FileName>Company.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -26,35 +26,43 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="DemoSalesSystem.CompanyContact">
-    <Position X="6" Y="8.5" Width="1.5" />
+    <Position X="3.5" Y="7" Width="1.5" />
+    <InheritanceLine Type="DemoSalesSystem.Contact" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="2" Y="7" />
+        <Point X="2" Y="6.625" />
+        <Point X="4.312" Y="6.625" />
+        <Point X="4.312" Y="7" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAABAUAAQQBAAEAAAAQAAAAEAAAAAQAAAAEACAAAAAk=</HashCode>
       <FileName>CompanyContact.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="DemoSalesSystem.Order">
-    <Position X="12.25" Y="12.75" Width="2.75" />
+    <Position X="7.5" Y="9.5" Width="2.75" />
     <TypeIdentifier>
-      <HashCode>CQACAAAAAAACAEAAApAAIAAAAAABAAAAAAQABAkAAAQ=</HashCode>
+      <HashCode>CQACAAAAAAACAEAAApAAAAAAAAABAAAAAQQABAkAAAQ=</HashCode>
       <FileName>Order.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
+      <Property Name="Product" />
       <Property Name="OrderDetails" />
       <Property Name="Company1" />
-      <Property Name="Product" />
     </ShowAsAssociation>
   </Class>
   <Class Name="DemoSalesSystem.OrderDetails">
-    <Position X="16.25" Y="12.75" Width="1.5" />
+    <Position X="8.25" Y="13.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAABAgAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAECAAABAgAAAAAAAAAAAAAAAAAAAACAAAAAgAAAAAA=</HashCode>
       <FileName>OrderDetails.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="DemoSalesSystem.Product">
-    <Position X="13.25" Y="8.75" Width="1.5" />
+    <Position X="10.75" Y="7.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>EAABABAAAAIAAAAAJIAAAAQAEAAEAACAAAgAAAAAAAA=</HashCode>
+      <HashCode>EAQBABAEAQIggAAAIIAAAAQAEAAEABCAAAgAgAAIAAA=</HashCode>
       <FileName>Products.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -62,9 +70,9 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="DemoSalesSystem.Catalog">
-    <Position X="15.75" Y="8.75" Width="2" />
+    <Position X="13.25" Y="8.75" Width="2" />
     <TypeIdentifier>
-      <HashCode>QQQCAAAAAAAAAAAAICAAAAAAAAAEAAAAAAAABAAAAgA=</HashCode>
+      <HashCode>QQQCAAAEAAAgAAAAICAAAAQgAAAEAAAAAAAABEEAAgQ=</HashCode>
       <FileName>Catalog.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -72,9 +80,9 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="DemoSalesSystem.SLA">
-    <Position X="16" Y="3.5" Width="1.5" />
+    <Position X="10.5" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAggAAAAAAAAAAAACAQgAAAAAAEAAAAAAA=</HashCode>
+      <HashCode>AAACAAAAAAAgAAAAIAAAIBCAACAQgAAAAAAEAAAAAgA=</HashCode>
       <FileName>SLA.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -82,26 +90,26 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="DemoSalesSystem.Findings">
-    <Position X="13.25" Y="3.5" Width="1.5" />
+    <Position X="8" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAABAAAAAAAAgAAAIACAAAAAAAAEAACAAAAAIAAAAAA=</HashCode>
+      <HashCode>AAADAAAAAQAgAIAAIACAAAQAAAAEAACgAAAAoAAAAgA=</HashCode>
       <FileName>Findings.cs</FileName>
     </TypeIdentifier>
-  </Class>
-  <Class Name="DemoSalesSystem.Supplier">
-    <Position X="10.75" Y="3.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAABAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAEAAAAIAA=</HashCode>
-      <FileName>Supplier.cs</FileName>
-    </TypeIdentifier>
     <ShowAsAssociation>
-      <Property Name="Findings" />
+      <Property Name="Supplier1" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="DemoSalesSystem.BOM">
-    <Position X="13.25" Y="6.5" Width="1.5" />
+  <Class Name="DemoSalesSystem.Supplier">
+    <Position X="5.5" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AQAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAEEAAAABAA=</HashCode>
+      <HashCode>AAAhAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAIwA=</HashCode>
+      <FileName>Supplier.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DemoSalesSystem.BOM">
+    <Position X="13.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EQAAABEAAAAAAAAAAAAAAAAAAAAAAAAAAAEEAAABBAA=</HashCode>
       <FileName>BOM.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -109,14 +117,14 @@
     </ShowAsAssociation>
   </Class>
   <Enum Name="DemoSalesSystem.Status">
-    <Position X="1.25" Y="2.75" Width="1.5" />
+    <Position X="2.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AABAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAIAAAAA=</HashCode>
       <FileName>Status.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Enum Name="DemoSalesSystem.Salutation">
-    <Position X="1" Y="4.25" Width="1.5" />
+    <Position X="4.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAAABBAIAAAAAAAAAAA=</HashCode>
       <FileName>Salutation.cs</FileName>

@@ -77,6 +77,13 @@ namespace DemoSalesSystem
             get { return notes; }
             set { notes = value; }
         }
+
+        public string EMail
+        {
+            get { return eMail; }
+            set { eMail = value; }
+        }
+
         #endregion
     }
 }
