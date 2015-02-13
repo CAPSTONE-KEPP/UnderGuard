@@ -16,5 +16,10 @@ namespace SalesDesktopApp
         {
             InitializeComponent();
         }
+
+        private void tbgInfo_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
