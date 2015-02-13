@@ -15,15 +15,22 @@ namespace DemoSalesSystem
         
         }
 
-        public CompanyContact CompanyContact
+        public string Name
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
+            get { return name; }
+            set { name = value; }
+        }
+
+        public string MissionStatement
+        {
+            get { return missionStatement; }
+            set { missionStatement = value; }
+        }
+
+        public string Slogan
+        {
+            get { return slogan; }
+            set { slogan = value; }
         }
     }
 }

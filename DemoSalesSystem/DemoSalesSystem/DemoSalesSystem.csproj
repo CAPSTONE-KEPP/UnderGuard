@@ -58,7 +58,6 @@
     </Compile>
     <Compile Include="Order.cs" />
     <Compile Include="OrderDetails.cs" />
-    <Compile Include="OrderLineItem.cs" />
     <Compile Include="OrderStatus.cs" />
     <Compile Include="Products.cs" />
     <Compile Include="Program.cs" />

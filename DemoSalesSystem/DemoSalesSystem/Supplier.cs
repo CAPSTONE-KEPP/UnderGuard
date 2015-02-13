@@ -7,19 +7,26 @@ namespace DemoSalesSystem
 {
     public class Supplier : Contact
     {
-        private int ID;
+        private int id;
         private string notes;
         private bool standings;
 
-        public Findings Findings
+        public int ID
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
+            get { return id; }
+            set { id = value; }
+        }
+
+        public string Notes
+        {
+            get { return notes; }
+            set { notes = value; }
+        }
+
+        public bool Standings
+        {
+            get { return standings; }
+            set { standings = value; }
         }
     }
 }
