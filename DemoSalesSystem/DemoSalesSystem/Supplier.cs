@@ -7,22 +7,15 @@ namespace DemoSalesSystem
 {
     public class Supplier : Contact
     {
-        private int id;
-        private string notes;
         private bool standings;
+        private string name;
 
-        public int ID
+        public string Name
         {
-            get { return id; }
-            set { id = value; }
+            get { return name; }
+            set { name = value; }
         }
-
-        public string Notes
-        {
-            get { return notes; }
-            set { notes = value; }
-        }
-
+        
         public bool Standings
         {
             get { return standings; }
