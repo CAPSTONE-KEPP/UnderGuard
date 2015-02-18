@@ -16,6 +16,24 @@ namespace DemoSalesSystem
         private string color;
         private int quantityOnHand;
 
+        public Findings() 
+        {
+
+        }
+
+        public Findings(int in_id, string in_name, string in_description, double in_price,
+            SLA in_sla, Supplier in_supplier, string in_color, int in_quantityOnHand) 
+        {
+            id = in_id;
+            name = in_name;
+            description = in_description;
+            price = in_price;
+            sla = in_sla;
+            supplier = in_supplier;
+            color = in_color;
+            quantityOnHand = in_quantityOnHand;
+        }
+
         public int Id
         {
             get { return id; }

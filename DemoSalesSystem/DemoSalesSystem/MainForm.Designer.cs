@@ -37,7 +37,6 @@
             this.orderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manufacturingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.productsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.buildToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ordersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.findingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inventoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,7 +45,55 @@
             this.productsToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.findingsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.sLAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pnlMFindings = new System.Windows.Forms.Panel();
+            this.grpMFDescription = new System.Windows.Forms.GroupBox();
+            this.txtMFDescription = new System.Windows.Forms.TextBox();
+            this.grpMFSLA = new System.Windows.Forms.GroupBox();
+            this.txtMFSLA = new System.Windows.Forms.TextBox();
+            this.btnMFUpdate = new System.Windows.Forms.Button();
+            this.btnMFSave = new System.Windows.Forms.Button();
+            this.btnMFDelete = new System.Windows.Forms.Button();
+            this.btnMFClear = new System.Windows.Forms.Button();
+            this.txtMFPrice = new System.Windows.Forms.TextBox();
+            this.lblMFPrice = new System.Windows.Forms.Label();
+            this.txtMFQuantityOnHand = new System.Windows.Forms.TextBox();
+            this.lblMFQuanityOnHand = new System.Windows.Forms.Label();
+            this.txtMFColor = new System.Windows.Forms.TextBox();
+            this.lblMFColor = new System.Windows.Forms.Label();
+            this.txtMFSupplier = new System.Windows.Forms.TextBox();
+            this.lblMFSupplier = new System.Windows.Forms.Label();
+            this.txtMFName = new System.Windows.Forms.TextBox();
+            this.lblMFName = new System.Windows.Forms.Label();
+            this.txtMFId = new System.Windows.Forms.TextBox();
+            this.lblMFId = new System.Windows.Forms.Label();
+            this.lstMFindings = new System.Windows.Forms.ListBox();
+            this.lblMFindings = new System.Windows.Forms.Label();
+            this.pnlMOrder = new System.Windows.Forms.Panel();
+            this.lblMOOrder = new System.Windows.Forms.Label();
+            this.lstMOOrders = new System.Windows.Forms.ListBox();
+            this.lblMOCompany = new System.Windows.Forms.Label();
+            this.lblMOCompanyContact = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cmbMOCompany = new System.Windows.Forms.ComboBox();
+            this.cmbMOCompanyContact = new System.Windows.Forms.ComboBox();
+            this.lblMOOrderStatus = new System.Windows.Forms.Label();
+            this.cmbMOOrderStatus = new System.Windows.Forms.ComboBox();
+            this.lblMOType = new System.Windows.Forms.Label();
+            this.txtMOType = new System.Windows.Forms.TextBox();
+            this.btnMOClear = new System.Windows.Forms.Button();
+            this.btnMODelete = new System.Windows.Forms.Button();
+            this.btnMOSave = new System.Windows.Forms.Button();
+            this.btnMOUpdate = new System.Windows.Forms.Button();
+            this.dtpMODate = new System.Windows.Forms.DateTimePicker();
+            this.lblMODate = new System.Windows.Forms.Label();
+            this.grpMONotes = new System.Windows.Forms.GroupBox();
+            this.txtMONotes = new System.Windows.Forms.TextBox();
             this.menuStrip.SuspendLayout();
+            this.pnlMFindings.SuspendLayout();
+            this.grpMFDescription.SuspendLayout();
+            this.grpMFSLA.SuspendLayout();
+            this.pnlMOrder.SuspendLayout();
+            this.grpMONotes.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip
@@ -57,7 +104,7 @@
             this.inventoryToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(1181, 24);
+            this.menuStrip.Size = new System.Drawing.Size(632, 24);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "MenuStrip";
             // 
@@ -93,7 +140,6 @@
             // 
             this.manufacturingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.productsToolStripMenuItem1,
-            this.buildToolStripMenuItem,
             this.ordersToolStripMenuItem,
             this.findingsToolStripMenuItem});
             this.manufacturingToolStripMenuItem.Name = "manufacturingToolStripMenuItem";
@@ -103,26 +149,22 @@
             // productsToolStripMenuItem1
             // 
             this.productsToolStripMenuItem1.Name = "productsToolStripMenuItem1";
-            this.productsToolStripMenuItem1.Size = new System.Drawing.Size(116, 22);
+            this.productsToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.productsToolStripMenuItem1.Text = "Product";
-            // 
-            // buildToolStripMenuItem
-            // 
-            this.buildToolStripMenuItem.Name = "buildToolStripMenuItem";
-            this.buildToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
-            this.buildToolStripMenuItem.Text = "Build";
             // 
             // ordersToolStripMenuItem
             // 
             this.ordersToolStripMenuItem.Name = "ordersToolStripMenuItem";
-            this.ordersToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.ordersToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.ordersToolStripMenuItem.Text = "Order";
+            this.ordersToolStripMenuItem.Click += new System.EventHandler(this.ordersToolStripMenuItem_Click);
             // 
             // findingsToolStripMenuItem
             // 
             this.findingsToolStripMenuItem.Name = "findingsToolStripMenuItem";
-            this.findingsToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.findingsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.findingsToolStripMenuItem.Text = "Finding";
+            this.findingsToolStripMenuItem.Click += new System.EventHandler(this.findingsToolStripMenuItem_Click);
             // 
             // inventoryToolStripMenuItem
             // 
@@ -141,7 +183,6 @@
             this.suppliersToolStripMenuItem.Name = "suppliersToolStripMenuItem";
             this.suppliersToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.suppliersToolStripMenuItem.Text = "Supplier";
-            this.suppliersToolStripMenuItem.Click += new System.EventHandler(this.suppliersToolStripMenuItem_Click);
             // 
             // ordersToolStripMenuItem1
             // 
@@ -167,18 +208,449 @@
             this.sLAsToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.sLAsToolStripMenuItem.Text = "SLA";
             // 
+            // pnlMFindings
+            // 
+            this.pnlMFindings.Controls.Add(this.grpMFDescription);
+            this.pnlMFindings.Controls.Add(this.grpMFSLA);
+            this.pnlMFindings.Controls.Add(this.btnMFUpdate);
+            this.pnlMFindings.Controls.Add(this.btnMFSave);
+            this.pnlMFindings.Controls.Add(this.btnMFDelete);
+            this.pnlMFindings.Controls.Add(this.btnMFClear);
+            this.pnlMFindings.Controls.Add(this.txtMFPrice);
+            this.pnlMFindings.Controls.Add(this.lblMFPrice);
+            this.pnlMFindings.Controls.Add(this.txtMFQuantityOnHand);
+            this.pnlMFindings.Controls.Add(this.lblMFQuanityOnHand);
+            this.pnlMFindings.Controls.Add(this.txtMFColor);
+            this.pnlMFindings.Controls.Add(this.lblMFColor);
+            this.pnlMFindings.Controls.Add(this.txtMFSupplier);
+            this.pnlMFindings.Controls.Add(this.lblMFSupplier);
+            this.pnlMFindings.Controls.Add(this.txtMFName);
+            this.pnlMFindings.Controls.Add(this.lblMFName);
+            this.pnlMFindings.Controls.Add(this.txtMFId);
+            this.pnlMFindings.Controls.Add(this.lblMFId);
+            this.pnlMFindings.Controls.Add(this.lstMFindings);
+            this.pnlMFindings.Controls.Add(this.lblMFindings);
+            this.pnlMFindings.Location = new System.Drawing.Point(0, 27);
+            this.pnlMFindings.Name = "pnlMFindings";
+            this.pnlMFindings.Size = new System.Drawing.Size(632, 424);
+            this.pnlMFindings.TabIndex = 2;
+            this.pnlMFindings.Visible = false;
+            // 
+            // grpMFDescription
+            // 
+            this.grpMFDescription.Controls.Add(this.txtMFDescription);
+            this.grpMFDescription.Location = new System.Drawing.Point(139, 171);
+            this.grpMFDescription.Name = "grpMFDescription";
+            this.grpMFDescription.Size = new System.Drawing.Size(481, 214);
+            this.grpMFDescription.TabIndex = 19;
+            this.grpMFDescription.TabStop = false;
+            this.grpMFDescription.Text = "Description";
+            // 
+            // txtMFDescription
+            // 
+            this.txtMFDescription.Location = new System.Drawing.Point(7, 20);
+            this.txtMFDescription.Multiline = true;
+            this.txtMFDescription.Name = "txtMFDescription";
+            this.txtMFDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtMFDescription.Size = new System.Drawing.Size(468, 188);
+            this.txtMFDescription.TabIndex = 0;
+            // 
+            // grpMFSLA
+            // 
+            this.grpMFSLA.Controls.Add(this.txtMFSLA);
+            this.grpMFSLA.Location = new System.Drawing.Point(410, 18);
+            this.grpMFSLA.Name = "grpMFSLA";
+            this.grpMFSLA.Size = new System.Drawing.Size(210, 147);
+            this.grpMFSLA.TabIndex = 18;
+            this.grpMFSLA.TabStop = false;
+            this.grpMFSLA.Text = "SLA";
+            // 
+            // txtMFSLA
+            // 
+            this.txtMFSLA.Location = new System.Drawing.Point(7, 20);
+            this.txtMFSLA.Multiline = true;
+            this.txtMFSLA.Name = "txtMFSLA";
+            this.txtMFSLA.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtMFSLA.Size = new System.Drawing.Size(197, 121);
+            this.txtMFSLA.TabIndex = 0;
+            // 
+            // btnMFUpdate
+            // 
+            this.btnMFUpdate.Location = new System.Drawing.Point(302, 390);
+            this.btnMFUpdate.Name = "btnMFUpdate";
+            this.btnMFUpdate.Size = new System.Drawing.Size(75, 23);
+            this.btnMFUpdate.TabIndex = 17;
+            this.btnMFUpdate.Text = "Update";
+            this.btnMFUpdate.UseVisualStyleBackColor = true;
+            this.btnMFUpdate.Click += new System.EventHandler(this.btnMFUpdate_Click);
+            // 
+            // btnMFSave
+            // 
+            this.btnMFSave.Location = new System.Drawing.Point(383, 390);
+            this.btnMFSave.Name = "btnMFSave";
+            this.btnMFSave.Size = new System.Drawing.Size(75, 23);
+            this.btnMFSave.TabIndex = 16;
+            this.btnMFSave.Text = "Save";
+            this.btnMFSave.UseVisualStyleBackColor = true;
+            this.btnMFSave.Click += new System.EventHandler(this.btnMFSave_Click);
+            // 
+            // btnMFDelete
+            // 
+            this.btnMFDelete.Location = new System.Drawing.Point(464, 390);
+            this.btnMFDelete.Name = "btnMFDelete";
+            this.btnMFDelete.Size = new System.Drawing.Size(75, 23);
+            this.btnMFDelete.TabIndex = 15;
+            this.btnMFDelete.Text = "Delete";
+            this.btnMFDelete.UseVisualStyleBackColor = true;
+            this.btnMFDelete.Click += new System.EventHandler(this.btnMFDelete_Click);
+            // 
+            // btnMFClear
+            // 
+            this.btnMFClear.Location = new System.Drawing.Point(545, 390);
+            this.btnMFClear.Name = "btnMFClear";
+            this.btnMFClear.Size = new System.Drawing.Size(75, 23);
+            this.btnMFClear.TabIndex = 14;
+            this.btnMFClear.Text = "Clear";
+            this.btnMFClear.UseVisualStyleBackColor = true;
+            this.btnMFClear.Click += new System.EventHandler(this.btnMFClear_Click);
+            // 
+            // txtMFPrice
+            // 
+            this.txtMFPrice.Location = new System.Drawing.Point(238, 145);
+            this.txtMFPrice.Name = "txtMFPrice";
+            this.txtMFPrice.Size = new System.Drawing.Size(166, 20);
+            this.txtMFPrice.TabIndex = 13;
+            // 
+            // lblMFPrice
+            // 
+            this.lblMFPrice.AutoSize = true;
+            this.lblMFPrice.Location = new System.Drawing.Point(136, 148);
+            this.lblMFPrice.Name = "lblMFPrice";
+            this.lblMFPrice.Size = new System.Drawing.Size(40, 13);
+            this.lblMFPrice.TabIndex = 12;
+            this.lblMFPrice.Text = "Price:  ";
+            // 
+            // txtMFQuantityOnHand
+            // 
+            this.txtMFQuantityOnHand.Location = new System.Drawing.Point(238, 119);
+            this.txtMFQuantityOnHand.Name = "txtMFQuantityOnHand";
+            this.txtMFQuantityOnHand.Size = new System.Drawing.Size(166, 20);
+            this.txtMFQuantityOnHand.TabIndex = 11;
+            // 
+            // lblMFQuanityOnHand
+            // 
+            this.lblMFQuanityOnHand.AutoSize = true;
+            this.lblMFQuanityOnHand.Location = new System.Drawing.Point(136, 122);
+            this.lblMFQuanityOnHand.Name = "lblMFQuanityOnHand";
+            this.lblMFQuanityOnHand.Size = new System.Drawing.Size(95, 13);
+            this.lblMFQuanityOnHand.TabIndex = 10;
+            this.lblMFQuanityOnHand.Text = "Quanity On Hand: ";
+            // 
+            // txtMFColor
+            // 
+            this.txtMFColor.Location = new System.Drawing.Point(238, 95);
+            this.txtMFColor.Name = "txtMFColor";
+            this.txtMFColor.Size = new System.Drawing.Size(166, 20);
+            this.txtMFColor.TabIndex = 9;
+            // 
+            // lblMFColor
+            // 
+            this.lblMFColor.AutoSize = true;
+            this.lblMFColor.Location = new System.Drawing.Point(136, 98);
+            this.lblMFColor.Name = "lblMFColor";
+            this.lblMFColor.Size = new System.Drawing.Size(37, 13);
+            this.lblMFColor.TabIndex = 8;
+            this.lblMFColor.Text = "Color: ";
+            // 
+            // txtMFSupplier
+            // 
+            this.txtMFSupplier.Location = new System.Drawing.Point(238, 69);
+            this.txtMFSupplier.Name = "txtMFSupplier";
+            this.txtMFSupplier.Size = new System.Drawing.Size(166, 20);
+            this.txtMFSupplier.TabIndex = 7;
+            // 
+            // lblMFSupplier
+            // 
+            this.lblMFSupplier.AutoSize = true;
+            this.lblMFSupplier.Location = new System.Drawing.Point(136, 72);
+            this.lblMFSupplier.Name = "lblMFSupplier";
+            this.lblMFSupplier.Size = new System.Drawing.Size(51, 13);
+            this.lblMFSupplier.TabIndex = 6;
+            this.lblMFSupplier.Text = "Supplier: ";
+            // 
+            // txtMFName
+            // 
+            this.txtMFName.Location = new System.Drawing.Point(238, 43);
+            this.txtMFName.Name = "txtMFName";
+            this.txtMFName.Size = new System.Drawing.Size(166, 20);
+            this.txtMFName.TabIndex = 5;
+            // 
+            // lblMFName
+            // 
+            this.lblMFName.AutoSize = true;
+            this.lblMFName.Location = new System.Drawing.Point(136, 46);
+            this.lblMFName.Name = "lblMFName";
+            this.lblMFName.Size = new System.Drawing.Size(41, 13);
+            this.lblMFName.TabIndex = 4;
+            this.lblMFName.Text = "Name: ";
+            // 
+            // txtMFId
+            // 
+            this.txtMFId.Enabled = false;
+            this.txtMFId.Location = new System.Drawing.Point(238, 18);
+            this.txtMFId.Name = "txtMFId";
+            this.txtMFId.Size = new System.Drawing.Size(166, 20);
+            this.txtMFId.TabIndex = 3;
+            // 
+            // lblMFId
+            // 
+            this.lblMFId.AutoSize = true;
+            this.lblMFId.Location = new System.Drawing.Point(136, 21);
+            this.lblMFId.Name = "lblMFId";
+            this.lblMFId.Size = new System.Drawing.Size(21, 13);
+            this.lblMFId.TabIndex = 2;
+            this.lblMFId.Text = "ID:";
+            // 
+            // lstMFindings
+            // 
+            this.lstMFindings.FormattingEnabled = true;
+            this.lstMFindings.Location = new System.Drawing.Point(4, 21);
+            this.lstMFindings.Name = "lstMFindings";
+            this.lstMFindings.ScrollAlwaysVisible = true;
+            this.lstMFindings.Size = new System.Drawing.Size(126, 394);
+            this.lstMFindings.TabIndex = 1;
+            // 
+            // lblMFindings
+            // 
+            this.lblMFindings.AutoSize = true;
+            this.lblMFindings.Location = new System.Drawing.Point(3, 5);
+            this.lblMFindings.Name = "lblMFindings";
+            this.lblMFindings.Size = new System.Drawing.Size(46, 13);
+            this.lblMFindings.TabIndex = 0;
+            this.lblMFindings.Text = "Findings";
+            // 
+            // pnlMOrder
+            // 
+            this.pnlMOrder.Controls.Add(this.grpMONotes);
+            this.pnlMOrder.Controls.Add(this.lblMODate);
+            this.pnlMOrder.Controls.Add(this.dtpMODate);
+            this.pnlMOrder.Controls.Add(this.btnMOUpdate);
+            this.pnlMOrder.Controls.Add(this.btnMOSave);
+            this.pnlMOrder.Controls.Add(this.btnMODelete);
+            this.pnlMOrder.Controls.Add(this.btnMOClear);
+            this.pnlMOrder.Controls.Add(this.txtMOType);
+            this.pnlMOrder.Controls.Add(this.lblMOType);
+            this.pnlMOrder.Controls.Add(this.cmbMOOrderStatus);
+            this.pnlMOrder.Controls.Add(this.lblMOOrderStatus);
+            this.pnlMOrder.Controls.Add(this.cmbMOCompanyContact);
+            this.pnlMOrder.Controls.Add(this.cmbMOCompany);
+            this.pnlMOrder.Controls.Add(this.label1);
+            this.pnlMOrder.Controls.Add(this.lblMOCompanyContact);
+            this.pnlMOrder.Controls.Add(this.lblMOCompany);
+            this.pnlMOrder.Controls.Add(this.lstMOOrders);
+            this.pnlMOrder.Controls.Add(this.lblMOOrder);
+            this.pnlMOrder.Location = new System.Drawing.Point(0, 27);
+            this.pnlMOrder.Name = "pnlMOrder";
+            this.pnlMOrder.Size = new System.Drawing.Size(632, 424);
+            this.pnlMOrder.TabIndex = 20;
+            this.pnlMOrder.Visible = false;
+            // 
+            // lblMOOrder
+            // 
+            this.lblMOOrder.AutoSize = true;
+            this.lblMOOrder.Location = new System.Drawing.Point(3, 5);
+            this.lblMOOrder.Name = "lblMOOrder";
+            this.lblMOOrder.Size = new System.Drawing.Size(33, 13);
+            this.lblMOOrder.TabIndex = 0;
+            this.lblMOOrder.Text = "Order";
+            // 
+            // lstMOOrders
+            // 
+            this.lstMOOrders.FormattingEnabled = true;
+            this.lstMOOrders.Location = new System.Drawing.Point(4, 22);
+            this.lstMOOrders.Name = "lstMOOrders";
+            this.lstMOOrders.ScrollAlwaysVisible = true;
+            this.lstMOOrders.Size = new System.Drawing.Size(120, 394);
+            this.lstMOOrders.TabIndex = 1;
+            // 
+            // lblMOCompany
+            // 
+            this.lblMOCompany.AutoSize = true;
+            this.lblMOCompany.Location = new System.Drawing.Point(130, 22);
+            this.lblMOCompany.Name = "lblMOCompany";
+            this.lblMOCompany.Size = new System.Drawing.Size(57, 13);
+            this.lblMOCompany.TabIndex = 2;
+            this.lblMOCompany.Text = "Company: ";
+            // 
+            // lblMOCompanyContact
+            // 
+            this.lblMOCompanyContact.AutoSize = true;
+            this.lblMOCompanyContact.Location = new System.Drawing.Point(130, 49);
+            this.lblMOCompanyContact.Name = "lblMOCompanyContact";
+            this.lblMOCompanyContact.Size = new System.Drawing.Size(97, 13);
+            this.lblMOCompanyContact.TabIndex = 4;
+            this.lblMOCompanyContact.Text = "Company Contact: ";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(130, 69);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(0, 13);
+            this.label1.TabIndex = 6;
+            // 
+            // cmbMOCompany
+            // 
+            this.cmbMOCompany.FormattingEnabled = true;
+            this.cmbMOCompany.Location = new System.Drawing.Point(238, 19);
+            this.cmbMOCompany.Name = "cmbMOCompany";
+            this.cmbMOCompany.Size = new System.Drawing.Size(391, 21);
+            this.cmbMOCompany.TabIndex = 7;
+            // 
+            // cmbMOCompanyContact
+            // 
+            this.cmbMOCompanyContact.FormattingEnabled = true;
+            this.cmbMOCompanyContact.Location = new System.Drawing.Point(238, 46);
+            this.cmbMOCompanyContact.Name = "cmbMOCompanyContact";
+            this.cmbMOCompanyContact.Size = new System.Drawing.Size(391, 21);
+            this.cmbMOCompanyContact.TabIndex = 8;
+            // 
+            // lblMOOrderStatus
+            // 
+            this.lblMOOrderStatus.AutoSize = true;
+            this.lblMOOrderStatus.Location = new System.Drawing.Point(130, 75);
+            this.lblMOOrderStatus.Name = "lblMOOrderStatus";
+            this.lblMOOrderStatus.Size = new System.Drawing.Size(75, 13);
+            this.lblMOOrderStatus.TabIndex = 9;
+            this.lblMOOrderStatus.Text = "Order Status:  ";
+            // 
+            // cmbMOOrderStatus
+            // 
+            this.cmbMOOrderStatus.FormattingEnabled = true;
+            this.cmbMOOrderStatus.Location = new System.Drawing.Point(238, 72);
+            this.cmbMOOrderStatus.Name = "cmbMOOrderStatus";
+            this.cmbMOOrderStatus.Size = new System.Drawing.Size(391, 21);
+            this.cmbMOOrderStatus.TabIndex = 10;
+            // 
+            // lblMOType
+            // 
+            this.lblMOType.AutoSize = true;
+            this.lblMOType.Location = new System.Drawing.Point(130, 101);
+            this.lblMOType.Name = "lblMOType";
+            this.lblMOType.Size = new System.Drawing.Size(40, 13);
+            this.lblMOType.TabIndex = 11;
+            this.lblMOType.Text = "Type:  ";
+            // 
+            // txtMOType
+            // 
+            this.txtMOType.Location = new System.Drawing.Point(238, 98);
+            this.txtMOType.Name = "txtMOType";
+            this.txtMOType.Size = new System.Drawing.Size(391, 20);
+            this.txtMOType.TabIndex = 12;
+            // 
+            // btnMOClear
+            // 
+            this.btnMOClear.Location = new System.Drawing.Point(554, 392);
+            this.btnMOClear.Name = "btnMOClear";
+            this.btnMOClear.Size = new System.Drawing.Size(75, 23);
+            this.btnMOClear.TabIndex = 13;
+            this.btnMOClear.Text = "Clear";
+            this.btnMOClear.UseVisualStyleBackColor = true;
+            this.btnMOClear.Click += new System.EventHandler(this.btnMOClear_Click);
+            // 
+            // btnMODelete
+            // 
+            this.btnMODelete.Location = new System.Drawing.Point(473, 392);
+            this.btnMODelete.Name = "btnMODelete";
+            this.btnMODelete.Size = new System.Drawing.Size(75, 23);
+            this.btnMODelete.TabIndex = 14;
+            this.btnMODelete.Text = "Delete";
+            this.btnMODelete.UseVisualStyleBackColor = true;
+            this.btnMODelete.Click += new System.EventHandler(this.btnMODelete_Click);
+            // 
+            // btnMOSave
+            // 
+            this.btnMOSave.Location = new System.Drawing.Point(392, 392);
+            this.btnMOSave.Name = "btnMOSave";
+            this.btnMOSave.Size = new System.Drawing.Size(75, 23);
+            this.btnMOSave.TabIndex = 15;
+            this.btnMOSave.Text = "Save";
+            this.btnMOSave.UseVisualStyleBackColor = true;
+            this.btnMOSave.Click += new System.EventHandler(this.btnMOSave_Click);
+            // 
+            // btnMOUpdate
+            // 
+            this.btnMOUpdate.Location = new System.Drawing.Point(311, 392);
+            this.btnMOUpdate.Name = "btnMOUpdate";
+            this.btnMOUpdate.Size = new System.Drawing.Size(75, 23);
+            this.btnMOUpdate.TabIndex = 16;
+            this.btnMOUpdate.Text = "Update";
+            this.btnMOUpdate.UseVisualStyleBackColor = true;
+            this.btnMOUpdate.Click += new System.EventHandler(this.btnMOUpdate_Click);
+            // 
+            // dtpMODate
+            // 
+            this.dtpMODate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpMODate.Location = new System.Drawing.Point(237, 124);
+            this.dtpMODate.MaxDate = new System.DateTime(2115, 2, 18, 0, 0, 0, 0);
+            this.dtpMODate.MinDate = new System.DateTime(2015, 2, 18, 0, 0, 0, 0);
+            this.dtpMODate.Name = "dtpMODate";
+            this.dtpMODate.Size = new System.Drawing.Size(392, 20);
+            this.dtpMODate.TabIndex = 17;
+            this.dtpMODate.Value = new System.DateTime(2015, 2, 18, 0, 55, 5, 0);
+            // 
+            // lblMODate
+            // 
+            this.lblMODate.AutoSize = true;
+            this.lblMODate.Location = new System.Drawing.Point(130, 130);
+            this.lblMODate.Name = "lblMODate";
+            this.lblMODate.Size = new System.Drawing.Size(36, 13);
+            this.lblMODate.TabIndex = 18;
+            this.lblMODate.Text = "Date: ";
+            // 
+            // grpMONotes
+            // 
+            this.grpMONotes.Controls.Add(this.txtMONotes);
+            this.grpMONotes.Location = new System.Drawing.Point(130, 150);
+            this.grpMONotes.Name = "grpMONotes";
+            this.grpMONotes.Size = new System.Drawing.Size(499, 236);
+            this.grpMONotes.TabIndex = 19;
+            this.grpMONotes.TabStop = false;
+            this.grpMONotes.Text = "Notes";
+            // 
+            // txtMONotes
+            // 
+            this.txtMONotes.Location = new System.Drawing.Point(7, 15);
+            this.txtMONotes.MaxLength = 1024;
+            this.txtMONotes.Multiline = true;
+            this.txtMONotes.Name = "txtMONotes";
+            this.txtMONotes.Size = new System.Drawing.Size(486, 215);
+            this.txtMONotes.TabIndex = 0;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1181, 637);
+            this.ClientSize = new System.Drawing.Size(632, 453);
+            this.Controls.Add(this.pnlMOrder);
+            this.Controls.Add(this.pnlMFindings);
             this.Controls.Add(this.menuStrip);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip;
             this.Name = "MainForm";
-            this.Text = "MainForm";
+            this.Text = "UnderGuard";
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
+            this.pnlMFindings.ResumeLayout(false);
+            this.pnlMFindings.PerformLayout();
+            this.grpMFDescription.ResumeLayout(false);
+            this.grpMFDescription.PerformLayout();
+            this.grpMFSLA.ResumeLayout(false);
+            this.grpMFSLA.PerformLayout();
+            this.pnlMOrder.ResumeLayout(false);
+            this.pnlMOrder.PerformLayout();
+            this.grpMONotes.ResumeLayout(false);
+            this.grpMONotes.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -193,7 +665,6 @@
         private System.Windows.Forms.ToolStripMenuItem orderToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem manufacturingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem productsToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem buildToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ordersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem findingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem inventoryToolStripMenuItem;
@@ -202,6 +673,49 @@
         private System.Windows.Forms.ToolStripMenuItem productsToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem findingsToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem sLAsToolStripMenuItem;
+        private System.Windows.Forms.Panel pnlMFindings;
+        private System.Windows.Forms.ListBox lstMFindings;
+        private System.Windows.Forms.Label lblMFindings;
+        private System.Windows.Forms.Label lblMFName;
+        private System.Windows.Forms.TextBox txtMFId;
+        private System.Windows.Forms.Label lblMFId;
+        private System.Windows.Forms.TextBox txtMFName;
+        private System.Windows.Forms.TextBox txtMFSupplier;
+        private System.Windows.Forms.Label lblMFSupplier;
+        private System.Windows.Forms.Button btnMFClear;
+        private System.Windows.Forms.TextBox txtMFPrice;
+        private System.Windows.Forms.Label lblMFPrice;
+        private System.Windows.Forms.TextBox txtMFQuantityOnHand;
+        private System.Windows.Forms.Label lblMFQuanityOnHand;
+        private System.Windows.Forms.TextBox txtMFColor;
+        private System.Windows.Forms.Label lblMFColor;
+        private System.Windows.Forms.Button btnMFDelete;
+        private System.Windows.Forms.GroupBox grpMFDescription;
+        private System.Windows.Forms.TextBox txtMFDescription;
+        private System.Windows.Forms.GroupBox grpMFSLA;
+        private System.Windows.Forms.TextBox txtMFSLA;
+        private System.Windows.Forms.Button btnMFUpdate;
+        private System.Windows.Forms.Button btnMFSave;
+        private System.Windows.Forms.Panel pnlMOrder;
+        private System.Windows.Forms.Label lblMOOrder;
+        private System.Windows.Forms.ListBox lstMOOrders;
+        private System.Windows.Forms.Label lblMOCompany;
+        private System.Windows.Forms.Label lblMOCompanyContact;
+        private System.Windows.Forms.ComboBox cmbMOCompanyContact;
+        private System.Windows.Forms.ComboBox cmbMOCompany;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtMOType;
+        private System.Windows.Forms.Label lblMOType;
+        private System.Windows.Forms.ComboBox cmbMOOrderStatus;
+        private System.Windows.Forms.Label lblMOOrderStatus;
+        private System.Windows.Forms.Label lblMODate;
+        private System.Windows.Forms.DateTimePicker dtpMODate;
+        private System.Windows.Forms.Button btnMOUpdate;
+        private System.Windows.Forms.Button btnMOSave;
+        private System.Windows.Forms.Button btnMODelete;
+        private System.Windows.Forms.Button btnMOClear;
+        private System.Windows.Forms.GroupBox grpMONotes;
+        private System.Windows.Forms.TextBox txtMONotes;
     }
 }
 
