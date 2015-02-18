@@ -127,7 +127,7 @@ namespace DemoSalesSystem
             else
             {
                 MessageBox.Show("Please enter valid fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+        }
             goodMFSave = true;
         }
 

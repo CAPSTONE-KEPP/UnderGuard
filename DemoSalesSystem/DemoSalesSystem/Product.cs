@@ -16,7 +16,8 @@ namespace DemoSalesSystem
         private Image image;
         private string color;
         private DateTime dateEntered;
-        private bool status;
+        private Status status;
+        private BOM bom;
 
         public int ProductID
         {
@@ -33,13 +34,8 @@ namespace DemoSalesSystem
 
         public BOM BOM
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
+            get { return bom; }
+            set { bom = value; }
         }
 
         public string Description
@@ -78,7 +74,7 @@ namespace DemoSalesSystem
             set { dateEntered = value; }
         }
 
-        public bool Status
+        public Status Status
         {
             get { return status; }
             set { status = value; }

@@ -78,6 +78,7 @@
             this.tpgProductInfo.TabIndex = 2;
             this.tpgProductInfo.Text = "Product Info";
             this.tpgProductInfo.UseVisualStyleBackColor = true;
+            this.tpgProductInfo.Click += new System.EventHandler(this.tpgProductInfo_Click);
             // 
             // tpgCatalog
             // 
