@@ -47,7 +47,6 @@
       <FileName>Order.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Property Name="Product" />
       <Property Name="OrderDetails" />
       <Property Name="Company1" />
     </ShowAsAssociation>
@@ -75,9 +74,6 @@
       <HashCode>QQQCAAAEAAAgAAAAICAAAAQgAAAEAAAAAAAABEEAAgQ=</HashCode>
       <FileName>Catalog.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="Product" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="DemoSalesSystem.SLA">
     <Position X="10.5" Y="3" Width="1.5" />

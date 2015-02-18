@@ -21,5 +21,10 @@ namespace SalesDesktopApp
         {
 
         }
+
+        private void tpgProductInfo_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

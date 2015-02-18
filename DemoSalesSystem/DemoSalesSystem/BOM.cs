@@ -9,7 +9,7 @@ namespace DemoSalesSystem
     {
         private int productID;
         private List<Findings> findings;
-        private int quantityOfFindings;
+        private List<int> quantityOfFindings;
         private DateTime productionTime;
 
         public int ProductID
@@ -18,13 +18,13 @@ namespace DemoSalesSystem
             set { productID = value; }
         }
 
-        public List<Findings> Findings1
+        public List<Findings> Findings
         {
             get { return findings; }
             set { findings = value; }
         }
 
-        public int QuantityOfFindings
+        public List<int> QuantityOfFindings
         {
             get { return quantityOfFindings; }
             set { quantityOfFindings = value; }
@@ -34,17 +34,6 @@ namespace DemoSalesSystem
         {
             get { return productionTime; }
             set { productionTime = value; }
-        }
-
-        public Findings Findings
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
         }
     }
 }
