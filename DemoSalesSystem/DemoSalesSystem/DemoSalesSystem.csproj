@@ -85,18 +85,15 @@
     <Compile Include="SLA.cs" />
     <Compile Include="Status.cs" />
     <Compile Include="Supplier.cs" />
-<<<<<<< HEAD
     <EmbeddedResource Include="BOMForm.resx">
       <DependentUpon>BOMForm.cs</DependentUpon>
     </EmbeddedResource>
-=======
     <Compile Include="SupplierForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="SupplierForm.Designer.cs">
       <DependentUpon>SupplierForm.cs</DependentUpon>
     </Compile>
->>>>>>> origin/master
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
