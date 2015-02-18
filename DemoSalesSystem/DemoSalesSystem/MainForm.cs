@@ -13,20 +13,15 @@ namespace DemoSalesSystem
     public partial class MainForm : Form
     {
         private int childFormNumber = 0;
-<<<<<<< HEAD
         ProductForm productForm;
-=======
         private Form childForm;
 
         private List<Supplier> suppliers = new List<Supplier>();
 
->>>>>>> origin/master
 
         public MainForm()
         {
             InitializeComponent();
-
-<<<<<<< HEAD
             productForm = new ProductForm(this);
         }
 
@@ -35,13 +30,12 @@ namespace DemoSalesSystem
             productForm.MdiParent = this;
             productForm.WindowState = FormWindowState.Maximized;
             productForm.Show();
-=======
             MakeFakeData();
 
-            childForm = new frmCompany();
-            childForm.MdiParent = this;
-            childForm.Show();
-            childForm.WindowState = FormWindowState.Maximized;
+            //childForm = new frmCompany();
+            //childForm.MdiParent = this;
+            //childForm.Show();
+            //childForm.WindowState = FormWindowState.Maximized;
         }
 
 
@@ -81,7 +75,7 @@ namespace DemoSalesSystem
                 temp.notes = "Note" + i;
                 suppliers.Add(temp);
             }
->>>>>>> origin/master
+
         }
     }
 }
