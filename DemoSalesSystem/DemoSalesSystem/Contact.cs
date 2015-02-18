@@ -8,10 +8,10 @@ namespace DemoSalesSystem
     public abstract class Contact
     {
         #region class variables
-        private short id;
+        private int id;
         private string address;
         private string city;
-        private string province;
+        private Provinces province;
         private string postalCode;
         private string phone;
         private string alternatePhone;
@@ -22,7 +22,7 @@ namespace DemoSalesSystem
         private string eMail;
         #endregion
         #region getters and setters
-        public short Id
+        public int Id
         {
             get { return id; }
             set { id = value; }
@@ -37,7 +37,7 @@ namespace DemoSalesSystem
             get { return city; }
             set { city = value; }
         }
-        public string Province
+        public Provinces Province
         {
             get { return province; }
             set { province = value; }

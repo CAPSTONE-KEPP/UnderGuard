@@ -57,7 +57,7 @@
             this.inventoryToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(632, 24);
+            this.menuStrip.Size = new System.Drawing.Size(1181, 24);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "MenuStrip";
             // 
@@ -103,26 +103,26 @@
             // productsToolStripMenuItem1
             // 
             this.productsToolStripMenuItem1.Name = "productsToolStripMenuItem1";
-            this.productsToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.productsToolStripMenuItem1.Size = new System.Drawing.Size(116, 22);
             this.productsToolStripMenuItem1.Text = "Product";
             this.productsToolStripMenuItem1.Click += new System.EventHandler(this.productsToolStripMenuItem1_Click);
             // 
             // buildToolStripMenuItem
             // 
             this.buildToolStripMenuItem.Name = "buildToolStripMenuItem";
-            this.buildToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.buildToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.buildToolStripMenuItem.Text = "Build";
             // 
             // ordersToolStripMenuItem
             // 
             this.ordersToolStripMenuItem.Name = "ordersToolStripMenuItem";
-            this.ordersToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.ordersToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.ordersToolStripMenuItem.Text = "Order";
             // 
             // findingsToolStripMenuItem
             // 
             this.findingsToolStripMenuItem.Name = "findingsToolStripMenuItem";
-            this.findingsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.findingsToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.findingsToolStripMenuItem.Text = "Finding";
             // 
             // inventoryToolStripMenuItem
@@ -142,6 +142,7 @@
             this.suppliersToolStripMenuItem.Name = "suppliersToolStripMenuItem";
             this.suppliersToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.suppliersToolStripMenuItem.Text = "Supplier";
+            this.suppliersToolStripMenuItem.Click += new System.EventHandler(this.suppliersToolStripMenuItem_Click);
             // 
             // ordersToolStripMenuItem1
             // 
@@ -171,7 +172,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(632, 453);
+            this.ClientSize = new System.Drawing.Size(1181, 637);
             this.Controls.Add(this.menuStrip);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip;

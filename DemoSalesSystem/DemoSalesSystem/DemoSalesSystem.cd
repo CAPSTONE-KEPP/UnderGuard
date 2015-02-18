@@ -98,7 +98,7 @@
   <Class Name="DemoSalesSystem.Supplier">
     <Position X="5.5" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAhAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAIwA=</HashCode>
+      <HashCode>AAABAAAAAAAAAAAAAAAAAAQAAAAEAAAAAAAAAAAAAQA=</HashCode>
       <FileName>Supplier.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -131,6 +131,13 @@
     <TypeIdentifier>
       <HashCode>EAAAAAAAAIAAAAoAAAAAAAACAAAQAAgAAAAAAAAAAAA=</HashCode>
       <FileName>OrderStatus.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="DemoSalesSystem.Provinces">
+    <Position X="1" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAIAAAAACAAIAAAAgAQAAAIAABAAAAABAAAAGAIAAAg=</HashCode>
+      <FileName>Provinces.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Font Name="Segoe UI" Size="9" />
