@@ -16,6 +16,13 @@ namespace DemoSalesSystem
         private int branchID;
         private Salutation salutation;
         #endregion
+        public CompanyContact(int id, string firstName, string lastName)
+        {
+            this.Id = (short)id;
+            this.firstName = firstName;
+            this.lastName = lastName;
+        }
+
         #region getters and setters
         public Salutation Salutation
         {

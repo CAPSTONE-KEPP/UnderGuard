@@ -17,13 +17,76 @@ namespace DemoSalesSystem
         ProductForm productForm;
         private Form childForm;
         private List<Supplier> suppliers = new List<Supplier>();
-
+        CatalogForm cf;
+        OrderForm of;
+        CompanyForm cof;
+        FindingForm ff;
+        InventoryProductForm ipf;
+        List<Company> companyList;
+        List<Order> orderList;
 
         public MainForm()
         {
             InitializeComponent();
             txtMFId.Text = (lstMFindings.Items.Count + 1).ToString();
             productForm = new ProductForm(this);
+            cf = new CatalogForm();
+            cf.MdiParent = this;
+            cf.Visible = false;
+            cf.WindowState = FormWindowState.Maximized;
+            of = new OrderForm();
+            of.MdiParent = this;
+            of.Visible = false;
+            of.WindowState = FormWindowState.Maximized;
+            cof = new CompanyForm();
+            cof.MdiParent = this;
+            cof.Visible = false;
+            cof.WindowState = FormWindowState.Maximized;
+            ff = new FindingForm();
+            ff.MdiParent = this;
+            ff.Visible = false;
+            ff.WindowState = FormWindowState.Maximized;
+            ipf = new InventoryProductForm();
+            ipf.MdiParent = this;
+            ipf.Visible = false;
+            ipf.WindowState = FormWindowState.Maximized;
+
+        }
+
+        private void companyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Point l = this.Location;
+            this.Bounds = cof.Bounds;
+            this.Location = l;
+            showForm(cof);
+
+        }
+
+        private void catalogToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Point l = this.Location;
+            this.Bounds = cf.Bounds;
+            this.Location = l;
+            showForm(cf);
+        }
+
+        private void orderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Point l = this.Location;
+            this.Bounds = of.Bounds;
+            this.Location = l;
+            of.Companies = cof.CompanyList;
+            of.UpdateCompanyList();
+            showForm(of);
+        }
+
+        private void showForm(Form f)
+        {
+            cf.Visible = false;
+            of.Visible = false;
+            cof.Visible = false;
+            ff.Visible = false;
+            f.Visible = true;
         }
 
         private void productsToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -31,11 +94,11 @@ namespace DemoSalesSystem
             productForm.MdiParent = this;
             productForm.WindowState = FormWindowState.Maximized;
             productForm.Show();
-            MakeFakeData();
-            childForm = new frmCompany();
-            childForm.MdiParent = this;
-            childForm.Show();
-            childForm.WindowState = FormWindowState.Maximized;
+            //MakeFakeData();
+            //childForm = new frmCompany();
+            //childForm.MdiParent = this;
+            //childForm.Show();
+            //childForm.WindowState = FormWindowState.Maximized;
         }
 
         private void suppliersToolStripMenuItem_Click(object sender, EventArgs e)
@@ -168,6 +231,22 @@ namespace DemoSalesSystem
             pnlMOrder.Visible = false;
         }
 
+        private void findingsToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Point l = this.Location;
+            this.Bounds = ff.Bounds;
+            this.Location = l;
+            showForm(ff);
+        }
+
+        private void productsToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            Point l = this.Location;
+            this.Bounds = ipf.Bounds;
+            this.Location = l;
+            showForm(ipf);
+        }
+
         private void ordersToolStripMenuItem_Click(object sender, EventArgs e)
         {
             pnlMFindings.Visible = false;
@@ -223,6 +302,16 @@ namespace DemoSalesSystem
         private void btnMOUpdate_Click(object sender, EventArgs e)
         {
             //btn Manu Order Update is clicked, update Manu Order Obj from lst...
+        }
+
+        private void suppliersToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+
+            //childForm.Close();
+            childForm = new SupplierForm(suppliers);
+            childForm.MdiParent = this;
+            childForm.Show();
+            childForm.WindowState = FormWindowState.Maximized;
         }
 
 
