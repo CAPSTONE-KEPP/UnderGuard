@@ -58,7 +58,14 @@ namespace DemoSalesSystem
                 Status status;
                 Enum.TryParse<Status>(cbxStatus.SelectedValue.ToString(), out status);
                 product.Status = status;
-                product.Price = Convert.ToDouble(tbxPrice.Text);
+                try
+                {
+                    product.Price = Convert.ToDouble(tbxPrice.Text);
+                }
+                catch (Exception ex)
+                {
+                    System.Console.WriteLine(ex);
+                }
 
                 return product;
 
