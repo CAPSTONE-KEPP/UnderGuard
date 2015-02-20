@@ -11,8 +11,8 @@
     <Position X="5.5" Y="7" Width="1.5" />
     <InheritanceLine Type="DemoSalesSystem.Contact" FixedToPoint="true">
       <Path>
-        <Point X="2" Y="7" />
-        <Point X="2" Y="6.625" />
+        <Point X="2.406" Y="7" />
+        <Point X="2.406" Y="6.625" />
         <Point X="6.25" Y="6.625" />
         <Point X="6.25" Y="7" />
       </Path>
@@ -61,8 +61,8 @@
   <Class Name="DemoSalesSystem.Product">
     <Position X="10.75" Y="7.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>EAQBABAEAQIggAAAIIAAAAQAEAAEABCAAAgAgAAIAAA=</HashCode>
-      <FileName>Products.cs</FileName>
+      <HashCode>EAQBABAEAQIggAAAIIAAAgQAEAAEABCAAAgAgAAIAAA=</HashCode>
+      <FileName>Product.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="BOM" />
@@ -108,9 +108,6 @@
       <HashCode>EQAAABEAAAAAAAAAAAAAAAAAAAAAAAAAAAEEAAABBAA=</HashCode>
       <FileName>BOM.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="Findings" />
-    </ShowAsAssociation>
   </Class>
   <Enum Name="DemoSalesSystem.Status">
     <Position X="2.75" Y="0.5" Width="1.5" />

@@ -69,25 +69,25 @@
             this.lstMFindings = new System.Windows.Forms.ListBox();
             this.lblMFindings = new System.Windows.Forms.Label();
             this.pnlMOrder = new System.Windows.Forms.Panel();
-            this.lblMOOrder = new System.Windows.Forms.Label();
-            this.lstMOOrders = new System.Windows.Forms.ListBox();
-            this.lblMOCompany = new System.Windows.Forms.Label();
-            this.lblMOCompanyContact = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cmbMOCompany = new System.Windows.Forms.ComboBox();
-            this.cmbMOCompanyContact = new System.Windows.Forms.ComboBox();
-            this.lblMOOrderStatus = new System.Windows.Forms.Label();
-            this.cmbMOOrderStatus = new System.Windows.Forms.ComboBox();
-            this.lblMOType = new System.Windows.Forms.Label();
-            this.txtMOType = new System.Windows.Forms.TextBox();
-            this.btnMOClear = new System.Windows.Forms.Button();
-            this.btnMODelete = new System.Windows.Forms.Button();
-            this.btnMOSave = new System.Windows.Forms.Button();
-            this.btnMOUpdate = new System.Windows.Forms.Button();
-            this.dtpMODate = new System.Windows.Forms.DateTimePicker();
-            this.lblMODate = new System.Windows.Forms.Label();
             this.grpMONotes = new System.Windows.Forms.GroupBox();
             this.txtMONotes = new System.Windows.Forms.TextBox();
+            this.lblMODate = new System.Windows.Forms.Label();
+            this.dtpMODate = new System.Windows.Forms.DateTimePicker();
+            this.btnMOUpdate = new System.Windows.Forms.Button();
+            this.btnMOSave = new System.Windows.Forms.Button();
+            this.btnMODelete = new System.Windows.Forms.Button();
+            this.btnMOClear = new System.Windows.Forms.Button();
+            this.txtMOType = new System.Windows.Forms.TextBox();
+            this.lblMOType = new System.Windows.Forms.Label();
+            this.cmbMOOrderStatus = new System.Windows.Forms.ComboBox();
+            this.lblMOOrderStatus = new System.Windows.Forms.Label();
+            this.cmbMOCompanyContact = new System.Windows.Forms.ComboBox();
+            this.cmbMOCompany = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblMOCompanyContact = new System.Windows.Forms.Label();
+            this.lblMOCompany = new System.Windows.Forms.Label();
+            this.lstMOOrders = new System.Windows.Forms.ListBox();
+            this.lblMOOrder = new System.Windows.Forms.Label();
             this.menuStrip.SuspendLayout();
             this.pnlMFindings.SuspendLayout();
             this.grpMFDescription.SuspendLayout();
@@ -149,21 +149,21 @@
             // productsToolStripMenuItem1
             // 
             this.productsToolStripMenuItem1.Name = "productsToolStripMenuItem1";
-            this.productsToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.productsToolStripMenuItem1.Size = new System.Drawing.Size(116, 22);
             this.productsToolStripMenuItem1.Text = "Product";
             this.productsToolStripMenuItem1.Click += new System.EventHandler(this.productsToolStripMenuItem1_Click);
             // 
             // ordersToolStripMenuItem
             // 
             this.ordersToolStripMenuItem.Name = "ordersToolStripMenuItem";
-            this.ordersToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.ordersToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.ordersToolStripMenuItem.Text = "Order";
             this.ordersToolStripMenuItem.Click += new System.EventHandler(this.ordersToolStripMenuItem_Click);
             // 
             // findingsToolStripMenuItem
             // 
             this.findingsToolStripMenuItem.Name = "findingsToolStripMenuItem";
-            this.findingsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.findingsToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.findingsToolStripMenuItem.Text = "Finding";
             this.findingsToolStripMenuItem.Click += new System.EventHandler(this.findingsToolStripMenuItem_Click);
             // 
@@ -415,6 +415,7 @@
             // lstMFindings
             // 
             this.lstMFindings.FormattingEnabled = true;
+            this.lstMFindings.HorizontalScrollbar = true;
             this.lstMFindings.Location = new System.Drawing.Point(4, 21);
             this.lstMFindings.Name = "lstMFindings";
             this.lstMFindings.ScrollAlwaysVisible = true;
@@ -456,159 +457,6 @@
             this.pnlMOrder.TabIndex = 20;
             this.pnlMOrder.Visible = false;
             // 
-            // lblMOOrder
-            // 
-            this.lblMOOrder.AutoSize = true;
-            this.lblMOOrder.Location = new System.Drawing.Point(3, 5);
-            this.lblMOOrder.Name = "lblMOOrder";
-            this.lblMOOrder.Size = new System.Drawing.Size(33, 13);
-            this.lblMOOrder.TabIndex = 0;
-            this.lblMOOrder.Text = "Order";
-            // 
-            // lstMOOrders
-            // 
-            this.lstMOOrders.FormattingEnabled = true;
-            this.lstMOOrders.Location = new System.Drawing.Point(4, 22);
-            this.lstMOOrders.Name = "lstMOOrders";
-            this.lstMOOrders.ScrollAlwaysVisible = true;
-            this.lstMOOrders.Size = new System.Drawing.Size(120, 394);
-            this.lstMOOrders.TabIndex = 1;
-            // 
-            // lblMOCompany
-            // 
-            this.lblMOCompany.AutoSize = true;
-            this.lblMOCompany.Location = new System.Drawing.Point(130, 22);
-            this.lblMOCompany.Name = "lblMOCompany";
-            this.lblMOCompany.Size = new System.Drawing.Size(57, 13);
-            this.lblMOCompany.TabIndex = 2;
-            this.lblMOCompany.Text = "Company: ";
-            // 
-            // lblMOCompanyContact
-            // 
-            this.lblMOCompanyContact.AutoSize = true;
-            this.lblMOCompanyContact.Location = new System.Drawing.Point(130, 49);
-            this.lblMOCompanyContact.Name = "lblMOCompanyContact";
-            this.lblMOCompanyContact.Size = new System.Drawing.Size(97, 13);
-            this.lblMOCompanyContact.TabIndex = 4;
-            this.lblMOCompanyContact.Text = "Company Contact: ";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(130, 69);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 13);
-            this.label1.TabIndex = 6;
-            // 
-            // cmbMOCompany
-            // 
-            this.cmbMOCompany.FormattingEnabled = true;
-            this.cmbMOCompany.Location = new System.Drawing.Point(238, 19);
-            this.cmbMOCompany.Name = "cmbMOCompany";
-            this.cmbMOCompany.Size = new System.Drawing.Size(391, 21);
-            this.cmbMOCompany.TabIndex = 7;
-            // 
-            // cmbMOCompanyContact
-            // 
-            this.cmbMOCompanyContact.FormattingEnabled = true;
-            this.cmbMOCompanyContact.Location = new System.Drawing.Point(238, 46);
-            this.cmbMOCompanyContact.Name = "cmbMOCompanyContact";
-            this.cmbMOCompanyContact.Size = new System.Drawing.Size(391, 21);
-            this.cmbMOCompanyContact.TabIndex = 8;
-            // 
-            // lblMOOrderStatus
-            // 
-            this.lblMOOrderStatus.AutoSize = true;
-            this.lblMOOrderStatus.Location = new System.Drawing.Point(130, 75);
-            this.lblMOOrderStatus.Name = "lblMOOrderStatus";
-            this.lblMOOrderStatus.Size = new System.Drawing.Size(75, 13);
-            this.lblMOOrderStatus.TabIndex = 9;
-            this.lblMOOrderStatus.Text = "Order Status:  ";
-            // 
-            // cmbMOOrderStatus
-            // 
-            this.cmbMOOrderStatus.FormattingEnabled = true;
-            this.cmbMOOrderStatus.Location = new System.Drawing.Point(238, 72);
-            this.cmbMOOrderStatus.Name = "cmbMOOrderStatus";
-            this.cmbMOOrderStatus.Size = new System.Drawing.Size(391, 21);
-            this.cmbMOOrderStatus.TabIndex = 10;
-            // 
-            // lblMOType
-            // 
-            this.lblMOType.AutoSize = true;
-            this.lblMOType.Location = new System.Drawing.Point(130, 101);
-            this.lblMOType.Name = "lblMOType";
-            this.lblMOType.Size = new System.Drawing.Size(40, 13);
-            this.lblMOType.TabIndex = 11;
-            this.lblMOType.Text = "Type:  ";
-            // 
-            // txtMOType
-            // 
-            this.txtMOType.Location = new System.Drawing.Point(238, 98);
-            this.txtMOType.Name = "txtMOType";
-            this.txtMOType.Size = new System.Drawing.Size(391, 20);
-            this.txtMOType.TabIndex = 12;
-            // 
-            // btnMOClear
-            // 
-            this.btnMOClear.Location = new System.Drawing.Point(554, 392);
-            this.btnMOClear.Name = "btnMOClear";
-            this.btnMOClear.Size = new System.Drawing.Size(75, 23);
-            this.btnMOClear.TabIndex = 13;
-            this.btnMOClear.Text = "Clear";
-            this.btnMOClear.UseVisualStyleBackColor = true;
-            this.btnMOClear.Click += new System.EventHandler(this.btnMOClear_Click);
-            // 
-            // btnMODelete
-            // 
-            this.btnMODelete.Location = new System.Drawing.Point(473, 392);
-            this.btnMODelete.Name = "btnMODelete";
-            this.btnMODelete.Size = new System.Drawing.Size(75, 23);
-            this.btnMODelete.TabIndex = 14;
-            this.btnMODelete.Text = "Delete";
-            this.btnMODelete.UseVisualStyleBackColor = true;
-            this.btnMODelete.Click += new System.EventHandler(this.btnMODelete_Click);
-            // 
-            // btnMOSave
-            // 
-            this.btnMOSave.Location = new System.Drawing.Point(392, 392);
-            this.btnMOSave.Name = "btnMOSave";
-            this.btnMOSave.Size = new System.Drawing.Size(75, 23);
-            this.btnMOSave.TabIndex = 15;
-            this.btnMOSave.Text = "Save";
-            this.btnMOSave.UseVisualStyleBackColor = true;
-            this.btnMOSave.Click += new System.EventHandler(this.btnMOSave_Click);
-            // 
-            // btnMOUpdate
-            // 
-            this.btnMOUpdate.Location = new System.Drawing.Point(311, 392);
-            this.btnMOUpdate.Name = "btnMOUpdate";
-            this.btnMOUpdate.Size = new System.Drawing.Size(75, 23);
-            this.btnMOUpdate.TabIndex = 16;
-            this.btnMOUpdate.Text = "Update";
-            this.btnMOUpdate.UseVisualStyleBackColor = true;
-            this.btnMOUpdate.Click += new System.EventHandler(this.btnMOUpdate_Click);
-            // 
-            // dtpMODate
-            // 
-            this.dtpMODate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpMODate.Location = new System.Drawing.Point(237, 124);
-            this.dtpMODate.MaxDate = new System.DateTime(2115, 2, 18, 0, 0, 0, 0);
-            this.dtpMODate.MinDate = new System.DateTime(2015, 2, 18, 0, 0, 0, 0);
-            this.dtpMODate.Name = "dtpMODate";
-            this.dtpMODate.Size = new System.Drawing.Size(392, 20);
-            this.dtpMODate.TabIndex = 17;
-            this.dtpMODate.Value = new System.DateTime(2015, 2, 18, 0, 55, 5, 0);
-            // 
-            // lblMODate
-            // 
-            this.lblMODate.AutoSize = true;
-            this.lblMODate.Location = new System.Drawing.Point(130, 130);
-            this.lblMODate.Name = "lblMODate";
-            this.lblMODate.Size = new System.Drawing.Size(36, 13);
-            this.lblMODate.TabIndex = 18;
-            this.lblMODate.Text = "Date: ";
-            // 
             // grpMONotes
             // 
             this.grpMONotes.Controls.Add(this.txtMONotes);
@@ -628,14 +476,168 @@
             this.txtMONotes.Size = new System.Drawing.Size(486, 215);
             this.txtMONotes.TabIndex = 0;
             // 
+            // lblMODate
+            // 
+            this.lblMODate.AutoSize = true;
+            this.lblMODate.Location = new System.Drawing.Point(130, 130);
+            this.lblMODate.Name = "lblMODate";
+            this.lblMODate.Size = new System.Drawing.Size(36, 13);
+            this.lblMODate.TabIndex = 18;
+            this.lblMODate.Text = "Date: ";
+            // 
+            // dtpMODate
+            // 
+            this.dtpMODate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpMODate.Location = new System.Drawing.Point(237, 124);
+            this.dtpMODate.MaxDate = new System.DateTime(2115, 2, 18, 0, 0, 0, 0);
+            this.dtpMODate.MinDate = new System.DateTime(2015, 2, 18, 0, 0, 0, 0);
+            this.dtpMODate.Name = "dtpMODate";
+            this.dtpMODate.Size = new System.Drawing.Size(392, 20);
+            this.dtpMODate.TabIndex = 17;
+            this.dtpMODate.Value = new System.DateTime(2015, 2, 18, 0, 55, 5, 0);
+            // 
+            // btnMOUpdate
+            // 
+            this.btnMOUpdate.Location = new System.Drawing.Point(311, 392);
+            this.btnMOUpdate.Name = "btnMOUpdate";
+            this.btnMOUpdate.Size = new System.Drawing.Size(75, 23);
+            this.btnMOUpdate.TabIndex = 16;
+            this.btnMOUpdate.Text = "Update";
+            this.btnMOUpdate.UseVisualStyleBackColor = true;
+            this.btnMOUpdate.Click += new System.EventHandler(this.btnMOUpdate_Click);
+            // 
+            // btnMOSave
+            // 
+            this.btnMOSave.Location = new System.Drawing.Point(392, 392);
+            this.btnMOSave.Name = "btnMOSave";
+            this.btnMOSave.Size = new System.Drawing.Size(75, 23);
+            this.btnMOSave.TabIndex = 15;
+            this.btnMOSave.Text = "Save";
+            this.btnMOSave.UseVisualStyleBackColor = true;
+            this.btnMOSave.Click += new System.EventHandler(this.btnMOSave_Click);
+            // 
+            // btnMODelete
+            // 
+            this.btnMODelete.Location = new System.Drawing.Point(473, 392);
+            this.btnMODelete.Name = "btnMODelete";
+            this.btnMODelete.Size = new System.Drawing.Size(75, 23);
+            this.btnMODelete.TabIndex = 14;
+            this.btnMODelete.Text = "Delete";
+            this.btnMODelete.UseVisualStyleBackColor = true;
+            this.btnMODelete.Click += new System.EventHandler(this.btnMODelete_Click);
+            // 
+            // btnMOClear
+            // 
+            this.btnMOClear.Location = new System.Drawing.Point(554, 392);
+            this.btnMOClear.Name = "btnMOClear";
+            this.btnMOClear.Size = new System.Drawing.Size(75, 23);
+            this.btnMOClear.TabIndex = 13;
+            this.btnMOClear.Text = "Clear";
+            this.btnMOClear.UseVisualStyleBackColor = true;
+            this.btnMOClear.Click += new System.EventHandler(this.btnMOClear_Click);
+            // 
+            // txtMOType
+            // 
+            this.txtMOType.Location = new System.Drawing.Point(238, 98);
+            this.txtMOType.Name = "txtMOType";
+            this.txtMOType.Size = new System.Drawing.Size(391, 20);
+            this.txtMOType.TabIndex = 12;
+            // 
+            // lblMOType
+            // 
+            this.lblMOType.AutoSize = true;
+            this.lblMOType.Location = new System.Drawing.Point(130, 101);
+            this.lblMOType.Name = "lblMOType";
+            this.lblMOType.Size = new System.Drawing.Size(40, 13);
+            this.lblMOType.TabIndex = 11;
+            this.lblMOType.Text = "Type:  ";
+            // 
+            // cmbMOOrderStatus
+            // 
+            this.cmbMOOrderStatus.FormattingEnabled = true;
+            this.cmbMOOrderStatus.Location = new System.Drawing.Point(238, 72);
+            this.cmbMOOrderStatus.Name = "cmbMOOrderStatus";
+            this.cmbMOOrderStatus.Size = new System.Drawing.Size(391, 21);
+            this.cmbMOOrderStatus.TabIndex = 10;
+            // 
+            // lblMOOrderStatus
+            // 
+            this.lblMOOrderStatus.AutoSize = true;
+            this.lblMOOrderStatus.Location = new System.Drawing.Point(130, 75);
+            this.lblMOOrderStatus.Name = "lblMOOrderStatus";
+            this.lblMOOrderStatus.Size = new System.Drawing.Size(75, 13);
+            this.lblMOOrderStatus.TabIndex = 9;
+            this.lblMOOrderStatus.Text = "Order Status:  ";
+            // 
+            // cmbMOCompanyContact
+            // 
+            this.cmbMOCompanyContact.FormattingEnabled = true;
+            this.cmbMOCompanyContact.Location = new System.Drawing.Point(238, 46);
+            this.cmbMOCompanyContact.Name = "cmbMOCompanyContact";
+            this.cmbMOCompanyContact.Size = new System.Drawing.Size(391, 21);
+            this.cmbMOCompanyContact.TabIndex = 8;
+            // 
+            // cmbMOCompany
+            // 
+            this.cmbMOCompany.FormattingEnabled = true;
+            this.cmbMOCompany.Location = new System.Drawing.Point(238, 19);
+            this.cmbMOCompany.Name = "cmbMOCompany";
+            this.cmbMOCompany.Size = new System.Drawing.Size(391, 21);
+            this.cmbMOCompany.TabIndex = 7;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(130, 69);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(0, 13);
+            this.label1.TabIndex = 6;
+            // 
+            // lblMOCompanyContact
+            // 
+            this.lblMOCompanyContact.AutoSize = true;
+            this.lblMOCompanyContact.Location = new System.Drawing.Point(130, 49);
+            this.lblMOCompanyContact.Name = "lblMOCompanyContact";
+            this.lblMOCompanyContact.Size = new System.Drawing.Size(97, 13);
+            this.lblMOCompanyContact.TabIndex = 4;
+            this.lblMOCompanyContact.Text = "Company Contact: ";
+            // 
+            // lblMOCompany
+            // 
+            this.lblMOCompany.AutoSize = true;
+            this.lblMOCompany.Location = new System.Drawing.Point(130, 22);
+            this.lblMOCompany.Name = "lblMOCompany";
+            this.lblMOCompany.Size = new System.Drawing.Size(57, 13);
+            this.lblMOCompany.TabIndex = 2;
+            this.lblMOCompany.Text = "Company: ";
+            // 
+            // lstMOOrders
+            // 
+            this.lstMOOrders.FormattingEnabled = true;
+            this.lstMOOrders.HorizontalScrollbar = true;
+            this.lstMOOrders.Location = new System.Drawing.Point(4, 22);
+            this.lstMOOrders.Name = "lstMOOrders";
+            this.lstMOOrders.ScrollAlwaysVisible = true;
+            this.lstMOOrders.Size = new System.Drawing.Size(120, 394);
+            this.lstMOOrders.TabIndex = 1;
+            // 
+            // lblMOOrder
+            // 
+            this.lblMOOrder.AutoSize = true;
+            this.lblMOOrder.Location = new System.Drawing.Point(3, 5);
+            this.lblMOOrder.Name = "lblMOOrder";
+            this.lblMOOrder.Size = new System.Drawing.Size(33, 13);
+            this.lblMOOrder.TabIndex = 0;
+            this.lblMOOrder.Text = "Order";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(632, 453);
-            this.Controls.Add(this.pnlMOrder);
             this.Controls.Add(this.pnlMFindings);
             this.Controls.Add(this.menuStrip);
+            this.Controls.Add(this.pnlMOrder);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip;
             this.Name = "MainForm";

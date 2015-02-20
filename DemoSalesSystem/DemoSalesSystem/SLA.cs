@@ -13,6 +13,11 @@ namespace DemoSalesSystem
         private string description;
         private double cost;
 
+        public SLA()
+        {
+
+        }
+
         public Findings Findings
         {
             get

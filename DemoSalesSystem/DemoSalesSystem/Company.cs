@@ -15,6 +15,12 @@ namespace DemoSalesSystem
         
         }
 
+        //blank constructor for demo...
+        public Company(string in_name) 
+        {
+            name = in_name;
+        }
+
         public string Name
         {
             get { return name; }

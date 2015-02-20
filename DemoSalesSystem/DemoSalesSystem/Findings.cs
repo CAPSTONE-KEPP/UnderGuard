@@ -21,8 +21,7 @@ namespace DemoSalesSystem
 
         }
 
-        public Findings(int in_id, string in_name, string in_description, double in_price,
-            SLA in_sla, Supplier in_supplier, string in_color, int in_quantityOnHand) 
+        public Findings(int in_id, string in_name, string in_description, double in_price, SLA in_sla, Supplier in_supplier, string in_color, int in_QuantityOnHand)
         {
             id = in_id;
             name = in_name;
@@ -31,8 +30,10 @@ namespace DemoSalesSystem
             sla = in_sla;
             supplier = in_supplier;
             color = in_color;
-            quantityOnHand = in_quantityOnHand;
+            quantityOnHand = in_QuantityOnHand;
         }
+
+
 
         public int Id
         {
@@ -82,15 +83,5 @@ namespace DemoSalesSystem
             set { quantityOnHand = value; }
         }
 
-        public Supplier Supplier1
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
     }
 }

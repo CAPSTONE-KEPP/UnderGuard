@@ -17,6 +17,7 @@ namespace DemoSalesSystem
         ProductForm productForm;
         private Form childForm;
         private List<Supplier> suppliers = new List<Supplier>();
+        private Findings currentFinding;
 
 
         public MainForm()
@@ -75,6 +76,23 @@ namespace DemoSalesSystem
             }
 
         }
+
+        private Findings UpdateFindings() 
+        {
+            SLA holderSLA = new SLA();
+            Supplier supplier = new Supplier();
+            Findings tempFindings = new Findings();
+            tempFindings.Color = txtMFColor.Text;
+            tempFindings.Description = txtMFDescription.Text;
+            tempFindings.Id = Int32.Parse(txtMFId.Text);
+            tempFindings.Name = txtMFName.Text;
+            tempFindings.Price = Double.Parse(txtMFPrice.Text);
+            tempFindings.QuantityOnHand = Int32.Parse(txtMFQuantityOnHand.Text);
+            tempFindings.Sla = holderSLA;
+            tempFindings.Supplier = supplier;
+            return tempFindings;
+        }
+
         private void btnMFClear_Click(object sender, EventArgs e)
         {
             MFClear();
@@ -82,6 +100,38 @@ namespace DemoSalesSystem
 
         private void btnMFSave_Click(object sender, EventArgs e)
         {
+
+        }
+
+        public void MFClear()
+        {
+            txtMFName.Text = "";
+            txtMFSupplier.Text = "";
+            txtMFColor.Text = "";
+            txtMFQuantityOnHand.Text = "";
+            txtMFPrice.Text = "";
+            txtMFDescription.Text = "";
+            txtMFSLA.Text = "";
+        }
+
+        public void MOClear()
+        {
+            cmbMOCompany.Text = "";
+            cmbMOCompanyContact.Text = "";
+            cmbMOOrderStatus.Text = "";
+            txtMOType.Text = "";
+            txtMONotes.Text = "";
+            dtpMODate.Text = "";
+        }
+
+        private void btnMFDelete_Click(object sender, EventArgs e)
+        {
+            //when Manu Findings delete is clicked, delete selected object from lst.
+        }
+
+        private void btnMFUpdate_Click(object sender, EventArgs e)
+        {
+            //when Manu Findings update is clicked, update selected object from lst.
             //boolean used to check if fields are valid...
             bool goodMFSave = true;
 
@@ -120,46 +170,26 @@ namespace DemoSalesSystem
 
             if (goodMFSave == true)
             {
-                //Valid fields for save.
-                txtMFId.Text = (lstMFindings.Items.Count + 1).ToString();
-                MFClear();
+                //Valid fields for update.
+
+
+                //WORKING HERE ERIC########
+                //TRYING TO ADD THE FINDING TO THE LIST...
+                currentFinding = UpdateFindings();
+                int index = lstMFindings.SelectedIndex;
+                lstMFindings.Items.RemoveAt(index);
+                lstMFindings.Items.Insert(index, currentFinding);
+                lstMFindings.SelectedIndex = index;
+
+
+
             }
             else
             {
                 MessageBox.Show("Please enter valid fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
+            }
             goodMFSave = true;
-        }
 
-        public void MFClear()
-        {
-            txtMFName.Text = "";
-            txtMFSupplier.Text = "";
-            txtMFColor.Text = "";
-            txtMFQuantityOnHand.Text = "";
-            txtMFPrice.Text = "";
-            txtMFDescription.Text = "";
-            txtMFSLA.Text = "";
-        }
-
-        public void MOClear()
-        {
-            cmbMOCompany.Text = "";
-            cmbMOCompanyContact.Text = "";
-            cmbMOOrderStatus.Text = "";
-            txtMOType.Text = "";
-            txtMONotes.Text = "";
-            dtpMODate.Text = "";
-        }
-
-        private void btnMFDelete_Click(object sender, EventArgs e)
-        {
-            //when Manu Findings delete is clicked, delete selected object from lst.
-        }
-
-        private void btnMFUpdate_Click(object sender, EventArgs e)
-        {
-            //when Manu Findings update is clicked, update selected object from lst. 
         }
 
         private void findingsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -205,7 +235,20 @@ namespace DemoSalesSystem
             if (goodMOSave == true)
             {
                 //valid MO save...
-                //lstMOOrders.Items.Add("");
+                Company company = new Company(cmbMOCompany.Text);
+                CompanyContact companyContact = new CompanyContact(cmbMOCompanyContact.Text);
+                Order tempOrder = new Order();
+                tempOrder.Company = company;
+                tempOrder.CompanyContact = companyContact;
+                tempOrder.Note = txtMONotes.Text;
+                tempOrder.OrderDate = DateTime.Parse(dtpMODate.Text);
+                tempOrder.OrderStatus = OrderStatus.NotAvailable;
+                tempOrder.Type = txtMONotes.Text;
+                //orders.Add(tempOrder);
+                //lstMOOrders.Items.Add(orders);
+                
+                //Order order = new Order(company, companyContact, txtMONotes.Text, time, orderStatus, txtMOType.Text);
+                
             }
             else
             {

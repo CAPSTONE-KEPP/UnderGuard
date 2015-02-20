@@ -50,6 +50,21 @@ namespace DemoSalesSystem
 
         #endregion
 
+        public Order() 
+        {
+
+        }
+
+        public Order(DateTime in_orderDate, Company in_company, OrderStatus in_orderStatus, CompanyContact in_companyContact, string in_note, string in_type) 
+        {
+            orderDate = in_orderDate;
+            company = in_company;
+            orderStatus = in_orderStatus;
+            companyContact = in_companyContact;
+            note = in_note;
+            type = in_type;
+        }
+
         public Product Product
         {
             get
