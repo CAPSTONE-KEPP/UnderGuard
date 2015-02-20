@@ -206,6 +206,8 @@ namespace DemoSalesSystem
                         findings.ElementAt(lsvFindings.FocusedItem.Index).SlaList.ElementAt(SLAID).Cost = Convert.ToDouble(txtSLACost.Text);
                         findings.ElementAt(lsvFindings.FocusedItem.Index).SlaList.ElementAt(SLAID).DeliveryTime = dateSLA.Value;
                         findings.ElementAt(lsvFindings.FocusedItem.Index).SlaList.ElementAt(SLAID).Description = txtSLADescription.Text;
+                        btnUpdateSLA.Enabled = true;
+                        btnDeleteSLA.Enabled = true;
                     }
                     catch (NullReferenceException nre)
                     {
@@ -318,6 +320,7 @@ namespace DemoSalesSystem
 
         private void lsvFindings_SelectedIndexChanged(object sender, EventArgs e)
         {
+            
             if (lsvFindings.FocusedItem != null)
             {
                 txtFindingColor.Text = findings.ElementAt(lsvFindings.FocusedItem.Index).Color;
@@ -330,6 +333,21 @@ namespace DemoSalesSystem
                 if (findings.ElementAt(lsvFindings.FocusedItem.Index).Sla != null)
                 {
                     DisplaySLA(findings.ElementAt(lsvFindings.FocusedItem.Index));
+                }
+                else
+                {
+                    ClearSLA();
+                }
+            }
+        }
+
+        private void ClearSLA()
+        {
+            foreach (Control c in gbxSLA.Controls)
+            {
+                if (c is TextBox)
+                {
+                    c.Text = "";
                 }
             }
         }

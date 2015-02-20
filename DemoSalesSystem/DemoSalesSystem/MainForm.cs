@@ -55,27 +55,28 @@ namespace DemoSalesSystem
             ipf.Visible = false;
             ipf.WindowState = FormWindowState.Maximized;
 
+
         }
 
 
 
-        private void catalogToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Point l = this.Location;
-            this.Bounds = cf.Bounds;
-            this.Location = l;
-            showForm(cf);
-        }
+        //private void catalogToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    Point l = this.Location;
+        //    this.Bounds = cf.Bounds;
+        //    this.Location = l;
+        //    showForm(cf);
+        //}
 
-        private void orderToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Point l = this.Location;
-            this.Bounds = of.Bounds;
-            this.Location = l;
-            of.Companies = cof.CompanyList;
-            of.UpdateCompanyList();
-            showForm(of);
-        }
+        //private void orderToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    Point l = this.Location;
+        //    this.Bounds = of.Bounds;
+        //    this.Location = l;
+        //    of.Companies = cof.CompanyList;
+        //    of.UpdateCompanyList();
+        //    showForm(of);
+        //}
 
         private void showForm(Form f)
         {
@@ -90,6 +91,7 @@ namespace DemoSalesSystem
         {
             productForm.MdiParent = this;
             productForm.WindowState = FormWindowState.Maximized;
+            HidePanels();
             productForm.Show();
             MakeFakeData();
             childForm = new frmCompany();
@@ -231,8 +233,32 @@ namespace DemoSalesSystem
 
         private void findingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            
             pnlMFindings.Visible = true;
             pnlMOrder.Visible = false;
+        }
+
+        private void PopulateOrdersForm()
+        {
+            if (cof.CompanyList.Count > 0)
+            {
+                companyList = new List<Company>(cof.CompanyList);
+                orderList = new List<Order>(of.Orders);
+                foreach (Company c in companyList)
+                {
+                    cmbMOCompany.Items.Add(c.Name);
+                    foreach (CompanyContact cc in c.CompanyContact)
+                    {
+                        cmbMOCompanyContact.Items.Add(cc.FirstName + " " + cc.LastName);
+                    }
+                }
+                foreach (Order o in orderList)
+                {
+                    
+                    lstMOOrders.Items.Add(o.Id + " " + o.Company.Name);
+                }
+            }
+            cmbMOOrderStatus.DataSource = Enum.GetValues(typeof(Status));
         }
 
         private void findingsToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -240,6 +266,7 @@ namespace DemoSalesSystem
             Point l = this.Location;
             this.Bounds = ff.Bounds;
             this.Location = l;
+            HidePanels();
             showForm(ff);
         }
 
@@ -248,11 +275,13 @@ namespace DemoSalesSystem
             Point l = this.Location;
             this.Bounds = ipf.Bounds;
             this.Location = l;
+            HidePanels();
             showForm(ipf);
         }
 
         private void ordersToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            PopulateOrdersForm();
             pnlMFindings.Visible = false;
             pnlMOrder.Visible = true;
         }
@@ -339,6 +368,7 @@ namespace DemoSalesSystem
             childForm = new SupplierForm(suppliers);
             childForm.MdiParent = this;
             childForm.Show();
+            HidePanels();
             childForm.WindowState = FormWindowState.Maximized;
         }
 
@@ -347,7 +377,71 @@ namespace DemoSalesSystem
             Point l = this.Location;
             this.Bounds = cof.Bounds;
             this.Location = l;
+            HidePanels();
             showForm(cof);
+        }
+
+        private void companyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Point l = this.Location;
+            this.Bounds = cof.Bounds;
+            this.Location = l;
+            HidePanels();
+            showForm(cof);
+        }
+
+        private void catalogToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            Point l = this.Location;
+            this.Bounds = cf.Bounds;
+            this.Location = l;
+            HidePanels();
+            showForm(cf);
+        }
+
+        private void orderToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            Point l = this.Location;
+            this.Bounds = of.Bounds;
+            this.Location = l;
+            of.Companies = cof.CompanyList;
+            of.UpdateCompanyList();
+            HidePanels();
+            showForm(of);
+        }
+
+        private void productsToolStripMenuItem2_Click_1(object sender, EventArgs e)
+        {
+            Point l = this.Location;
+            this.Bounds = ipf.Bounds;
+            this.Location = l;
+            HidePanels();
+            showForm(ipf);
+        }
+
+        private void findingsToolStripMenuItem1_Click_1(object sender, EventArgs e)
+        {
+            Point l = this.Location;
+            this.Bounds = ff.Bounds;
+            this.Location = l;
+            HidePanels();
+            showForm(ff);
+        }
+
+        private void HidePanels()
+        {
+            pnlMFindings.Visible = false;
+            pnlMOrder.Visible =false;
+        }
+
+        private void lstMOOrders_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cmbMOCompany.Text = orderList.ElementAt(lstMOOrders.SelectedIndex).Company.Name;
+            cmbMOCompanyContact.Text = orderList.ElementAt(lstMOOrders.SelectedIndex).CompanyContact.FirstName + " " + orderList.ElementAt(lstMOOrders.SelectedIndex).CompanyContact.LastName;
+            cmbMOOrderStatus.Text = orderList.ElementAt(lstMOOrders.SelectedIndex).OrderStatus.ToString();
+            txtMOType.Text = orderList.ElementAt(lstMOOrders.SelectedIndex).Type;
+            dtpMODate.Value = orderList.ElementAt(lstMOOrders.SelectedIndex).OrderDate;
+            txtMONotes.Text = orderList.ElementAt(lstMOOrders.SelectedIndex).Note;
         }
 
 

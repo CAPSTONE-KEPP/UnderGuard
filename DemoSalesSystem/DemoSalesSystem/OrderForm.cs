@@ -18,6 +18,12 @@ namespace DemoSalesSystem
         List<Product> products;
         List<OrderDetails> orderDetails;
         List<Order> orders;
+
+        public List<Order> Orders
+        {
+            get { return orders; }
+            set { orders = value; }
+        }
         List<Company> companies;
         int orderId = 0;
 
@@ -353,12 +359,16 @@ namespace DemoSalesSystem
         /// </summary>
         private void UpdateContactList()
         {
-            cboContact.Items.Clear();
-            for (int i = 0; i < companies.ElementAt(cboCompany.SelectedIndex).CompanyContact.Count; i++)
+            if (companies.ElementAt(cboCompany.SelectedIndex).CompanyContact.Count > 0)
             {
-                cboContact.Items.Add(companies.ElementAt(cboCompany.SelectedIndex).CompanyContact.ElementAt(i).FirstName + " " + companies.ElementAt(cboCompany.SelectedIndex).CompanyContact.ElementAt(i).LastName);
+                cboContact.Items.Clear();
+                for (int i = 0; i < companies.ElementAt(cboCompany.SelectedIndex).CompanyContact.Count; i++)
+                {
+                    cboContact.Items.Add(companies.ElementAt(cboCompany.SelectedIndex).CompanyContact.ElementAt(i).FirstName + " " + companies.ElementAt(cboCompany.SelectedIndex).CompanyContact.ElementAt(i).LastName);
+                }
             }
             cboContact.SelectedIndex = 0;
+
         }
     }
 }
