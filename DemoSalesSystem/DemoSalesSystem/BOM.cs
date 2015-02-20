@@ -10,7 +10,7 @@ namespace DemoSalesSystem
         private int productID;
         private List<Findings> findings;
         private List<int> quantityOfFindings;
-        private DateTime productionTime;
+        private int productionTime;
 
         public int ProductID
         {
@@ -30,7 +30,7 @@ namespace DemoSalesSystem
             set { quantityOfFindings = value; }
         }
 
-        public DateTime ProductionTime
+        public int ProductionTime
         {
             get { return productionTime; }
             set { productionTime = value; }

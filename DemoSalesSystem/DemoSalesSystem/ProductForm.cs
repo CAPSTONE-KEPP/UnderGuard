@@ -47,8 +47,7 @@ namespace DemoSalesSystem
 
         public Product UpdateOrAddProduct()
         {
-            try
-            {
+
                 Product product = new Product();
                 product.Color = tbxColour.Text;
                 product.DateEntered = System.DateTime.Now;
@@ -62,11 +61,7 @@ namespace DemoSalesSystem
                 product.Price = Convert.ToDouble(tbxPrice.Text);
 
                 return product;
-            }
-            catch (Exception ex)
-            {
-                System.Console.WriteLine(ex);
-            }
+
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -76,9 +71,11 @@ namespace DemoSalesSystem
                 currentProduct = UpdateOrAddProduct();
 
                 int index = lbxProducts.SelectedIndex;
-                lbxProducts.Items.RemoveAt(index);
-                lbxProducts.Items.Insert(index, currentProduct);
+                products.RemoveAt(index);
+                products.Insert(index, currentProduct);
+                RefreshProductList();
                 lbxProducts.SelectedIndex = index;
+                //lbxProducts.SelectedIndex = index;
             }
             catch (Exception ex)
             {
@@ -86,13 +83,27 @@ namespace DemoSalesSystem
             }
         }
 
+        private void RefreshProductList()
+        {
+            lbxProducts.Items.Clear();
+            foreach (Product p in products)
+            {
+                lbxProducts.Items.Add(p);
+            }
+        }
+
         private void btnDelete_Click(object sender, EventArgs e)
         {
             try
             {
-                ClearTextBoxes(this);
-                currentProduct = null;
-                lbxProducts.Items.Remove(lbxProducts.SelectedIndex);
+                if (products.Count > 0)
+                {
+                    ClearTextBoxes(this);
+                    currentProduct = null;
+
+                    products.RemoveAt(lbxProducts.SelectedIndex);
+                    RefreshProductList();
+                }
                 //delete from lsit
             }
             catch (Exception ex)
@@ -141,7 +152,7 @@ namespace DemoSalesSystem
 
         private void lbxProducts_SelectedIndexChanged(object sender, EventArgs e)
         {
-            currentProduct = (Product)lbxProducts.SelectedItem;
+            currentProduct = products.ElementAt(lbxProducts.SelectedIndex);
 
             tbxName.Text = currentProduct.Name;
             tbxDescription.Text = currentProduct.Description;
@@ -154,10 +165,14 @@ namespace DemoSalesSystem
 
         private void btnBom_Click(object sender, EventArgs e)
         {
-            if (currentProduct == null)
+            if (currentProduct != null)
             {
                 bomForm = new BOMForm(currentProduct);
                 bomForm.Show();
+            }
+            else
+            {
+                MessageBox.Show("Must select or create a product first");
             }
         }
     }

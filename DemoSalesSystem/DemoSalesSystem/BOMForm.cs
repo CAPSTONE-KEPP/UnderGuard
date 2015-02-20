@@ -43,7 +43,7 @@ namespace DemoSalesSystem
             product.BOM.ProductID = product.ProductID;
             product.BOM.Findings = findings;
             product.BOM.QuantityOfFindings = quantity;
-            product.BOM.ProductionTime = Convert.ToDateTime(nudHours.ToString());
+            product.BOM.ProductionTime = Convert.ToInt32(nudHours.Value);
             this.Close();
         }
 
