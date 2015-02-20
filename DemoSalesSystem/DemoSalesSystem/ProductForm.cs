@@ -30,6 +30,7 @@ namespace DemoSalesSystem
             lbxProducts.DisplayMember = "Name";
             lbxProducts.ValueMember = "Id";
             cbxStatus.DataSource = Enum.GetValues(typeof(Status));
+            cbxStatus.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -46,37 +47,58 @@ namespace DemoSalesSystem
 
         public Product UpdateOrAddProduct()
         {
-            Product product = new Product();
-            product.Color = tbxColour.Text;
-            product.DateEntered = System.DateTime.Now;
-            product.Description = tbxDescription.Text;
-            product.Name = tbxName.Text;
-            product.Size = tbxSize.Text;
-            product.Image = pbxPicture.Image;
-            Status status;
-            Enum.TryParse<Status>(cbxStatus.SelectedValue.ToString(), out status);
-            product.Status = status;
-            product.Price = Convert.ToDouble(tbxPrice.Text);
+            try
+            {
+                Product product = new Product();
+                product.Color = tbxColour.Text;
+                product.DateEntered = System.DateTime.Now;
+                product.Description = tbxDescription.Text;
+                product.Name = tbxName.Text;
+                product.Size = tbxSize.Text;
+                product.Image = pbxPicture.Image;
+                Status status;
+                Enum.TryParse<Status>(cbxStatus.SelectedValue.ToString(), out status);
+                product.Status = status;
+                product.Price = Convert.ToDouble(tbxPrice.Text);
 
-            return product;
+                return product;
+            }
+            catch (Exception ex)
+            {
+                System.Console.WriteLine(ex);
+            }
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            currentProduct = UpdateOrAddProduct();
+            try
+            {
+                currentProduct = UpdateOrAddProduct();
 
-            int index = lbxProducts.SelectedIndex;
-            lbxProducts.Items.RemoveAt(index);
-            lbxProducts.Items.Insert(index, currentProduct);
-            lbxProducts.SelectedIndex = index;
+                int index = lbxProducts.SelectedIndex;
+                lbxProducts.Items.RemoveAt(index);
+                lbxProducts.Items.Insert(index, currentProduct);
+                lbxProducts.SelectedIndex = index;
+            }
+            catch (Exception ex)
+            {
+                System.Console.WriteLine(ex);
+            }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            ClearTextBoxes(this);
-            currentProduct = null;
-            lbxProducts.Items.Remove(lbxProducts.SelectedIndex);
-            //delete from lsit
+            try
+            {
+                ClearTextBoxes(this);
+                currentProduct = null;
+                lbxProducts.Items.Remove(lbxProducts.SelectedIndex);
+                //delete from lsit
+            }
+            catch (Exception ex)
+            {
+                System.Console.WriteLine(ex);
+            }
         }
 
         public void ClearTextBoxes(Control control)
@@ -96,7 +118,7 @@ namespace DemoSalesSystem
 
         private void btnAddPic_Click(object sender, EventArgs e)
         {
- 
+            
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
 
             openFileDialog1.InitialDirectory = "c:\\";
