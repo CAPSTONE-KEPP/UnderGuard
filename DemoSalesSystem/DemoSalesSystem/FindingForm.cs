@@ -197,15 +197,15 @@ namespace DemoSalesSystem
                         return;
                     }
 
-                    int SLAID = GetNextSLAID();
+                    int SLAID = 0;
 
                     try
                     {
-                        findings.ElementAt(lsvFindings.FocusedItem.Index).SlaList.Add(new SLA(SLAID, findings.ElementAt(lsvFindings.FocusedItem.Index).Id));
-                        findings.ElementAt(lsvFindings.FocusedItem.Index).SlaList.ElementAt(SLAID).Amount = Convert.ToInt32(txtSLAAmount.Text);
-                        findings.ElementAt(lsvFindings.FocusedItem.Index).SlaList.ElementAt(SLAID).Cost = Convert.ToDouble(txtSLACost.Text);
-                        findings.ElementAt(lsvFindings.FocusedItem.Index).SlaList.ElementAt(SLAID).DeliveryTime = dateSLA.Value;
-                        findings.ElementAt(lsvFindings.FocusedItem.Index).SlaList.ElementAt(SLAID).Description = txtSLADescription.Text;
+                        findings.ElementAt(lsvFindings.FocusedItem.Index).Sla = new SLA(SLAID, findings.ElementAt(lsvFindings.FocusedItem.Index).Id);
+                        findings.ElementAt(lsvFindings.FocusedItem.Index).Sla.Amount = Convert.ToInt32(txtSLAAmount.Text);
+                        findings.ElementAt(lsvFindings.FocusedItem.Index).Sla.Cost = Convert.ToDouble(txtSLACost.Text);
+                        findings.ElementAt(lsvFindings.FocusedItem.Index).Sla.DeliveryTime = dateSLA.Value;
+                        findings.ElementAt(lsvFindings.FocusedItem.Index).Sla.Description = txtSLADescription.Text;
                         btnUpdateSLA.Enabled = true;
                         btnDeleteSLA.Enabled = true;
                     }
@@ -230,17 +230,7 @@ namespace DemoSalesSystem
             }
         }
 
-        private int GetNextSLAID()
-        {
-            if (findings.ElementAt(lsvFindings.FocusedItem.Index).SlaList.Count <= 0)
-            {
-                return 0;
-            }
-            else
-            {
-                return findings.ElementAt(lsvFindings.FocusedItem.Index).SlaList.ElementAt(findings.ElementAt(lsvFindings.FocusedItem.Index).SlaList.Count-1).Id +1;
-            }
-        }
+
 
 
 
@@ -325,10 +315,11 @@ namespace DemoSalesSystem
             {
                 txtFindingColor.Text = findings.ElementAt(lsvFindings.FocusedItem.Index).Color;
                 txtFindingDescription.Text = findings.ElementAt(lsvFindings.FocusedItem.Index).Color;
-                txtFindingID.Text = findings.ElementAt(lsvFindings.FocusedItem.Index).Color;
+                txtFindingID.Text = findings.ElementAt(lsvFindings.FocusedItem.Index).Id.ToString();
                 txtFindingName.Text = findings.ElementAt(lsvFindings.FocusedItem.Index).Name;
                 txtFindingPrice.Text = findings.ElementAt(lsvFindings.FocusedItem.Index).Price.ToString();
                 txtFindingQuantity.Text = findings.ElementAt(lsvFindings.FocusedItem.Index).QuantityOnHand.ToString();
+                cboSuppliers.Text = findings.ElementAt(lsvFindings.FocusedItem.Index).Supplier.Name;
 
                 if (findings.ElementAt(lsvFindings.FocusedItem.Index).Sla != null)
                 {

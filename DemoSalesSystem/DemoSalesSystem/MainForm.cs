@@ -217,7 +217,7 @@ namespace DemoSalesSystem
                 //Valid fields for update.
                 if (lstMFindings.SelectedItem != null)
                 {
-                    currentFinding = UpdateFindings();
+                    //currentFinding = UpdateFindings();
                     lstMFindings.SelectedItem = currentFinding;
             }
 
@@ -240,25 +240,17 @@ namespace DemoSalesSystem
 
         private void PopulateOrdersForm()
         {
-            if (cof.CompanyList.Count > 0)
+            if (of.Orders.Count > 0)
             {
-                companyList = new List<Company>(cof.CompanyList);
                 orderList = new List<Order>(of.Orders);
-                foreach (Company c in companyList)
-                {
-                    cmbMOCompany.Items.Add(c.Name);
-                    foreach (CompanyContact cc in c.CompanyContact)
-                    {
-                        cmbMOCompanyContact.Items.Add(cc.FirstName + " " + cc.LastName);
-                    }
-                }
                 foreach (Order o in orderList)
-                {
-                    
+                {                    
                     lstMOOrders.Items.Add(o.Id + " " + o.Company.Name);
                 }
+                lstMOOrders.SelectedIndex = 0;
             }
-            cmbMOOrderStatus.DataSource = Enum.GetValues(typeof(Status));
+            cmbMOOrderStatus.DataSource = Enum.GetValues(typeof(OrderStatus));
+            
         }
 
         private void findingsToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -279,8 +271,28 @@ namespace DemoSalesSystem
             showForm(ipf);
         }
 
+        private void HideForms()
+        {
+            try
+            {
+                ff.Visible = false;
+                cof.Visible = false;
+                cf.Visible = false;
+                of.Visible = false;
+                ipf.Visible = false;
+                if(childForm !=null)
+                childForm.Visible = false;
+                productForm.Visible = false;
+            }
+            catch (Exception ex)
+            {
+                System.Console.WriteLine(ex);
+            }
+        }
+
         private void ordersToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            HideForms();
             PopulateOrdersForm();
             pnlMFindings.Visible = false;
             pnlMOrder.Visible = true;
@@ -346,18 +358,10 @@ namespace DemoSalesSystem
 
         private Order UpdateMOOrder()
         {
-            Order tempOrders = new Order();
-            Company testCompany = new Company();
-            OrderDetails testOrderDetails = new OrderDetails();
-            CompanyContact testCompanyContact = new CompanyContact();
-
-            tempOrders.Company = testCompany;
-            tempOrders.CompanyContact = testCompanyContact;
+            Order tempOrders = orderList.ElementAt(lstMOOrders.SelectedIndex);
             tempOrders.Note = txtMONotes.Text;
-            tempOrders.OrderDate = DateTime.Parse(dtpMODate.Text);
-            tempOrders.OrderDetails = testOrderDetails;
-            tempOrders.OrderStatus = OrderStatus.NotAvailable;
-            tempOrders.Type = txtMOType.Text;
+            tempOrders.OrderStatus = (OrderStatus) Enum.Parse(typeof(OrderStatus), cmbMOOrderStatus.Text);
+            
             return tempOrders;
         }
 
