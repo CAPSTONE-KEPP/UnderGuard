@@ -53,14 +53,7 @@ namespace DemoSalesSystem
 
         }
 
-        private void companyToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Point l = this.Location;
-            this.Bounds = cof.Bounds;
-            this.Location = l;
-            showForm(cof);
 
-        }
 
         private void catalogToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -312,6 +305,14 @@ namespace DemoSalesSystem
             childForm.MdiParent = this;
             childForm.Show();
             childForm.WindowState = FormWindowState.Maximized;
+        }
+
+        private void companyToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            Point l = this.Location;
+            this.Bounds = cof.Bounds;
+            this.Location = l;
+            showForm(cof);
         }
 
 

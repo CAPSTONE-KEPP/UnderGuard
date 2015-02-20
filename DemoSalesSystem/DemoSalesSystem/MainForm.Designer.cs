@@ -106,7 +106,7 @@
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
-            this.menuStrip.Size = new System.Drawing.Size(843, 28);
+            this.menuStrip.Size = new System.Drawing.Size(844, 28);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "MenuStrip";
             // 
@@ -123,19 +123,20 @@
             // companyToolStripMenuItem
             // 
             this.companyToolStripMenuItem.Name = "companyToolStripMenuItem";
-            this.companyToolStripMenuItem.Size = new System.Drawing.Size(141, 24);
+            this.companyToolStripMenuItem.Size = new System.Drawing.Size(175, 24);
             this.companyToolStripMenuItem.Text = "Company";
+            this.companyToolStripMenuItem.Click += new System.EventHandler(this.companyToolStripMenuItem_Click_1);
             // 
             // catalogToolStripMenuItem
             // 
             this.catalogToolStripMenuItem.Name = "catalogToolStripMenuItem";
-            this.catalogToolStripMenuItem.Size = new System.Drawing.Size(141, 24);
+            this.catalogToolStripMenuItem.Size = new System.Drawing.Size(175, 24);
             this.catalogToolStripMenuItem.Text = "Catalog";
             // 
             // orderToolStripMenuItem
             // 
             this.orderToolStripMenuItem.Name = "orderToolStripMenuItem";
-            this.orderToolStripMenuItem.Size = new System.Drawing.Size(141, 24);
+            this.orderToolStripMenuItem.Size = new System.Drawing.Size(175, 24);
             this.orderToolStripMenuItem.Text = "Order";
             // 
             // manufacturingToolStripMenuItem
@@ -184,32 +185,32 @@
             // suppliersToolStripMenuItem
             // 
             this.suppliersToolStripMenuItem.Name = "suppliersToolStripMenuItem";
-            this.suppliersToolStripMenuItem.Size = new System.Drawing.Size(175, 24);
+            this.suppliersToolStripMenuItem.Size = new System.Drawing.Size(133, 24);
             this.suppliersToolStripMenuItem.Text = "Supplier";
             this.suppliersToolStripMenuItem.Click += new System.EventHandler(this.suppliersToolStripMenuItem_Click_1);
             // 
             // ordersToolStripMenuItem1
             // 
             this.ordersToolStripMenuItem1.Name = "ordersToolStripMenuItem1";
-            this.ordersToolStripMenuItem1.Size = new System.Drawing.Size(175, 24);
+            this.ordersToolStripMenuItem1.Size = new System.Drawing.Size(133, 24);
             this.ordersToolStripMenuItem1.Text = "Order";
             // 
             // productsToolStripMenuItem2
             // 
             this.productsToolStripMenuItem2.Name = "productsToolStripMenuItem2";
-            this.productsToolStripMenuItem2.Size = new System.Drawing.Size(175, 24);
+            this.productsToolStripMenuItem2.Size = new System.Drawing.Size(133, 24);
             this.productsToolStripMenuItem2.Text = "Product";
             // 
             // findingsToolStripMenuItem1
             // 
             this.findingsToolStripMenuItem1.Name = "findingsToolStripMenuItem1";
-            this.findingsToolStripMenuItem1.Size = new System.Drawing.Size(175, 24);
+            this.findingsToolStripMenuItem1.Size = new System.Drawing.Size(133, 24);
             this.findingsToolStripMenuItem1.Text = "Finding";
             // 
             // sLAsToolStripMenuItem
             // 
             this.sLAsToolStripMenuItem.Name = "sLAsToolStripMenuItem";
-            this.sLAsToolStripMenuItem.Size = new System.Drawing.Size(175, 24);
+            this.sLAsToolStripMenuItem.Size = new System.Drawing.Size(133, 24);
             this.sLAsToolStripMenuItem.Text = "SLA";
             // 
             // pnlMFindings
@@ -235,7 +236,7 @@
             this.pnlMFindings.Controls.Add(this.lstMFindings);
             this.pnlMFindings.Controls.Add(this.lblMFindings);
             this.pnlMFindings.Location = new System.Drawing.Point(0, 33);
-            this.pnlMFindings.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlMFindings.Margin = new System.Windows.Forms.Padding(4);
             this.pnlMFindings.Name = "pnlMFindings";
             this.pnlMFindings.Size = new System.Drawing.Size(843, 522);
             this.pnlMFindings.TabIndex = 2;
@@ -245,9 +246,9 @@
             // 
             this.grpMFDescription.Controls.Add(this.txtMFDescription);
             this.grpMFDescription.Location = new System.Drawing.Point(185, 210);
-            this.grpMFDescription.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grpMFDescription.Margin = new System.Windows.Forms.Padding(4);
             this.grpMFDescription.Name = "grpMFDescription";
-            this.grpMFDescription.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grpMFDescription.Padding = new System.Windows.Forms.Padding(4);
             this.grpMFDescription.Size = new System.Drawing.Size(641, 263);
             this.grpMFDescription.TabIndex = 19;
             this.grpMFDescription.TabStop = false;
@@ -256,7 +257,7 @@
             // txtMFDescription
             // 
             this.txtMFDescription.Location = new System.Drawing.Point(9, 25);
-            this.txtMFDescription.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMFDescription.Margin = new System.Windows.Forms.Padding(4);
             this.txtMFDescription.Multiline = true;
             this.txtMFDescription.Name = "txtMFDescription";
             this.txtMFDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -267,9 +268,9 @@
             // 
             this.grpMFSLA.Controls.Add(this.txtMFSLA);
             this.grpMFSLA.Location = new System.Drawing.Point(547, 22);
-            this.grpMFSLA.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grpMFSLA.Margin = new System.Windows.Forms.Padding(4);
             this.grpMFSLA.Name = "grpMFSLA";
-            this.grpMFSLA.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grpMFSLA.Padding = new System.Windows.Forms.Padding(4);
             this.grpMFSLA.Size = new System.Drawing.Size(280, 181);
             this.grpMFSLA.TabIndex = 18;
             this.grpMFSLA.TabStop = false;
@@ -278,7 +279,7 @@
             // txtMFSLA
             // 
             this.txtMFSLA.Location = new System.Drawing.Point(9, 25);
-            this.txtMFSLA.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMFSLA.Margin = new System.Windows.Forms.Padding(4);
             this.txtMFSLA.Multiline = true;
             this.txtMFSLA.Name = "txtMFSLA";
             this.txtMFSLA.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -288,7 +289,7 @@
             // btnMFUpdate
             // 
             this.btnMFUpdate.Location = new System.Drawing.Point(403, 480);
-            this.btnMFUpdate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnMFUpdate.Margin = new System.Windows.Forms.Padding(4);
             this.btnMFUpdate.Name = "btnMFUpdate";
             this.btnMFUpdate.Size = new System.Drawing.Size(100, 28);
             this.btnMFUpdate.TabIndex = 17;
@@ -299,7 +300,7 @@
             // btnMFSave
             // 
             this.btnMFSave.Location = new System.Drawing.Point(511, 480);
-            this.btnMFSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnMFSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnMFSave.Name = "btnMFSave";
             this.btnMFSave.Size = new System.Drawing.Size(100, 28);
             this.btnMFSave.TabIndex = 16;
@@ -310,7 +311,7 @@
             // btnMFDelete
             // 
             this.btnMFDelete.Location = new System.Drawing.Point(619, 480);
-            this.btnMFDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnMFDelete.Margin = new System.Windows.Forms.Padding(4);
             this.btnMFDelete.Name = "btnMFDelete";
             this.btnMFDelete.Size = new System.Drawing.Size(100, 28);
             this.btnMFDelete.TabIndex = 15;
@@ -321,7 +322,7 @@
             // btnMFClear
             // 
             this.btnMFClear.Location = new System.Drawing.Point(727, 480);
-            this.btnMFClear.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnMFClear.Margin = new System.Windows.Forms.Padding(4);
             this.btnMFClear.Name = "btnMFClear";
             this.btnMFClear.Size = new System.Drawing.Size(100, 28);
             this.btnMFClear.TabIndex = 14;
@@ -332,7 +333,7 @@
             // txtMFPrice
             // 
             this.txtMFPrice.Location = new System.Drawing.Point(317, 178);
-            this.txtMFPrice.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMFPrice.Margin = new System.Windows.Forms.Padding(4);
             this.txtMFPrice.Name = "txtMFPrice";
             this.txtMFPrice.Size = new System.Drawing.Size(220, 22);
             this.txtMFPrice.TabIndex = 13;
@@ -350,7 +351,7 @@
             // txtMFQuantityOnHand
             // 
             this.txtMFQuantityOnHand.Location = new System.Drawing.Point(317, 146);
-            this.txtMFQuantityOnHand.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMFQuantityOnHand.Margin = new System.Windows.Forms.Padding(4);
             this.txtMFQuantityOnHand.Name = "txtMFQuantityOnHand";
             this.txtMFQuantityOnHand.Size = new System.Drawing.Size(220, 22);
             this.txtMFQuantityOnHand.TabIndex = 11;
@@ -368,7 +369,7 @@
             // txtMFColor
             // 
             this.txtMFColor.Location = new System.Drawing.Point(317, 117);
-            this.txtMFColor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMFColor.Margin = new System.Windows.Forms.Padding(4);
             this.txtMFColor.Name = "txtMFColor";
             this.txtMFColor.Size = new System.Drawing.Size(220, 22);
             this.txtMFColor.TabIndex = 9;
@@ -386,7 +387,7 @@
             // txtMFSupplier
             // 
             this.txtMFSupplier.Location = new System.Drawing.Point(317, 85);
-            this.txtMFSupplier.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMFSupplier.Margin = new System.Windows.Forms.Padding(4);
             this.txtMFSupplier.Name = "txtMFSupplier";
             this.txtMFSupplier.Size = new System.Drawing.Size(220, 22);
             this.txtMFSupplier.TabIndex = 7;
@@ -404,7 +405,7 @@
             // txtMFName
             // 
             this.txtMFName.Location = new System.Drawing.Point(317, 53);
-            this.txtMFName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMFName.Margin = new System.Windows.Forms.Padding(4);
             this.txtMFName.Name = "txtMFName";
             this.txtMFName.Size = new System.Drawing.Size(220, 22);
             this.txtMFName.TabIndex = 5;
@@ -423,7 +424,7 @@
             // 
             this.txtMFId.Enabled = false;
             this.txtMFId.Location = new System.Drawing.Point(317, 22);
-            this.txtMFId.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMFId.Margin = new System.Windows.Forms.Padding(4);
             this.txtMFId.Name = "txtMFId";
             this.txtMFId.Size = new System.Drawing.Size(220, 22);
             this.txtMFId.TabIndex = 3;
@@ -443,7 +444,7 @@
             this.lstMFindings.FormattingEnabled = true;
             this.lstMFindings.ItemHeight = 16;
             this.lstMFindings.Location = new System.Drawing.Point(5, 26);
-            this.lstMFindings.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lstMFindings.Margin = new System.Windows.Forms.Padding(4);
             this.lstMFindings.Name = "lstMFindings";
             this.lstMFindings.ScrollAlwaysVisible = true;
             this.lstMFindings.Size = new System.Drawing.Size(167, 484);
@@ -480,7 +481,7 @@
             this.pnlMOrder.Controls.Add(this.lstMOOrders);
             this.pnlMOrder.Controls.Add(this.lblMOOrder);
             this.pnlMOrder.Location = new System.Drawing.Point(0, 33);
-            this.pnlMOrder.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlMOrder.Margin = new System.Windows.Forms.Padding(4);
             this.pnlMOrder.Name = "pnlMOrder";
             this.pnlMOrder.Size = new System.Drawing.Size(843, 522);
             this.pnlMOrder.TabIndex = 20;
@@ -490,9 +491,9 @@
             // 
             this.grpMONotes.Controls.Add(this.txtMONotes);
             this.grpMONotes.Location = new System.Drawing.Point(173, 185);
-            this.grpMONotes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grpMONotes.Margin = new System.Windows.Forms.Padding(4);
             this.grpMONotes.Name = "grpMONotes";
-            this.grpMONotes.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grpMONotes.Padding = new System.Windows.Forms.Padding(4);
             this.grpMONotes.Size = new System.Drawing.Size(665, 290);
             this.grpMONotes.TabIndex = 19;
             this.grpMONotes.TabStop = false;
@@ -501,7 +502,7 @@
             // txtMONotes
             // 
             this.txtMONotes.Location = new System.Drawing.Point(9, 18);
-            this.txtMONotes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMONotes.Margin = new System.Windows.Forms.Padding(4);
             this.txtMONotes.MaxLength = 1024;
             this.txtMONotes.Multiline = true;
             this.txtMONotes.Name = "txtMONotes";
@@ -522,7 +523,7 @@
             // 
             this.dtpMODate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpMODate.Location = new System.Drawing.Point(316, 153);
-            this.dtpMODate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpMODate.Margin = new System.Windows.Forms.Padding(4);
             this.dtpMODate.MaxDate = new System.DateTime(2115, 2, 18, 0, 0, 0, 0);
             this.dtpMODate.MinDate = new System.DateTime(2015, 2, 18, 0, 0, 0, 0);
             this.dtpMODate.Name = "dtpMODate";
@@ -533,7 +534,7 @@
             // btnMOUpdate
             // 
             this.btnMOUpdate.Location = new System.Drawing.Point(415, 482);
-            this.btnMOUpdate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnMOUpdate.Margin = new System.Windows.Forms.Padding(4);
             this.btnMOUpdate.Name = "btnMOUpdate";
             this.btnMOUpdate.Size = new System.Drawing.Size(100, 28);
             this.btnMOUpdate.TabIndex = 16;
@@ -544,7 +545,7 @@
             // btnMOSave
             // 
             this.btnMOSave.Location = new System.Drawing.Point(523, 482);
-            this.btnMOSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnMOSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnMOSave.Name = "btnMOSave";
             this.btnMOSave.Size = new System.Drawing.Size(100, 28);
             this.btnMOSave.TabIndex = 15;
@@ -555,7 +556,7 @@
             // btnMODelete
             // 
             this.btnMODelete.Location = new System.Drawing.Point(631, 482);
-            this.btnMODelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnMODelete.Margin = new System.Windows.Forms.Padding(4);
             this.btnMODelete.Name = "btnMODelete";
             this.btnMODelete.Size = new System.Drawing.Size(100, 28);
             this.btnMODelete.TabIndex = 14;
@@ -566,7 +567,7 @@
             // btnMOClear
             // 
             this.btnMOClear.Location = new System.Drawing.Point(739, 482);
-            this.btnMOClear.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnMOClear.Margin = new System.Windows.Forms.Padding(4);
             this.btnMOClear.Name = "btnMOClear";
             this.btnMOClear.Size = new System.Drawing.Size(100, 28);
             this.btnMOClear.TabIndex = 13;
@@ -577,7 +578,7 @@
             // txtMOType
             // 
             this.txtMOType.Location = new System.Drawing.Point(317, 121);
-            this.txtMOType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMOType.Margin = new System.Windows.Forms.Padding(4);
             this.txtMOType.Name = "txtMOType";
             this.txtMOType.Size = new System.Drawing.Size(520, 22);
             this.txtMOType.TabIndex = 12;
@@ -596,7 +597,7 @@
             // 
             this.cmbMOOrderStatus.FormattingEnabled = true;
             this.cmbMOOrderStatus.Location = new System.Drawing.Point(317, 89);
-            this.cmbMOOrderStatus.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbMOOrderStatus.Margin = new System.Windows.Forms.Padding(4);
             this.cmbMOOrderStatus.Name = "cmbMOOrderStatus";
             this.cmbMOOrderStatus.Size = new System.Drawing.Size(520, 24);
             this.cmbMOOrderStatus.TabIndex = 10;
@@ -615,7 +616,7 @@
             // 
             this.cmbMOCompanyContact.FormattingEnabled = true;
             this.cmbMOCompanyContact.Location = new System.Drawing.Point(317, 57);
-            this.cmbMOCompanyContact.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbMOCompanyContact.Margin = new System.Windows.Forms.Padding(4);
             this.cmbMOCompanyContact.Name = "cmbMOCompanyContact";
             this.cmbMOCompanyContact.Size = new System.Drawing.Size(520, 24);
             this.cmbMOCompanyContact.TabIndex = 8;
@@ -624,7 +625,7 @@
             // 
             this.cmbMOCompany.FormattingEnabled = true;
             this.cmbMOCompany.Location = new System.Drawing.Point(317, 23);
-            this.cmbMOCompany.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbMOCompany.Margin = new System.Windows.Forms.Padding(4);
             this.cmbMOCompany.Name = "cmbMOCompany";
             this.cmbMOCompany.Size = new System.Drawing.Size(520, 24);
             this.cmbMOCompany.TabIndex = 7;
@@ -663,7 +664,7 @@
             this.lstMOOrders.FormattingEnabled = true;
             this.lstMOOrders.ItemHeight = 16;
             this.lstMOOrders.Location = new System.Drawing.Point(5, 27);
-            this.lstMOOrders.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lstMOOrders.Margin = new System.Windows.Forms.Padding(4);
             this.lstMOOrders.Name = "lstMOOrders";
             this.lstMOOrders.ScrollAlwaysVisible = true;
             this.lstMOOrders.Size = new System.Drawing.Size(159, 484);
@@ -683,13 +684,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(843, 558);
+            this.ClientSize = new System.Drawing.Size(844, 554);
             this.Controls.Add(this.pnlMOrder);
             this.Controls.Add(this.pnlMFindings);
             this.Controls.Add(this.menuStrip);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MainForm";
             this.Text = "UnderGuard";
             this.menuStrip.ResumeLayout(false);
