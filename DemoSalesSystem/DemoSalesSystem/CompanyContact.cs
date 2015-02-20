@@ -31,6 +31,11 @@ namespace DemoSalesSystem
             firstName = in_firstName;
         }
 
+        public CompanyContact()
+        {
+
+        }
+
         public Salutation Salutation
         {
             get { return salutation; }
