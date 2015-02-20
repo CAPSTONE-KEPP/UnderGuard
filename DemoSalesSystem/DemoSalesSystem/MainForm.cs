@@ -21,6 +21,7 @@ namespace DemoSalesSystem
         OrderForm of;
         CompanyForm cof;
         FindingForm ff;
+        FindingUpdateForm fuf;
         InventoryProductForm ipf;
         List<Company> companyList;
         List<Order> orderList;
@@ -54,6 +55,11 @@ namespace DemoSalesSystem
             ipf.MdiParent = this;
             ipf.Visible = false;
             ipf.WindowState = FormWindowState.Maximized;
+            MakeFakeData();
+            childForm = new SupplierForm(suppliers);
+            childForm.Visible = false;
+            childForm.WindowState = FormWindowState.Maximized;
+            
 
 
         }
@@ -93,21 +99,14 @@ namespace DemoSalesSystem
             productForm.WindowState = FormWindowState.Maximized;
             HidePanels();
             productForm.Show();
-            MakeFakeData();
-            childForm = new frmCompany();
-            childForm.MdiParent = this;
-            childForm.Show();
-            childForm.WindowState = FormWindowState.Maximized;
+           // MakeFakeData();
+            //childForm = new frmCompany();
+            //childForm.MdiParent = this;
+            //childForm.Show();
+            //childForm.WindowState = FormWindowState.Maximized;
         }
 
-        private void suppliersToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            childForm.Close();
-            childForm = new SupplierForm(suppliers);
-            childForm.MdiParent = this;
-            childForm.Show();
-            childForm.WindowState = FormWindowState.Maximized;
-        }
+       
 
         /// <summary>
         /// makes fake data
@@ -233,9 +232,16 @@ namespace DemoSalesSystem
 
         private void findingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
-            pnlMFindings.Visible = true;
-            pnlMOrder.Visible = false;
+
+            fuf = new FindingUpdateForm(ff.Findings);
+            fuf.MdiParent = this;
+            fuf.Visible = false;
+            fuf.WindowState = FormWindowState.Maximized;
+            Point l = this.Location;
+            this.Bounds = fuf.Bounds;
+            this.Location = l;
+            HidePanels();
+            fuf.Show();
         }
 
         private void PopulateOrdersForm()
@@ -253,24 +259,6 @@ namespace DemoSalesSystem
             
         }
 
-        private void findingsToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            Point l = this.Location;
-            this.Bounds = ff.Bounds;
-            this.Location = l;
-            HidePanels();
-            showForm(ff);
-        }
-
-        private void productsToolStripMenuItem2_Click(object sender, EventArgs e)
-        {
-            Point l = this.Location;
-            this.Bounds = ipf.Bounds;
-            this.Location = l;
-            HidePanels();
-            showForm(ipf);
-        }
-
         private void HideForms()
         {
             try
@@ -280,8 +268,7 @@ namespace DemoSalesSystem
                 cf.Visible = false;
                 of.Visible = false;
                 ipf.Visible = false;
-                if(childForm !=null)
-                childForm.Visible = false;
+                    childForm.Visible = false;
                 productForm.Visible = false;
             }
             catch (Exception ex)
@@ -369,11 +356,14 @@ namespace DemoSalesSystem
         {
 
             //childForm.Close();
-            childForm = new SupplierForm(suppliers);
+            
             childForm.MdiParent = this;
+            Point l = this.Location;
+            this.Bounds = childForm.Bounds;
+            this.Location = l;
             childForm.Show();
             HidePanels();
-            childForm.WindowState = FormWindowState.Maximized;
+            
         }
 
         private void companyToolStripMenuItem_Click_1(object sender, EventArgs e)

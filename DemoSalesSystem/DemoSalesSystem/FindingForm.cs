@@ -14,6 +14,13 @@ namespace DemoSalesSystem
     {
         private List<Supplier> supplier = new List<Supplier>();
         private List<Findings> findings = new List<Findings>();
+        private int id=0;
+
+        public List<Findings> Findings
+        {
+            get { return findings; }
+            set { findings = value; }
+        }
         private List<Supplier> selectedSupplier = new List<Supplier>();
         int findingId = 0;
         public FindingForm()
@@ -59,13 +66,18 @@ namespace DemoSalesSystem
                 }
                     try
                     {
+                        int index = 0;
+                        if (findings.Count > 0)
+                        {
+                            index = findings.Count();
+                        }
                         findingId = GetNextFindingID();
                         findings.Add(new Findings(findingId, txtFindingName.Text));
-                        findings.ElementAt(findingId).Price = Convert.ToDouble(txtFindingPrice.Text);
-                        findings.ElementAt(findingId).QuantityOnHand = Convert.ToInt32(txtFindingQuantity.Text);
-                        findings.ElementAt(findingId).Description = txtFindingDescription.Text;
-                        findings.ElementAt(findingId).Color = txtFindingColor.Text;
-                        findings.ElementAt(findingId).Supplier = supplier.ElementAt(cboSuppliers.SelectedIndex);
+                        findings.ElementAt(index).Price = Convert.ToDouble(txtFindingPrice.Text);
+                        findings.ElementAt(index).QuantityOnHand = Convert.ToInt32(txtFindingQuantity.Text);
+                        findings.ElementAt(index).Description = txtFindingDescription.Text;
+                        findings.ElementAt(index).Color = txtFindingColor.Text;
+                        findings.ElementAt(index).Supplier = supplier.ElementAt(cboSuppliers.SelectedIndex);
                         UpdateFindingsList();
                         ToggleSLABox();
                         btnDeleteFinding.Enabled = true;
@@ -89,12 +101,13 @@ namespace DemoSalesSystem
         private int GetNextFindingID()
         {
             if (findings.Count <= 0)
-            {
+            {   
                 return 0;
             }
             else
             {
-                return findings.ElementAt(findings.Count-1).Id + 1;
+                
+                return findings.ElementAt(findings.Count-1).Id+1;
             }
         }
 
@@ -131,6 +144,7 @@ namespace DemoSalesSystem
                         findings.ElementAt(findingId).Price = Convert.ToDouble(txtFindingPrice.Text);
                         findings.ElementAt(findingId).QuantityOnHand = Convert.ToInt32(txtFindingQuantity.Text);
                         findings.ElementAt(findingId).Description = txtFindingDescription.Text;
+                        findings.ElementAt(findingId).Name = txtFindingName.Text;
                         findings.ElementAt(findingId).Color = txtFindingColor.Text;
                         findings.ElementAt(findingId).Supplier = supplier.ElementAt(cboSuppliers.SelectedIndex);
                         UpdateFindingsList();
@@ -159,6 +173,7 @@ namespace DemoSalesSystem
                 {
                     findings.RemoveAt(lsvFindings.FocusedItem.Index);
                     UpdateFindingsList();
+                    id--;
                     if (findings.Count <= 0)
                     {
                         btnDeleteFinding.Enabled = false;
@@ -314,7 +329,7 @@ namespace DemoSalesSystem
             if (lsvFindings.FocusedItem != null)
             {
                 txtFindingColor.Text = findings.ElementAt(lsvFindings.FocusedItem.Index).Color;
-                txtFindingDescription.Text = findings.ElementAt(lsvFindings.FocusedItem.Index).Color;
+                txtFindingDescription.Text = findings.ElementAt(lsvFindings.FocusedItem.Index).Description;
                 txtFindingID.Text = findings.ElementAt(lsvFindings.FocusedItem.Index).Id.ToString();
                 txtFindingName.Text = findings.ElementAt(lsvFindings.FocusedItem.Index).Name;
                 txtFindingPrice.Text = findings.ElementAt(lsvFindings.FocusedItem.Index).Price.ToString();

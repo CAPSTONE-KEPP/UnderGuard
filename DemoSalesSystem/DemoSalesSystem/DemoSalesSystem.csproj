@@ -70,6 +70,12 @@
       <DependentUpon>CompanyForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Contact.cs" />
+    <Compile Include="FindingUpdateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FindingUpdateForm.Designer.cs">
+      <DependentUpon>FindingUpdateForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="FindingForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,6 +138,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CompanyForm.resx">
       <DependentUpon>CompanyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FindingUpdateForm.resx">
+      <DependentUpon>FindingUpdateForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FindingForm.resx">
       <DependentUpon>FindingForm.cs</DependentUpon>
