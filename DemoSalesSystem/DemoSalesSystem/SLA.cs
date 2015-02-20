@@ -26,6 +26,11 @@ namespace DemoSalesSystem
             this.findingID = findingID;
         }
 
+        public SLA()
+        {
+
+        }
+
         public Findings Findings
         {
             get

@@ -39,54 +39,9 @@ namespace DemoSalesSystem
 
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            if (cboSuppliers.SelectedItem == null)
-            {
-                MessageBox.Show("Must select a supplier");
-                return;
-            }
-            if (!selectedSupplier.Contains(supplier.ElementAt(cboSuppliers.SelectedIndex)))
-            {
-                selectedSupplier.Add(supplier.ElementAt(cboSuppliers.SelectedIndex));
-                UpdateSupplierList();
-                btnRemove.Enabled = true;
-            }
-            
 
 
-        }
-
-        private void UpdateSupplierList(){
-            lstSuppliers.Items.Clear();
-                foreach(Supplier s in selectedSupplier){
-                    lstSuppliers.Items.Add(s.Name);
-                }
-            
-        }
-
-        private void btnRemove_Click(object sender, EventArgs e)
-        {
-            if (lstSuppliers.SelectedItem == null)
-            {
-                MessageBox.Show("Must select a supplier to remove");
-                return;
-            }
-            if (selectedSupplier.Count > 0)
-            {
-                selectedSupplier.RemoveAt(lstSuppliers.SelectedIndex);
-                UpdateSupplierList();
-                if (selectedSupplier.Count <= 0)
-                {
-                    btnRemove.Enabled = false;
-                }
-            }
-            else
-            {
-                MessageBox.Show("Nothing to remove");
-            }
-
-        }
+       
 
         private void btnSaveFinding_Click(object sender, EventArgs e)
         {
@@ -110,7 +65,7 @@ namespace DemoSalesSystem
                         findings.ElementAt(findingId).QuantityOnHand = Convert.ToInt32(txtFindingQuantity.Text);
                         findings.ElementAt(findingId).Description = txtFindingDescription.Text;
                         findings.ElementAt(findingId).Color = txtFindingColor.Text;
-                        findings.ElementAt(findingId).SupplierList = new List<Supplier>(selectedSupplier);
+                        findings.ElementAt(findingId).Supplier = supplier.ElementAt(cboSuppliers.SelectedIndex);
                         UpdateFindingsList();
                         ToggleSLABox();
                         btnDeleteFinding.Enabled = true;
@@ -177,7 +132,7 @@ namespace DemoSalesSystem
                         findings.ElementAt(findingId).QuantityOnHand = Convert.ToInt32(txtFindingQuantity.Text);
                         findings.ElementAt(findingId).Description = txtFindingDescription.Text;
                         findings.ElementAt(findingId).Color = txtFindingColor.Text;
-                        findings.ElementAt(findingId).SupplierList = new List<Supplier>(selectedSupplier);
+                        findings.ElementAt(findingId).Supplier = supplier.ElementAt(cboSuppliers.SelectedIndex);
                         UpdateFindingsList();
                     }
                     catch (NullReferenceException nre)
@@ -204,7 +159,6 @@ namespace DemoSalesSystem
                 {
                     findings.RemoveAt(lsvFindings.FocusedItem.Index);
                     UpdateFindingsList();
-                    lstSuppliers.Items.Clear();
                     if (findings.Count <= 0)
                     {
                         btnDeleteFinding.Enabled = false;
@@ -252,7 +206,6 @@ namespace DemoSalesSystem
                         findings.ElementAt(lsvFindings.FocusedItem.Index).SlaList.ElementAt(SLAID).Cost = Convert.ToDouble(txtSLACost.Text);
                         findings.ElementAt(lsvFindings.FocusedItem.Index).SlaList.ElementAt(SLAID).DeliveryTime = dateSLA.Value;
                         findings.ElementAt(lsvFindings.FocusedItem.Index).SlaList.ElementAt(SLAID).Description = txtSLADescription.Text;
-                        UpdateSLAList();
                     }
                     catch (NullReferenceException nre)
                     {
@@ -287,18 +240,10 @@ namespace DemoSalesSystem
             }
         }
 
-        private void UpdateSLAList()
-        {
-            lstSLA.Items.Clear();
-            foreach (SLA s in findings.ElementAt(lsvFindings.FocusedItem.Index).SlaList)
-            {
-                lstSLA.Items.Add(s.Id);
-            }
-        }
+
 
         private void btnUpdateSLA_Click(object sender, EventArgs e)
         {
-            int SLAID = lstSLA.SelectedIndex;
             try
             {
                 if (lsvFindings.SelectedItems.Count > 0)
@@ -315,11 +260,10 @@ namespace DemoSalesSystem
                     }
                     try
                     {
-                        findings.ElementAt(lsvFindings.FocusedItem.Index).SlaList.ElementAt(SLAID).Amount = Convert.ToInt32(txtSLAAmount.Text);
-                        findings.ElementAt(lsvFindings.FocusedItem.Index).SlaList.ElementAt(SLAID).Cost = Convert.ToDouble(txtSLACost.Text);
-                        findings.ElementAt(lsvFindings.FocusedItem.Index).SlaList.ElementAt(SLAID).DeliveryTime = dateSLA.Value;
-                        findings.ElementAt(lsvFindings.FocusedItem.Index).SlaList.ElementAt(SLAID).Description = txtSLADescription.Text;
-                        UpdateSLAList();
+                        findings.ElementAt(lsvFindings.FocusedItem.Index).Sla.Amount = Convert.ToInt32(txtSLAAmount.Text);
+                        findings.ElementAt(lsvFindings.FocusedItem.Index).Sla.Cost = Convert.ToDouble(txtSLACost.Text);
+                        findings.ElementAt(lsvFindings.FocusedItem.Index).Sla.DeliveryTime = dateSLA.Value;
+                        findings.ElementAt(lsvFindings.FocusedItem.Index).Sla.Description = txtSLADescription.Text;
                     }
                     catch (NullReferenceException nre)
                     {
@@ -346,20 +290,9 @@ namespace DemoSalesSystem
         {
             try
             {
-                if (findings.ElementAt(lsvFindings.FocusedItem.Index).SlaList.Count > 0 && lstSLA.SelectedItem != null)
-                {
-                    findings.ElementAt(lsvFindings.FocusedItem.Index).SlaList.RemoveAt(lstSLA.SelectedIndex);
-                    UpdateSLAList();
-                    if (findings.ElementAt(lsvFindings.FocusedItem.Index).SlaList.Count <= 0)
-                    {
+                findings.ElementAt(lsvFindings.FocusedItem.Index).Sla = null;
                         btnDeleteSLA.Enabled = false;
                         btnUpdateSLA.Enabled = false;
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Nothing to delete");
-                }
             }
             catch (NullReferenceException nre)
             {
@@ -393,35 +326,23 @@ namespace DemoSalesSystem
                 txtFindingName.Text = findings.ElementAt(lsvFindings.FocusedItem.Index).Name;
                 txtFindingPrice.Text = findings.ElementAt(lsvFindings.FocusedItem.Index).Price.ToString();
                 txtFindingQuantity.Text = findings.ElementAt(lsvFindings.FocusedItem.Index).QuantityOnHand.ToString();
-                try
+
+                if (findings.ElementAt(lsvFindings.FocusedItem.Index).Sla != null)
                 {
-                    if (findings.ElementAt(lsvFindings.FocusedItem.Index).SlaList.Count> 0) ;
-                    {
-                        UpdateSLAList();
-                    }
-                }
-                catch (NullReferenceException nre)
-                {
-                    System.Console.WriteLine(nre);
+                    DisplaySLA(findings.ElementAt(lsvFindings.FocusedItem.Index));
                 }
             }
         }
 
-        private void lstSLA_SelectedIndexChanged(object sender, EventArgs e)
+        private void DisplaySLA(Findings f)
         {
-            try
-            {
-                txtSLAAmount.Text = findings.ElementAt(lsvFindings.FocusedItem.Index).SlaList.ElementAt(lstSLA.SelectedIndex).Amount.ToString();
-                txtSLACost.Text = findings.ElementAt(lsvFindings.FocusedItem.Index).SlaList.ElementAt(lstSLA.SelectedIndex).Cost.ToString();
-                txtSLADescription.Text = findings.ElementAt(lsvFindings.FocusedItem.Index).SlaList.ElementAt(lstSLA.SelectedIndex).Description;
-                txtSLAID.Text = findings.ElementAt(lsvFindings.FocusedItem.Index).SlaList.ElementAt(lstSLA.SelectedIndex).Id.ToString();
-                dateSLA.Value = findings.ElementAt(lsvFindings.FocusedItem.Index).SlaList.ElementAt(lstSLA.SelectedIndex).DeliveryTime;
-            }
-            catch (Exception ex)
-            {
-                System.Console.WriteLine(ex);
-            }
+            txtSLAAmount.Text = f.Sla.Amount.ToString();
+            txtSLACost.Text = f.Sla.Cost.ToString();
+            txtSLADescription.Text = f.Sla.Description;
+            txtSLAID.Text = f.Sla.Id.ToString();
+          
         }
+       
 
         private void ToggleSLABox(){
             if (findings.Count > 0)

@@ -24,6 +24,18 @@ namespace DemoSalesSystem
         }
 
         #region getters and setters
+
+        //blank constructor for testing...
+        public CompanyContact(string in_firstName) 
+        {
+            firstName = in_firstName;
+        }
+
+        public CompanyContact()
+        {
+
+        }
+
         public Salutation Salutation
         {
             get { return salutation; }

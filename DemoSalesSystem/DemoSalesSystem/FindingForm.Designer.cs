@@ -45,17 +45,11 @@
             this.btnSaveSLA = new System.Windows.Forms.Button();
             this.btnUpdateSLA = new System.Windows.Forms.Button();
             this.btnDeleteSLA = new System.Windows.Forms.Button();
-            this.lstSuppliers = new System.Windows.Forms.ListBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.lstSLA = new System.Windows.Forms.ListBox();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.btnRemove = new System.Windows.Forms.Button();
             this.btnDeleteFinding = new System.Windows.Forms.Button();
             this.btnUpdateFinding = new System.Windows.Forms.Button();
             this.btnSaveFinding = new System.Windows.Forms.Button();
             this.gbxFindings = new System.Windows.Forms.GroupBox();
             this.lblFindings = new System.Windows.Forms.Label();
-            this.lblSupplierList = new System.Windows.Forms.Label();
             this.lsvFindings = new System.Windows.Forms.ListView();
             this.gbxSLA = new System.Windows.Forms.GroupBox();
             this.dateSLA = new System.Windows.Forms.DateTimePicker();
@@ -188,7 +182,7 @@
             // 
             // btnSaveSLA
             // 
-            this.btnSaveSLA.Location = new System.Drawing.Point(267, 169);
+            this.btnSaveSLA.Location = new System.Drawing.Point(37, 173);
             this.btnSaveSLA.Name = "btnSaveSLA";
             this.btnSaveSLA.Size = new System.Drawing.Size(75, 23);
             this.btnSaveSLA.TabIndex = 17;
@@ -199,7 +193,7 @@
             // btnUpdateSLA
             // 
             this.btnUpdateSLA.Enabled = false;
-            this.btnUpdateSLA.Location = new System.Drawing.Point(348, 169);
+            this.btnUpdateSLA.Location = new System.Drawing.Point(118, 173);
             this.btnUpdateSLA.Name = "btnUpdateSLA";
             this.btnUpdateSLA.Size = new System.Drawing.Size(75, 23);
             this.btnUpdateSLA.TabIndex = 18;
@@ -210,7 +204,7 @@
             // btnDeleteSLA
             // 
             this.btnDeleteSLA.Enabled = false;
-            this.btnDeleteSLA.Location = new System.Drawing.Point(430, 169);
+            this.btnDeleteSLA.Location = new System.Drawing.Point(200, 173);
             this.btnDeleteSLA.Name = "btnDeleteSLA";
             this.btnDeleteSLA.Size = new System.Drawing.Size(75, 23);
             this.btnDeleteSLA.TabIndex = 19;
@@ -218,57 +212,10 @@
             this.btnDeleteSLA.UseVisualStyleBackColor = true;
             this.btnDeleteSLA.Click += new System.EventHandler(this.btnDeleteSLA_Click);
             // 
-            // lstSuppliers
-            // 
-            this.lstSuppliers.FormattingEnabled = true;
-            this.lstSuppliers.Location = new System.Drawing.Point(409, 32);
-            this.lstSuppliers.Name = "lstSuppliers";
-            this.lstSuppliers.Size = new System.Drawing.Size(163, 199);
-            this.lstSuppliers.TabIndex = 20;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(11, 19);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(49, 13);
-            this.label8.TabIndex = 21;
-            this.label8.Text = "SLA IDs:";
-            // 
-            // lstSLA
-            // 
-            this.lstSLA.FormattingEnabled = true;
-            this.lstSLA.Location = new System.Drawing.Point(57, 19);
-            this.lstSLA.Name = "lstSLA";
-            this.lstSLA.Size = new System.Drawing.Size(121, 173);
-            this.lstSLA.TabIndex = 22;
-            this.lstSLA.SelectedIndexChanged += new System.EventHandler(this.lstSLA_SelectedIndexChanged);
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Location = new System.Drawing.Point(282, 59);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(60, 23);
-            this.btnAdd.TabIndex = 23;
-            this.btnAdd.Text = "Add";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // btnRemove
-            // 
-            this.btnRemove.Enabled = false;
-            this.btnRemove.Location = new System.Drawing.Point(348, 59);
-            this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(55, 23);
-            this.btnRemove.TabIndex = 24;
-            this.btnRemove.Text = "Remove";
-            this.btnRemove.UseVisualStyleBackColor = true;
-            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
-            // 
             // btnDeleteFinding
             // 
             this.btnDeleteFinding.Enabled = false;
-            this.btnDeleteFinding.Location = new System.Drawing.Point(784, 250);
+            this.btnDeleteFinding.Location = new System.Drawing.Point(598, 244);
             this.btnDeleteFinding.Name = "btnDeleteFinding";
             this.btnDeleteFinding.Size = new System.Drawing.Size(75, 23);
             this.btnDeleteFinding.TabIndex = 27;
@@ -279,7 +226,7 @@
             // btnUpdateFinding
             // 
             this.btnUpdateFinding.Enabled = false;
-            this.btnUpdateFinding.Location = new System.Drawing.Point(702, 250);
+            this.btnUpdateFinding.Location = new System.Drawing.Point(516, 244);
             this.btnUpdateFinding.Name = "btnUpdateFinding";
             this.btnUpdateFinding.Size = new System.Drawing.Size(75, 23);
             this.btnUpdateFinding.TabIndex = 26;
@@ -289,7 +236,7 @@
             // 
             // btnSaveFinding
             // 
-            this.btnSaveFinding.Location = new System.Drawing.Point(621, 250);
+            this.btnSaveFinding.Location = new System.Drawing.Point(435, 244);
             this.btnSaveFinding.Name = "btnSaveFinding";
             this.btnSaveFinding.Size = new System.Drawing.Size(75, 23);
             this.btnSaveFinding.TabIndex = 25;
@@ -300,7 +247,6 @@
             // gbxFindings
             // 
             this.gbxFindings.Controls.Add(this.lblFindings);
-            this.gbxFindings.Controls.Add(this.lblSupplierList);
             this.gbxFindings.Controls.Add(this.lsvFindings);
             this.gbxFindings.Controls.Add(this.btnDeleteFinding);
             this.gbxFindings.Controls.Add(this.lblID);
@@ -308,13 +254,10 @@
             this.gbxFindings.Controls.Add(this.lblName);
             this.gbxFindings.Controls.Add(this.btnSaveFinding);
             this.gbxFindings.Controls.Add(this.lblDescription);
-            this.gbxFindings.Controls.Add(this.btnRemove);
             this.gbxFindings.Controls.Add(this.lblPrice);
-            this.gbxFindings.Controls.Add(this.btnAdd);
             this.gbxFindings.Controls.Add(this.lblColor);
             this.gbxFindings.Controls.Add(this.lblQuantity);
             this.gbxFindings.Controls.Add(this.txtFindingID);
-            this.gbxFindings.Controls.Add(this.lstSuppliers);
             this.gbxFindings.Controls.Add(this.txtFindingName);
             this.gbxFindings.Controls.Add(this.txtFindingDescription);
             this.gbxFindings.Controls.Add(this.txtFindingPrice);
@@ -324,7 +267,7 @@
             this.gbxFindings.Controls.Add(this.lblSupplier);
             this.gbxFindings.Location = new System.Drawing.Point(12, 12);
             this.gbxFindings.Name = "gbxFindings";
-            this.gbxFindings.Size = new System.Drawing.Size(886, 296);
+            this.gbxFindings.Size = new System.Drawing.Size(701, 296);
             this.gbxFindings.TabIndex = 28;
             this.gbxFindings.TabStop = false;
             this.gbxFindings.Text = "Findings";
@@ -332,24 +275,15 @@
             // lblFindings
             // 
             this.lblFindings.AutoSize = true;
-            this.lblFindings.Location = new System.Drawing.Point(656, 16);
+            this.lblFindings.Location = new System.Drawing.Point(444, 11);
             this.lblFindings.Name = "lblFindings";
             this.lblFindings.Size = new System.Drawing.Size(49, 13);
             this.lblFindings.TabIndex = 30;
             this.lblFindings.Text = "Findings:";
             // 
-            // lblSupplierList
-            // 
-            this.lblSupplierList.AutoSize = true;
-            this.lblSupplierList.Location = new System.Drawing.Point(406, 16);
-            this.lblSupplierList.Name = "lblSupplierList";
-            this.lblSupplierList.Size = new System.Drawing.Size(53, 13);
-            this.lblSupplierList.TabIndex = 29;
-            this.lblSupplierList.Text = "Suppliers:";
-            // 
             // lsvFindings
             // 
-            this.lsvFindings.Location = new System.Drawing.Point(659, 32);
+            this.lsvFindings.Location = new System.Drawing.Point(447, 27);
             this.lsvFindings.Name = "lsvFindings";
             this.lsvFindings.Size = new System.Drawing.Size(226, 199);
             this.lsvFindings.TabIndex = 28;
@@ -368,43 +302,41 @@
             this.gbxSLA.Controls.Add(this.lblSLACost);
             this.gbxSLA.Controls.Add(this.lblSLAAmount);
             this.gbxSLA.Controls.Add(this.lblSLAID);
-            this.gbxSLA.Controls.Add(this.lstSLA);
-            this.gbxSLA.Controls.Add(this.label8);
             this.gbxSLA.Controls.Add(this.btnDeleteSLA);
             this.gbxSLA.Controls.Add(this.btnUpdateSLA);
             this.gbxSLA.Controls.Add(this.btnSaveSLA);
             this.gbxSLA.Enabled = false;
             this.gbxSLA.Location = new System.Drawing.Point(12, 323);
             this.gbxSLA.Name = "gbxSLA";
-            this.gbxSLA.Size = new System.Drawing.Size(592, 231);
+            this.gbxSLA.Size = new System.Drawing.Size(403, 231);
             this.gbxSLA.TabIndex = 29;
             this.gbxSLA.TabStop = false;
             this.gbxSLA.Text = "SLA";
             // 
             // dateSLA
             // 
-            this.dateSLA.Location = new System.Drawing.Point(335, 127);
+            this.dateSLA.Location = new System.Drawing.Point(105, 131);
             this.dateSLA.Name = "dateSLA";
             this.dateSLA.Size = new System.Drawing.Size(200, 20);
             this.dateSLA.TabIndex = 33;
             // 
             // txtSLADescription
             // 
-            this.txtSLADescription.Location = new System.Drawing.Point(335, 96);
+            this.txtSLADescription.Location = new System.Drawing.Point(105, 100);
             this.txtSLADescription.Name = "txtSLADescription";
             this.txtSLADescription.Size = new System.Drawing.Size(237, 20);
             this.txtSLADescription.TabIndex = 32;
             // 
             // txtSLACost
             // 
-            this.txtSLACost.Location = new System.Drawing.Point(335, 70);
+            this.txtSLACost.Location = new System.Drawing.Point(105, 74);
             this.txtSLACost.Name = "txtSLACost";
             this.txtSLACost.Size = new System.Drawing.Size(92, 20);
             this.txtSLACost.TabIndex = 31;
             // 
             // txtSLAAmount
             // 
-            this.txtSLAAmount.Location = new System.Drawing.Point(335, 43);
+            this.txtSLAAmount.Location = new System.Drawing.Point(105, 47);
             this.txtSLAAmount.Name = "txtSLAAmount";
             this.txtSLAAmount.Size = new System.Drawing.Size(92, 20);
             this.txtSLAAmount.TabIndex = 30;
@@ -412,7 +344,7 @@
             // txtSLAID
             // 
             this.txtSLAID.Enabled = false;
-            this.txtSLAID.Location = new System.Drawing.Point(335, 20);
+            this.txtSLAID.Location = new System.Drawing.Point(105, 24);
             this.txtSLAID.Name = "txtSLAID";
             this.txtSLAID.Size = new System.Drawing.Size(58, 20);
             this.txtSLAID.TabIndex = 29;
@@ -420,7 +352,7 @@
             // lblDelivery
             // 
             this.lblDelivery.AutoSize = true;
-            this.lblDelivery.Location = new System.Drawing.Point(245, 133);
+            this.lblDelivery.Location = new System.Drawing.Point(15, 137);
             this.lblDelivery.Name = "lblDelivery";
             this.lblDelivery.Size = new System.Drawing.Size(74, 13);
             this.lblDelivery.TabIndex = 28;
@@ -429,7 +361,7 @@
             // lblSLADescription
             // 
             this.lblSLADescription.AutoSize = true;
-            this.lblSLADescription.Location = new System.Drawing.Point(256, 99);
+            this.lblSLADescription.Location = new System.Drawing.Point(26, 103);
             this.lblSLADescription.Name = "lblSLADescription";
             this.lblSLADescription.Size = new System.Drawing.Size(63, 13);
             this.lblSLADescription.TabIndex = 26;
@@ -438,7 +370,7 @@
             // lblSLACost
             // 
             this.lblSLACost.AutoSize = true;
-            this.lblSLACost.Location = new System.Drawing.Point(288, 73);
+            this.lblSLACost.Location = new System.Drawing.Point(58, 77);
             this.lblSLACost.Name = "lblSLACost";
             this.lblSLACost.Size = new System.Drawing.Size(31, 13);
             this.lblSLACost.TabIndex = 25;
@@ -447,7 +379,7 @@
             // lblSLAAmount
             // 
             this.lblSLAAmount.AutoSize = true;
-            this.lblSLAAmount.Location = new System.Drawing.Point(273, 46);
+            this.lblSLAAmount.Location = new System.Drawing.Point(43, 50);
             this.lblSLAAmount.Name = "lblSLAAmount";
             this.lblSLAAmount.Size = new System.Drawing.Size(46, 13);
             this.lblSLAAmount.TabIndex = 24;
@@ -456,7 +388,7 @@
             // lblSLAID
             // 
             this.lblSLAID.AutoSize = true;
-            this.lblSLAID.Location = new System.Drawing.Point(298, 23);
+            this.lblSLAID.Location = new System.Drawing.Point(68, 27);
             this.lblSLAID.Name = "lblSLAID";
             this.lblSLAID.Size = new System.Drawing.Size(21, 13);
             this.lblSLAID.TabIndex = 23;
@@ -498,11 +430,6 @@
         private System.Windows.Forms.Button btnSaveSLA;
         private System.Windows.Forms.Button btnUpdateSLA;
         private System.Windows.Forms.Button btnDeleteSLA;
-        private System.Windows.Forms.ListBox lstSuppliers;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ListBox lstSLA;
-        private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Button btnRemove;
         private System.Windows.Forms.Button btnDeleteFinding;
         private System.Windows.Forms.Button btnUpdateFinding;
         private System.Windows.Forms.Button btnSaveFinding;
@@ -520,6 +447,5 @@
         private System.Windows.Forms.Label lblSLACost;
         private System.Windows.Forms.ListView lsvFindings;
         private System.Windows.Forms.Label lblFindings;
-        private System.Windows.Forms.Label lblSupplierList;
     }
 }

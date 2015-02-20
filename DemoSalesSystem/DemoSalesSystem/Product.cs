@@ -28,7 +28,7 @@ namespace DemoSalesSystem
 
         public Product()
         {
-
+            bom = new BOM();
         }
 
         public Product(int id, string name, string size, string color)

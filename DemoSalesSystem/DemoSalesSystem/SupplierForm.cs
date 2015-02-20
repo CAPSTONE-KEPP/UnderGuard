@@ -23,6 +23,10 @@ namespace DemoSalesSystem
             //binds enums to comboboxes
             cmbProvince.DataSource = Enum.GetValues(typeof(Provinces));
             cmbStatus.DataSource = Enum.GetValues(typeof(Status));
+            cboStanding.Items.Add("Good");
+            cboStanding.Items.Add("Negative");
+            cboStanding.SelectedIndex = 0;
+            cboStanding.DropDownStyle = ComboBoxStyle.DropDownList;
 
             UpdateListBox();
         }
@@ -40,32 +44,63 @@ namespace DemoSalesSystem
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            Supplier temp = new Supplier();
-            temp.Id = supplierList.Count();
-            temp.Name = txtName.Text;
-            temp.Standings = bool.Parse(txtStandings.Text);
-            temp.Address = txtAddress.Text;
-            temp.City = txtCity.Text;
+            try
+            {
+                Supplier temp = new Supplier();
+                temp.Id = supplierList.Count();
+                temp.Name = txtName.Text;
+                temp.Standings = ParseStanding();
+                temp.Address = txtAddress.Text;
+                temp.City = txtCity.Text;
 
-            //get the combo box selection
-            Provinces province;
-            Enum.TryParse<Provinces>(cmbProvince.SelectedValue.ToString(), out province);
-            temp.Province = province;
+                //get the combo box selection
+                Provinces province;
+                Enum.TryParse<Provinces>(cmbProvince.SelectedValue.ToString(), out province);
+                temp.Province = province;
 
-            temp.PostalCode = txtPostalCode.Text;
-            Status status;
-            Enum.TryParse<Status>(cmbStatus.SelectedValue.ToString(), out status);
-            temp.Status = status;
-            temp.Phone = txtPhone.Text;
-            temp.AlternatePhone = txtAlternatePhone.Text;
-            temp.Fax = txtFax.Text;
-            temp.EMail = txtEmail.Text;
-            temp.CreationDate = DateTime.Now;
-            temp.notes = txtNote.Text;
-            supplierList.Add(temp);
+                temp.PostalCode = txtPostalCode.Text;
+                Status status;
+                Enum.TryParse<Status>(cmbStatus.SelectedValue.ToString(), out status);
+                temp.Status = status;
+                temp.Phone = txtPhone.Text;
+                temp.AlternatePhone = txtAlternatePhone.Text;
+                temp.Fax = txtFax.Text;
+                temp.EMail = txtEmail.Text;
+                temp.CreationDate = DateTime.Now;
+                temp.notes = txtNote.Text;
+                supplierList.Add(temp);
 
-            UpdateListBox();
-            index = -1;
+                UpdateListBox();
+                index = -1;
+            }
+            catch (Exception ex)
+            {
+                System.Console.WriteLine(ex);
+            }
+        }
+
+        private bool ParseStanding() 
+        {
+            if (cboStanding.SelectedIndex == 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        private string ReverseParseStanding(Supplier s)
+        {
+            if (s.Standings==true)
+            {
+                return "Good";
+            }
+            else
+            {
+                return "Negative";
+            }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -80,28 +115,35 @@ namespace DemoSalesSystem
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if (index > -1)
+            try
             {
-                supplierList.ElementAt(index).Name = txtName.Text;
-                supplierList.ElementAt(index).Standings = bool.Parse(txtStandings.Text);
-                supplierList.ElementAt(index).Address = txtAddress.Text;
-                supplierList.ElementAt(index).City = txtCity.Text;
+                if (index > -1)
+                {
+                    supplierList.ElementAt(index).Name = txtName.Text;
+                    supplierList.ElementAt(index).Standings = ParseStanding();
+                    supplierList.ElementAt(index).Address = txtAddress.Text;
+                    supplierList.ElementAt(index).City = txtCity.Text;
 
-                //get the combo box selection
-                Provinces province;
-                Enum.TryParse<Provinces>(cmbProvince.SelectedValue.ToString(), out province);
-                supplierList.ElementAt(index).Province = province;
+                    //get the combo box selection
+                    Provinces province;
+                    Enum.TryParse<Provinces>(cmbProvince.SelectedValue.ToString(), out province);
+                    supplierList.ElementAt(index).Province = province;
 
-                supplierList.ElementAt(index).PostalCode = txtPostalCode.Text;
-                Status status;
-                Enum.TryParse<Status>(cmbStatus.SelectedValue.ToString(), out status);
-                supplierList.ElementAt(index).Status = status;
-                supplierList.ElementAt(index).Phone = txtPhone.Text;
-                supplierList.ElementAt(index).AlternatePhone = txtAlternatePhone.Text;
-                supplierList.ElementAt(index).Fax = txtFax.Text;
-                supplierList.ElementAt(index).EMail = txtEmail.Text;
-                supplierList.ElementAt(index).notes = txtNote.Text;
-                UpdateListBox();
+                    supplierList.ElementAt(index).PostalCode = txtPostalCode.Text;
+                    Status status;
+                    Enum.TryParse<Status>(cmbStatus.SelectedValue.ToString(), out status);
+                    supplierList.ElementAt(index).Status = status;
+                    supplierList.ElementAt(index).Phone = txtPhone.Text;
+                    supplierList.ElementAt(index).AlternatePhone = txtAlternatePhone.Text;
+                    supplierList.ElementAt(index).Fax = txtFax.Text;
+                    supplierList.ElementAt(index).EMail = txtEmail.Text;
+                    supplierList.ElementAt(index).notes = txtNote.Text;
+                    UpdateListBox();
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Console.WriteLine(ex);
             }
         }
 
@@ -134,22 +176,29 @@ namespace DemoSalesSystem
         /// </summary>
         private void DisplayInformation()
         {
-            if (index > -1)
+            try
             {
-                txtName.Text = supplierList.ElementAt(index).Name; ;
-                txtStandings.Text = supplierList.ElementAt(index).Standings.ToString();
-                txtID.Text = supplierList.ElementAt(index).Id.ToString();
-                txtAddress.Text = supplierList.ElementAt(index).Address;
-                txtCity.Text = supplierList.ElementAt(index).City;
-                cmbProvince.SelectedItem = supplierList.ElementAt(index).Province;
-                txtPostalCode.Text = supplierList.ElementAt(index).PostalCode;
-                cmbStatus.SelectedItem = supplierList.ElementAt(index).Status.ToString();
-                txtPhone.Text = supplierList.ElementAt(index).Phone;
-                txtAlternatePhone.Text = supplierList.ElementAt(index).AlternatePhone;
-                txtFax.Text = supplierList.ElementAt(index).Fax;
-                txtEmail.Text = supplierList.ElementAt(index).EMail;
-                txtCreationDate.Text = supplierList.ElementAt(index).CreationDate.ToString("MM/dd/yyyy h:mm tt");
-                txtNote.Text = supplierList.ElementAt(index).notes;
+                if (index > -1)
+                {
+                    txtName.Text = supplierList.ElementAt(index).Name; ;
+                    cboStanding.Text = ReverseParseStanding(supplierList.ElementAt(index));
+                    txtID.Text = supplierList.ElementAt(index).Id.ToString();
+                    txtAddress.Text = supplierList.ElementAt(index).Address;
+                    txtCity.Text = supplierList.ElementAt(index).City;
+                    cmbProvince.SelectedItem = supplierList.ElementAt(index).Province;
+                    txtPostalCode.Text = supplierList.ElementAt(index).PostalCode;
+                    cmbStatus.SelectedItem = supplierList.ElementAt(index).Status.ToString();
+                    txtPhone.Text = supplierList.ElementAt(index).Phone;
+                    txtAlternatePhone.Text = supplierList.ElementAt(index).AlternatePhone;
+                    txtFax.Text = supplierList.ElementAt(index).Fax;
+                    txtEmail.Text = supplierList.ElementAt(index).EMail;
+                    txtCreationDate.Text = supplierList.ElementAt(index).CreationDate.ToString("MM/dd/yyyy h:mm tt");
+                    txtNote.Text = supplierList.ElementAt(index).notes;
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Console.WriteLine(ex);
             }
         }
 
