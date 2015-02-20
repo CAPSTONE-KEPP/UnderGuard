@@ -12,6 +12,12 @@ namespace DemoSalesSystem
         private string description;
         private double price;
         private SLA sla;
+
+        public SLA Sla
+        {
+            get { return sla; }
+            set { sla = value; }
+        }
         private List<SLA> slaList;
 
         public List<SLA> SlaList
@@ -20,6 +26,12 @@ namespace DemoSalesSystem
             set { slaList = value; }
         }
         private Supplier supplier;
+
+        public Supplier Supplier
+        {
+            get { return supplier; }
+            set { supplier = value; }
+        }
         private List<Supplier> supplierList;
 
         public List<Supplier> SupplierList
