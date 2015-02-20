@@ -11,6 +11,17 @@ namespace DemoSalesSystem
         private int quantity;
         private Order order;
 
+        public OrderDetails()
+        {
+
+        }
+
+        public OrderDetails(Product p, int quantity)
+        {
+            this.product = p;
+            this.quantity = quantity;
+        }
+
         public Product Product
         {
             get { return product; }

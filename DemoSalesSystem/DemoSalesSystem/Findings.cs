@@ -12,9 +12,29 @@ namespace DemoSalesSystem
         private string description;
         private double price;
         private SLA sla;
+        private List<SLA> slaList;
+
+        public List<SLA> SlaList
+        {
+            get { return slaList; }
+            set { slaList = value; }
+        }
         private Supplier supplier;
+        private List<Supplier> supplierList;
+
+        public List<Supplier> SupplierList
+        {
+            get { return supplierList; }
+            set { supplierList = value; }
+        }
         private string color;
         private int quantityOnHand;
+
+        public Findings(int id, string name)
+        {
+            this.id = id;
+            this.name = name;
+        }
 
         public Findings() 
         {
@@ -57,18 +77,6 @@ namespace DemoSalesSystem
         {
             get { return price; }
             set { price = value; }
-        }
-
-        public SLA Sla
-        {
-            get { return sla; }
-            set { sla = value; }
-        }
-
-        public Supplier Supplier
-        {
-            get { return supplier; }
-            set { supplier = value; }
         }
 
         public string Color

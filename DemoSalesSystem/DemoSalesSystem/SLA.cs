@@ -12,6 +12,19 @@ namespace DemoSalesSystem
         private int id;
         private string description;
         private double cost;
+        private int findingID;
+
+        public int FindingID
+        {
+            get { return findingID; }
+            set { findingID = value; }
+        }
+
+        public SLA(int id, int findingID)
+        {
+            this.id = id;
+            this.findingID = findingID;
+        }
 
         public SLA()
         {
