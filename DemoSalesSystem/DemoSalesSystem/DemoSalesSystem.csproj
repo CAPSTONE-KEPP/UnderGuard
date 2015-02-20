@@ -55,15 +55,39 @@
       <DependentUpon>BOMForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Catalog.cs" />
+    <Compile Include="CatalogForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CatalogForm.Designer.cs">
+      <DependentUpon>CatalogForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Company.cs" />
     <Compile Include="CompanyContact.cs" />
+    <Compile Include="CompanyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CompanyForm.Designer.cs">
+      <DependentUpon>CompanyForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Contact.cs" />
+    <Compile Include="FindingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FindingForm.Designer.cs">
+      <DependentUpon>FindingForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Findings.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InventoryProductForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InventoryProductForm.Designer.cs">
+      <DependentUpon>InventoryProductForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -73,6 +97,12 @@
     </Compile>
     <Compile Include="Order.cs" />
     <Compile Include="OrderDetails.cs" />
+    <Compile Include="OrderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrderForm.Designer.cs">
+      <DependentUpon>OrderForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="OrderStatus.cs" />
     <Compile Include="ProductForm.cs">
       <SubType>Form</SubType>
@@ -97,11 +127,26 @@
     <Compile Include="SupplierForm.Designer.cs">
       <DependentUpon>SupplierForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="CatalogForm.resx">
+      <DependentUpon>CatalogForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CompanyForm.resx">
+      <DependentUpon>CompanyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FindingForm.resx">
+      <DependentUpon>FindingForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="InventoryProductForm.resx">
+      <DependentUpon>InventoryProductForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrderForm.resx">
+      <DependentUpon>OrderForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProductForm.resx">
       <DependentUpon>ProductForm.cs</DependentUpon>

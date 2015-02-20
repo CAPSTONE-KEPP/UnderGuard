@@ -12,8 +12,22 @@ namespace DemoSalesSystem
         private Company company;
         private OrderStatus orderStatus;
         private CompanyContact companyContact;
+        private List<OrderDetails> orderDetailsList;
+
+        public List<OrderDetails> OrderDetailsList
+        {
+            get { return orderDetailsList; }
+            set { orderDetailsList = value; }
+        }
         private string note;
         private string type;
+        private int id;
+
+        public int Id
+        {
+            get { return id; }
+            set { id = value; }
+        }
         #endregion
         #region getters and setters
         public DateTime OrderDate
@@ -49,6 +63,20 @@ namespace DemoSalesSystem
         }
 
         #endregion
+
+        public Order()
+        {
+
+        }
+
+        public Order(Company c, CompanyContact cc, string type, int id)
+        {
+            this.company = c;
+            this.companyContact = cc;
+            this.type = type;
+            this.id = id;
+            orderDetailsList = new List<OrderDetails>();
+        }
 
         public Product Product
         {

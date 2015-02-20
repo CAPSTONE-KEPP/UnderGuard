@@ -10,9 +10,23 @@ namespace DemoSalesSystem
         private string name;
         private string missionStatement;
         private string slogan;
+        private List<CompanyContact> companyContact;
         public Company(int id, string name) { //constructor
+            companyContact = new List<CompanyContact>();
+            this.Id = (short)id;
+            this.name = name;
         
-        
+        }
+
+        public Company() 
+        {
+
+        }
+
+        //blank constructor for demo...
+        public Company(string in_name) 
+        {
+            name = in_name;
         }
 
         public string Name
@@ -33,14 +47,15 @@ namespace DemoSalesSystem
             set { slogan = value; }
         }
 
-        public CompanyContact CompanyContact
+        public List<CompanyContact> CompanyContact
         {
             get
             {
-                throw new System.NotImplementedException();
+                return companyContact;
             }
             set
             {
+                companyContact = value;
             }
         }
     }

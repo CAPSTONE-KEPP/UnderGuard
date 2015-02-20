@@ -34,7 +34,6 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            this.txtStandings = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -63,6 +62,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.cboStanding = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -133,13 +133,6 @@
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // txtStandings
-            // 
-            this.txtStandings.Location = new System.Drawing.Point(425, 94);
-            this.txtStandings.Name = "txtStandings";
-            this.txtStandings.Size = new System.Drawing.Size(581, 20);
-            this.txtStandings.TabIndex = 44;
             // 
             // label14
             // 
@@ -424,18 +417,26 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Address";
             // 
+            // cboStanding
+            // 
+            this.cboStanding.FormattingEnabled = true;
+            this.cboStanding.Location = new System.Drawing.Point(425, 92);
+            this.cboStanding.Name = "cboStanding";
+            this.cboStanding.Size = new System.Drawing.Size(121, 21);
+            this.cboStanding.TabIndex = 54;
+            // 
             // SupplierForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1217, 582);
+            this.Controls.Add(this.cboStanding);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.lstSuppliers);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.txtStandings);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.label1);
@@ -457,7 +458,6 @@
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.TextBox txtStandings;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label1;
@@ -486,5 +486,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtAddress;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox cboStanding;
     }
 }

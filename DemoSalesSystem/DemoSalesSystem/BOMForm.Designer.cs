@@ -37,6 +37,8 @@
             this.nudHours = new System.Windows.Forms.NumericUpDown();
             this.btnAddFinding = new System.Windows.Forms.Button();
             this.btnAddBOM = new System.Windows.Forms.Button();
+            this.btnDeleteBOM = new System.Windows.Forms.Button();
+            this.btnRemoveFinding = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nudQuantity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudHours)).BeginInit();
             this.SuspendLayout();
@@ -48,6 +50,7 @@
             this.lbxFindings.Name = "lbxFindings";
             this.lbxFindings.Size = new System.Drawing.Size(120, 277);
             this.lbxFindings.TabIndex = 0;
+            this.lbxFindings.SelectedIndexChanged += new System.EventHandler(this.lbxFindings_SelectedIndexChanged);
             // 
             // lblFindings
             // 
@@ -117,17 +120,39 @@
             // 
             this.btnAddBOM.Location = new System.Drawing.Point(140, 169);
             this.btnAddBOM.Name = "btnAddBOM";
-            this.btnAddBOM.Size = new System.Drawing.Size(75, 23);
+            this.btnAddBOM.Size = new System.Drawing.Size(93, 38);
             this.btnAddBOM.TabIndex = 11;
-            this.btnAddBOM.Text = "Add BOM";
+            this.btnAddBOM.Text = "Add or update BOM";
             this.btnAddBOM.UseVisualStyleBackColor = true;
             this.btnAddBOM.Click += new System.EventHandler(this.btnAddBOM_Click);
+            // 
+            // btnDeleteBOM
+            // 
+            this.btnDeleteBOM.Location = new System.Drawing.Point(239, 169);
+            this.btnDeleteBOM.Name = "btnDeleteBOM";
+            this.btnDeleteBOM.Size = new System.Drawing.Size(90, 38);
+            this.btnDeleteBOM.TabIndex = 12;
+            this.btnDeleteBOM.Text = "Delete BOM";
+            this.btnDeleteBOM.UseVisualStyleBackColor = true;
+            this.btnDeleteBOM.Click += new System.EventHandler(this.btnDeleteBOM_Click);
+            // 
+            // btnRemoveFinding
+            // 
+            this.btnRemoveFinding.Location = new System.Drawing.Point(221, 78);
+            this.btnRemoveFinding.Name = "btnRemoveFinding";
+            this.btnRemoveFinding.Size = new System.Drawing.Size(96, 23);
+            this.btnRemoveFinding.TabIndex = 13;
+            this.btnRemoveFinding.Text = "Remove Finding";
+            this.btnRemoveFinding.UseVisualStyleBackColor = true;
+            this.btnRemoveFinding.Click += new System.EventHandler(this.btnRemoveFinding_Click);
             // 
             // BOMForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(529, 302);
+            this.Controls.Add(this.btnRemoveFinding);
+            this.Controls.Add(this.btnDeleteBOM);
             this.Controls.Add(this.btnAddBOM);
             this.Controls.Add(this.btnAddFinding);
             this.Controls.Add(this.nudHours);
@@ -157,5 +182,7 @@
         private System.Windows.Forms.NumericUpDown nudHours;
         private System.Windows.Forms.Button btnAddFinding;
         private System.Windows.Forms.Button btnAddBOM;
+        private System.Windows.Forms.Button btnDeleteBOM;
+        private System.Windows.Forms.Button btnRemoveFinding;
     }
 }

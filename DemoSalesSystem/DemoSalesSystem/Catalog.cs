@@ -16,6 +16,12 @@ namespace DemoSalesSystem
         private string description;
         private bool status;
 
+        public Catalog(int id, string name)
+        {
+            this.id = id;
+            this.name = name;
+        }
+
         public int Id
         {
             get { return id; }

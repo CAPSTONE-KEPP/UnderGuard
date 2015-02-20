@@ -17,7 +17,15 @@ namespace DemoSalesSystem
         ProductForm productForm;
         private Form childForm;
         private List<Supplier> suppliers = new List<Supplier>();
-
+        CatalogForm cf;
+        OrderForm of;
+        CompanyForm cof;
+        FindingForm ff;
+        InventoryProductForm ipf;
+        List<Company> companyList;
+        List<Order> orderList;
+        Findings currentFinding;
+        Order currentMOOrder;
 
         public MainForm()
         {
@@ -26,6 +34,56 @@ namespace DemoSalesSystem
             txtMFId.Text = (lstMFindings.Items.Count + 1).ToString();
 
             productForm = new ProductForm(this);
+            cf = new CatalogForm();
+            cf.MdiParent = this;
+            cf.Visible = false;
+            cf.WindowState = FormWindowState.Maximized;
+            of = new OrderForm();
+            of.MdiParent = this;
+            of.Visible = false;
+            of.WindowState = FormWindowState.Maximized;
+            cof = new CompanyForm();
+            cof.MdiParent = this;
+            cof.Visible = false;
+            cof.WindowState = FormWindowState.Maximized;
+            ff = new FindingForm();
+            ff.MdiParent = this;
+            ff.Visible = false;
+            ff.WindowState = FormWindowState.Maximized;
+            ipf = new InventoryProductForm();
+            ipf.MdiParent = this;
+            ipf.Visible = false;
+            ipf.WindowState = FormWindowState.Maximized;
+
+        }
+
+
+
+        private void catalogToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Point l = this.Location;
+            this.Bounds = cf.Bounds;
+            this.Location = l;
+            showForm(cf);
+        }
+
+        private void orderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Point l = this.Location;
+            this.Bounds = of.Bounds;
+            this.Location = l;
+            of.Companies = cof.CompanyList;
+            of.UpdateCompanyList();
+            showForm(of);
+        }
+
+        private void showForm(Form f)
+        {
+            cf.Visible = false;
+            of.Visible = false;
+            cof.Visible = false;
+            ff.Visible = false;
+            f.Visible = true;
         }
 
         private void productsToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -34,17 +92,10 @@ namespace DemoSalesSystem
             productForm.WindowState = FormWindowState.Maximized;
             productForm.Show();
             MakeFakeData();
-
-            //childForm = new frmCompany();
-            //childForm.MdiParent = this;
-            //childForm.Show();
-            //childForm.WindowState = FormWindowState.Maximized;
-
             childForm = new frmCompany();
             childForm.MdiParent = this;
             childForm.Show();
             childForm.WindowState = FormWindowState.Maximized;
-
         }
 
         private void suppliersToolStripMenuItem_Click(object sender, EventArgs e)
@@ -91,6 +142,38 @@ namespace DemoSalesSystem
 
         private void btnMFSave_Click(object sender, EventArgs e)
         {
+
+        }
+
+        public void MFClear()
+        {
+            txtMFName.Text = "";
+            txtMFSupplier.Text = "";
+            txtMFColor.Text = "";
+            txtMFQuantityOnHand.Text = "";
+            txtMFPrice.Text = "";
+            txtMFDescription.Text = "";
+            txtMFSLA.Text = "";
+        }
+
+        public void MOClear()
+        {
+            cmbMOCompany.Text = "";
+            cmbMOCompanyContact.Text = "";
+            cmbMOOrderStatus.Text = "";
+            txtMOType.Text = "";
+            txtMONotes.Text = "";
+            dtpMODate.Text = "";
+        }
+
+        private void btnMFDelete_Click(object sender, EventArgs e)
+        {
+            //when Manu Findings delete is clicked, delete selected object from lst.
+        }
+
+        private void btnMFUpdate_Click(object sender, EventArgs e)
+        {
+            //when Manu Findings update is clicked, update selected object from lst.
             //boolean used to check if fields are valid...
             bool goodMFSave = true;
 
@@ -129,52 +212,43 @@ namespace DemoSalesSystem
 
             if (goodMFSave == true)
             {
-                //Valid fields for save.
-                txtMFId.Text = (lstMFindings.Items.Count + 1).ToString();
-                MFClear();
+                //Valid fields for update.
+                if (lstMFindings.SelectedItem != null)
+                {
+                    currentFinding = UpdateFindings();
+                    lstMFindings.SelectedItem = currentFinding;
+            }
+
+
             }
             else
             {
                 MessageBox.Show("Please enter valid fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
             goodMFSave = true;
-        }
 
-        public void MFClear()
-        {
-            txtMFName.Text = "";
-            txtMFSupplier.Text = "";
-            txtMFColor.Text = "";
-            txtMFQuantityOnHand.Text = "";
-            txtMFPrice.Text = "";
-            txtMFDescription.Text = "";
-            txtMFSLA.Text = "";
-        }
-
-        public void MOClear()
-        {
-            cmbMOCompany.Text = "";
-            cmbMOCompanyContact.Text = "";
-            cmbMOOrderStatus.Text = "";
-            txtMOType.Text = "";
-            txtMONotes.Text = "";
-            dtpMODate.Text = "";
-        }
-
-        private void btnMFDelete_Click(object sender, EventArgs e)
-        {
-            //when Manu Findings delete is clicked, delete selected object from lst.
-        }
-
-        private void btnMFUpdate_Click(object sender, EventArgs e)
-        {
-            //when Manu Findings update is clicked, update selected object from lst. 
         }
 
         private void findingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             pnlMFindings.Visible = true;
             pnlMOrder.Visible = false;
+        }
+
+        private void findingsToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Point l = this.Location;
+            this.Bounds = ff.Bounds;
+            this.Location = l;
+            showForm(ff);
+        }
+
+        private void productsToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            Point l = this.Location;
+            this.Bounds = ipf.Bounds;
+            this.Location = l;
+            showForm(ipf);
         }
 
         private void ordersToolStripMenuItem_Click(object sender, EventArgs e)
@@ -190,6 +264,17 @@ namespace DemoSalesSystem
 
         private void btnMOSave_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void btnMODelete_Click(object sender, EventArgs e)
+        {
+            //btn Manu Order Delete is clicked, delete Manu Order Obj from lst...
+        }
+
+        private void btnMOUpdate_Click(object sender, EventArgs e)
+        {
+            //btn Manu Order Update is clicked, update Manu Order Obj from lst...
             bool goodMOSave = true;
             if (cmbMOCompany.Text.Length >= 24 || cmbMOCompany.Text.Length < 1)
             {
@@ -214,7 +299,12 @@ namespace DemoSalesSystem
             if (goodMOSave == true)
             {
                 //valid MO save...
-                //lstMOOrders.Items.Add("");
+                //Valid fields for update.
+                if (lstMOOrders.SelectedItem != null)
+                {
+                    currentMOOrder = UpdateMOOrder();
+                    lstMOOrders.SelectedItem = currentMOOrder;
+                }
             }
             else
             {
@@ -222,16 +312,42 @@ namespace DemoSalesSystem
             }
 
             goodMOSave = true;
+
         }
 
-        private void btnMODelete_Click(object sender, EventArgs e)
+        private Order UpdateMOOrder()
         {
-            //btn Manu Order Delete is clicked, delete Manu Order Obj from lst...
+            Order tempOrders = new Order();
+            Company testCompany = new Company();
+            OrderDetails testOrderDetails = new OrderDetails();
+            CompanyContact testCompanyContact = new CompanyContact();
+
+            tempOrders.Company = testCompany;
+            tempOrders.CompanyContact = testCompanyContact;
+            tempOrders.Note = txtMONotes.Text;
+            tempOrders.OrderDate = DateTime.Parse(dtpMODate.Text);
+            tempOrders.OrderDetails = testOrderDetails;
+            tempOrders.OrderStatus = OrderStatus.NotAvailable;
+            tempOrders.Type = txtMOType.Text;
+            return tempOrders;
         }
 
-        private void btnMOUpdate_Click(object sender, EventArgs e)
+        private void suppliersToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            //btn Manu Order Update is clicked, update Manu Order Obj from lst...
+
+            //childForm.Close();
+            childForm = new SupplierForm(suppliers);
+            childForm.MdiParent = this;
+            childForm.Show();
+            childForm.WindowState = FormWindowState.Maximized;
+        }
+
+        private void companyToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            Point l = this.Location;
+            this.Bounds = cof.Bounds;
+            this.Location = l;
+            showForm(cof);
         }
 
 

@@ -18,6 +18,32 @@ namespace DemoSalesSystem
         private DateTime dateEntered;
         private Status status;
         private BOM bom;
+        private int quantityOnHand;
+
+        public int QuantityOnHand
+        {
+            get { return quantityOnHand; }
+            set { quantityOnHand = value; }
+        }
+
+        public Product()
+        {
+            bom = new BOM();
+        }
+
+        public Product(int id, string name, string size, string color)
+        {
+            this.productID = id;
+            this.name = name;
+            this.size = size;
+            this.color = color;
+        }
+
+        public Product(int id, string name)
+        {
+            this.productID = id;
+            this.name = name;
+        }
 
         public int ProductID
         {
