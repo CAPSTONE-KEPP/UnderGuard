@@ -59,30 +59,9 @@ namespace DemoSalesSystem
             childForm = new SupplierForm(suppliers);
             childForm.Visible = false;
             childForm.WindowState = FormWindowState.Maximized;
-            
-
 
         }
 
-
-
-        //private void catalogToolStripMenuItem_Click(object sender, EventArgs e)
-        //{
-        //    Point l = this.Location;
-        //    this.Bounds = cf.Bounds;
-        //    this.Location = l;
-        //    showForm(cf);
-        //}
-
-        //private void orderToolStripMenuItem_Click(object sender, EventArgs e)
-        //{
-        //    Point l = this.Location;
-        //    this.Bounds = of.Bounds;
-        //    this.Location = l;
-        //    of.Companies = cof.CompanyList;
-        //    of.UpdateCompanyList();
-        //    showForm(of);
-        //}
 
         private void showForm(Form f)
         {
@@ -268,7 +247,7 @@ namespace DemoSalesSystem
                 cf.Visible = false;
                 of.Visible = false;
                 ipf.Visible = false;
-                    childForm.Visible = false;
+                childForm.Visible = false;
                 productForm.Visible = false;
             }
             catch (Exception ex)
