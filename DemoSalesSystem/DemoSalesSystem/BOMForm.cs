@@ -18,6 +18,10 @@ namespace DemoSalesSystem
         Findings currentFinding = null;
         Product product;
 
+        /// <summary>
+        /// Bom constructor
+        /// </summary>
+        /// <param name="currentProduct"></param>
         public BOMForm(Product currentProduct)
         {
             InitializeComponent();
@@ -34,6 +38,11 @@ namespace DemoSalesSystem
             }
         }
 
+        /// <summary>
+        /// Adds a finding to the list of findings int the BOM
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAddFinding_Click(object sender, EventArgs e)
         {
             quantity.Add(Convert.ToInt32(nudQuantity.Value));
@@ -42,6 +51,12 @@ namespace DemoSalesSystem
             lbxFindings.Items.Add(currentFinding.Name);
         }
 
+
+        /// <summary>
+        /// Adds the BOM to the current product
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAddBOM_Click(object sender, EventArgs e)
         {
             product.BOM.ProductID = product.ProductID;
@@ -51,6 +66,11 @@ namespace DemoSalesSystem
             this.Close();
         }
 
+        /// <summary>
+        /// Updates the fields when a finding is selected
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void lbxFindings_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -64,6 +84,9 @@ namespace DemoSalesSystem
             }
         }
 
+        /// <summary>
+        /// Refreshes the list of findings
+        /// </summary>
         private void RefreshBomInfo()
         {
             lbxFindings.Items.Clear();
@@ -75,6 +98,11 @@ namespace DemoSalesSystem
             findings = new List<Findings>(product.BOM.Findings);
         }
 
+        /// <summary>
+        /// Deletes the Bom
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnDeleteBOM_Click(object sender, EventArgs e)
         {
             product.BOM.ProductID = 0;
@@ -84,6 +112,11 @@ namespace DemoSalesSystem
             this.Close();
         }
 
+        /// <summary>
+        /// removes the finding from the list
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnRemoveFinding_Click(object sender, EventArgs e)
         {
             if (lbxFindings.SelectedItem != null)

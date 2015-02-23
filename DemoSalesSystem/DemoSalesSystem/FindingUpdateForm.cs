@@ -14,10 +14,14 @@ namespace DemoSalesSystem
     {
         private List<Findings> findings = new List<Findings>();
         int findingId = 0;
+
+        /// <summary>
+        /// Constructor for find update form
+        /// </summary>
+        /// <param name="f"></param>
         public FindingUpdateForm(List<Findings> f)
         {
             InitializeComponent();
-            //cboSuppliers.DropDownStyle = ComboBoxStyle.DropDownList;
             lsvFindings.Columns.Add("ID");
             lsvFindings.Columns.Add("Name");
             lsvFindings.Columns.Add("Color");
@@ -30,6 +34,10 @@ namespace DemoSalesSystem
             }
         }
 
+
+        /// <summary>
+        /// updates the list of findings with all current findings
+        /// </summary>
         private void UpdateFindingsList()
         {
             lsvFindings.Items.Clear();
@@ -40,6 +48,11 @@ namespace DemoSalesSystem
             }
         }
 
+        /// <summary>
+        /// updates the current finding
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnUpdateFinding_Click(object sender, EventArgs e)
         {
             try
@@ -73,18 +86,23 @@ namespace DemoSalesSystem
                 System.Console.WriteLine(ex);
             }
         }
-
-     
-       
-
+      
+        /// <summary>
+        /// checks if a string is an int
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
         private bool CheckIfIsWholeNumber(string input)
         {
             int i;
             return int.TryParse(input, out i);
         }
 
-    
-
+        /// <summary>
+        /// updates the fields with the currently selected finding's information
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void lsvFindings_SelectedIndexChanged(object sender, EventArgs e)
         {
             

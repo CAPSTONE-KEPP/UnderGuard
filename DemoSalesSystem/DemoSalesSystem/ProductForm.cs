@@ -33,6 +33,12 @@ namespace DemoSalesSystem
             cbxStatus.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
+
+        /// <summary>
+        /// Saves the product
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSave_Click(object sender, EventArgs e)
         {
             currentProduct = UpdateOrAddProduct();
@@ -45,6 +51,11 @@ namespace DemoSalesSystem
             //lbxProducts.DataSource = products;
         }
 
+
+        /// <summary>
+        /// updates a current product or creates a new product
+        /// </summary>
+        /// <returns></returns>
         public Product UpdateOrAddProduct()
         {
 
@@ -71,6 +82,11 @@ namespace DemoSalesSystem
 
         }
 
+        /// <summary>
+        /// Updates the current product
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             try
@@ -90,6 +106,9 @@ namespace DemoSalesSystem
             }
         }
 
+        /// <summary>
+        /// Updates the product list with current products
+        /// </summary>
         private void RefreshProductList()
         {
             lbxProducts.Items.Clear();
@@ -99,6 +118,11 @@ namespace DemoSalesSystem
             }
         }
 
+        /// <summary>
+        /// Delets the current product
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnDelete_Click(object sender, EventArgs e)
         {
             try
@@ -119,6 +143,10 @@ namespace DemoSalesSystem
             }
         }
 
+        /// <summary>
+        /// clears all text boxes on the form
+        /// </summary>
+        /// <param name="control"></param>
         public void ClearTextBoxes(Control control)
         {
             foreach (Control c in control.Controls)
@@ -134,6 +162,11 @@ namespace DemoSalesSystem
             }
         }
 
+        /// <summary>
+        /// Adds a picture to the current product
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAddPic_Click(object sender, EventArgs e)
         {
             
@@ -157,6 +190,11 @@ namespace DemoSalesSystem
             }
         }
 
+        /// <summary>
+        /// updates all fields with the selected product's information
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void lbxProducts_SelectedIndexChanged(object sender, EventArgs e)
         {
             currentProduct = products.ElementAt(lbxProducts.SelectedIndex);
@@ -170,6 +208,11 @@ namespace DemoSalesSystem
             pbxPicture.Image = currentProduct.Image;
         }
 
+        /// <summary>
+        /// opens the current product's BOM CRUD form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnBom_Click(object sender, EventArgs e)
         {
             if (currentProduct != null)

@@ -42,6 +42,12 @@ namespace DemoSalesSystem
             DisplayInformation();
         }
 
+
+        /// <summary>
+        /// saves the current supplier
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSave_Click(object sender, EventArgs e)
         {
             try
@@ -79,6 +85,10 @@ namespace DemoSalesSystem
             }
         }
 
+        /// <summary>
+        /// Parses the standing combobox to bool
+        /// </summary>
+        /// <returns></returns>
         private bool ParseStanding() 
         {
             if (cboStanding.SelectedIndex == 0)
@@ -91,6 +101,12 @@ namespace DemoSalesSystem
             }
         }
 
+
+        /// <summary>
+        /// parses bool to standing combobox
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
         private string ReverseParseStanding(Supplier s)
         {
             if (s.Standings==true)
@@ -103,6 +119,11 @@ namespace DemoSalesSystem
             }
         }
 
+        /// <summary>
+        /// deletes the current supplier
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnDelete_Click(object sender, EventArgs e)
         {
             if (index > -1)
@@ -113,6 +134,11 @@ namespace DemoSalesSystem
             }
         }
 
+        /// <summary>
+        /// updates the currently selected supplier
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             try
@@ -147,6 +173,11 @@ namespace DemoSalesSystem
             }
         }
 
+        /// <summary>
+        /// clears the form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnClear_Click(object sender, EventArgs e)
         {
             ClearTextBoxes();
@@ -202,6 +233,9 @@ namespace DemoSalesSystem
             }
         }
 
+        /// <summary>
+        /// updates the list box with all suppliers
+        /// </summary>
         private void UpdateListBox()
         {
             lstSuppliers.Items.Clear();

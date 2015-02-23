@@ -13,6 +13,10 @@ namespace DemoSalesSystem
     public partial class InventoryProductForm : Form
     {
         List<Product> product = new List<Product>();
+
+        /// <summary>
+        /// Construtcor
+        /// </summary>
         public InventoryProductForm()
         {
             InitializeComponent();
@@ -26,6 +30,11 @@ namespace DemoSalesSystem
             cboProducts.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
+        /// <summary>
+        /// Saves the current product quantity
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (CheckIfIsNumber(txtQuantity.Text))
@@ -38,6 +47,11 @@ namespace DemoSalesSystem
             }
         }
 
+        /// <summary>
+        /// updates the field information with the currently selected product's information
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cboProducts_SelectedIndexChanged(object sender, EventArgs e)
         {
             lblProductColor.Text = product.ElementAt(cboProducts.SelectedIndex).Color;
@@ -45,6 +59,12 @@ namespace DemoSalesSystem
             lblProductSize.Text = product.ElementAt(cboProducts.SelectedIndex).Size;
             txtQuantity.Text = product.ElementAt(cboProducts.SelectedIndex).QuantityOnHand.ToString();
         }
+
+        /// <summary>
+        /// checks if a string is an int
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
         private bool CheckIfIsNumber(string input)
         {
             int i;

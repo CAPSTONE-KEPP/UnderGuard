@@ -28,6 +28,10 @@ namespace DemoSalesSystem
         Findings currentFinding;
         Order currentMOOrder;
 
+
+        /// <summary>
+        /// constructor, initializes all the forms
+        /// </summary>
         public MainForm()
         {
             InitializeComponent();
@@ -62,7 +66,10 @@ namespace DemoSalesSystem
 
         }
 
-
+        /// <summary>
+        /// hides all forms except the selected form
+        /// </summary>
+        /// <param name="f"></param>
         private void showForm(Form f)
         {
             cf.Visible = false;
@@ -72,6 +79,12 @@ namespace DemoSalesSystem
             f.Visible = true;
         }
 
+
+        /// <summary>
+        /// opens the products form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void productsToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             productForm.MdiParent = this;
@@ -115,27 +128,10 @@ namespace DemoSalesSystem
             }
 
         }
-        private void btnMFClear_Click(object sender, EventArgs e)
-        {
-            MFClear();
-        }
 
-        private void btnMFSave_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        public void MFClear()
-        {
-            txtMFName.Text = "";
-            txtMFSupplier.Text = "";
-            txtMFColor.Text = "";
-            txtMFQuantityOnHand.Text = "";
-            txtMFPrice.Text = "";
-            txtMFDescription.Text = "";
-            txtMFSLA.Text = "";
-        }
-
+        /// <summary>
+        /// clears the order panel
+        /// </summary>
         public void MOClear()
         {
             cmbMOCompany.Text = "";
@@ -146,69 +142,11 @@ namespace DemoSalesSystem
             dtpMODate.Text = "";
         }
 
-        private void btnMFDelete_Click(object sender, EventArgs e)
-        {
-            //when Manu Findings delete is clicked, delete selected object from lst.
-        }
-
-        private void btnMFUpdate_Click(object sender, EventArgs e)
-        {
-            //when Manu Findings update is clicked, update selected object from lst.
-            //boolean used to check if fields are valid...
-            bool goodMFSave = true;
-
-            if (!Regex.IsMatch(txtMFId.Text, "[0-9]+") || txtMFId.Text.Length >= 24 || txtMFId.Text.Length < 1)
-            {
-                goodMFSave = false;
-            }
-            if (txtMFName.Text.Length >= 24 || txtMFName.Text.Length < 1)
-            {
-                goodMFSave = false;
-            }
-            if (txtMFSupplier.Text.Length >= 24 || txtMFSupplier.Text.Length < 1)
-            {
-                goodMFSave = false;
-            }
-            if (txtMFColor.Text.Length >= 24 || txtMFColor.Text.Length < 1)
-            {
-                goodMFSave = false;
-            }
-            if (!Regex.IsMatch(txtMFQuantityOnHand.Text, "[0-9]+") || txtMFQuantityOnHand.Text.Length >= 24 || txtMFQuantityOnHand.Text.Length < 1)
-            {
-                goodMFSave = false;
-            }
-            if (!Regex.IsMatch(txtMFPrice.Text, "^[0-9]*[.]?[0-9]{0,2}") || txtMFPrice.Text.Length >= 24 || txtMFPrice.Text.Length < 1)
-            {
-                goodMFSave = false;
-            }
-            if (txtMFSLA.Text.Length >= 512 || txtMFSLA.Text.Length < 1)
-            {
-                goodMFSave = false;
-            }
-            if (txtMFDescription.Text.Length >= 1024 || txtMFDescription.Text.Length < 1)
-            {
-                goodMFSave = false;
-            }
-
-            if (goodMFSave == true)
-            {
-                //Valid fields for update.
-                if (lstMFindings.SelectedItem != null)
-                {
-                    //currentFinding = UpdateFindings();
-                    lstMFindings.SelectedItem = currentFinding;
-            }
-
-
-            }
-            else
-            {
-                MessageBox.Show("Please enter valid fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-            goodMFSave = true;
-
-        }
-
+        /// <summary>
+        /// opens the manufacturing findings form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void findingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
@@ -223,6 +161,9 @@ namespace DemoSalesSystem
             fuf.Show();
         }
 
+        /// <summary>
+        /// gets all current sales orders for the order panel
+        /// </summary>
         private void PopulateOrdersForm()
         {
             if (of.Orders.Count > 0)
@@ -238,6 +179,9 @@ namespace DemoSalesSystem
             
         }
 
+        /// <summary>
+        /// Hides all forms
+        /// </summary>
         private void HideForms()
         {
             try
@@ -256,6 +200,11 @@ namespace DemoSalesSystem
             }
         }
 
+        /// <summary>
+        /// opens manufacturing view orders form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ordersToolStripMenuItem_Click(object sender, EventArgs e)
         {
             HideForms();
@@ -264,21 +213,21 @@ namespace DemoSalesSystem
             pnlMOrder.Visible = true;
         }
 
+        /// <summary>
+        /// clears the manufacturing order form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnMOClear_Click(object sender, EventArgs e)
         {
             MOClear();
         }
 
-        private void btnMOSave_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void btnMODelete_Click(object sender, EventArgs e)
-        {
-            //btn Manu Order Delete is clicked, delete Manu Order Obj from lst...
-        }
-
+        /// <summary>
+        /// Updates the currently selected order's status
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnMOUpdate_Click(object sender, EventArgs e)
         {
             //btn Manu Order Update is clicked, update Manu Order Obj from lst...
@@ -322,6 +271,11 @@ namespace DemoSalesSystem
 
         }
 
+
+        /// <summary>
+        /// gets and sets the necessary information to update the order
+        /// </summary>
+        /// <returns></returns>
         private Order UpdateMOOrder()
         {
             Order tempOrders = orderList.ElementAt(lstMOOrders.SelectedIndex);
@@ -331,6 +285,11 @@ namespace DemoSalesSystem
             return tempOrders;
         }
 
+        /// <summary>
+        /// Opens the supplier form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void suppliersToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
 
@@ -345,15 +304,11 @@ namespace DemoSalesSystem
             
         }
 
-        private void companyToolStripMenuItem_Click_1(object sender, EventArgs e)
-        {
-            Point l = this.Location;
-            this.Bounds = cof.Bounds;
-            this.Location = l;
-            HidePanels();
-            showForm(cof);
-        }
-
+        /// <summary>
+        /// Opens the company CRUD form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void companyToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Point l = this.Location;
@@ -363,6 +318,11 @@ namespace DemoSalesSystem
             showForm(cof);
         }
 
+        /// <summary>
+        /// Opens the catalog CRUD form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void catalogToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             Point l = this.Location;
@@ -372,6 +332,11 @@ namespace DemoSalesSystem
             showForm(cf);
         }
 
+        /// <summary>
+        /// Opens the sales order form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void orderToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             Point l = this.Location;
@@ -383,6 +348,11 @@ namespace DemoSalesSystem
             showForm(of);
         }
 
+        /// <summary>
+        /// Opens the inventory product update form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void productsToolStripMenuItem2_Click_1(object sender, EventArgs e)
         {
             Point l = this.Location;
@@ -392,6 +362,11 @@ namespace DemoSalesSystem
             showForm(ipf);
         }
 
+        /// <summary>
+        /// opens the findings CRUD form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void findingsToolStripMenuItem1_Click_1(object sender, EventArgs e)
         {
             Point l = this.Location;
@@ -401,12 +376,21 @@ namespace DemoSalesSystem
             showForm(ff);
         }
 
+        /// <summary>
+        /// hides all panels in the main form
+        /// </summary>
         private void HidePanels()
         {
             pnlMFindings.Visible = false;
             pnlMOrder.Visible =false;
         }
 
+
+        /// <summary>
+        /// Updates the fields with the selected order's information
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void lstMOOrders_SelectedIndexChanged(object sender, EventArgs e)
         {
             cmbMOCompany.Text = orderList.ElementAt(lstMOOrders.SelectedIndex).Company.Name;

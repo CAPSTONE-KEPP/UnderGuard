@@ -14,15 +14,13 @@ namespace DemoSalesSystem
     {
         private List<Supplier> supplier = new List<Supplier>();
         private List<Findings> findings = new List<Findings>();
-        private int id=0;
-
-        public List<Findings> Findings
-        {
-            get { return findings; }
-            set { findings = value; }
-        }
+        private int id=0;    
         private List<Supplier> selectedSupplier = new List<Supplier>();
         int findingId = 0;
+
+        /// <summary>
+        /// finding form constructor
+        /// </summary>
         public FindingForm()
         {
             InitializeComponent();
@@ -46,10 +44,20 @@ namespace DemoSalesSystem
 
         }
 
-
-
+        /// <summary>
+        /// getter for findings list
+        /// </summary>
+        public List<Findings> Findings
+        {
+            get { return findings; }
+            set { findings = value; }
+        }
        
-
+        /// <summary>
+        /// save the finding to the finding list with appropriate validation
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSaveFinding_Click(object sender, EventArgs e)
         {
             try
@@ -98,6 +106,11 @@ namespace DemoSalesSystem
             }
         }
 
+
+        /// <summary>
+        /// gets the next findings id
+        /// </summary>
+        /// <returns></returns>
         private int GetNextFindingID()
         {
             if (findings.Count <= 0)
@@ -111,6 +124,10 @@ namespace DemoSalesSystem
             }
         }
 
+
+        /// <summary>
+        /// updates the list of findings with all current findings
+        /// </summary>
         private void UpdateFindingsList()
         {
             lsvFindings.Items.Clear();
@@ -121,6 +138,12 @@ namespace DemoSalesSystem
             }
         }
 
+
+        /// <summary>
+        /// updates the selected finding
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnUpdateFinding_Click(object sender, EventArgs e)
         {
             try
@@ -165,6 +188,11 @@ namespace DemoSalesSystem
             }
         }
 
+        /// <summary>
+        /// deletes the selected finding
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnDeleteFinding_Click(object sender, EventArgs e)
         {
             try
@@ -196,6 +224,11 @@ namespace DemoSalesSystem
             }
         }
 
+        /// <summary>
+        /// saves the current SLA with validations
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSaveSLA_Click(object sender, EventArgs e)
         {
             try
@@ -245,10 +278,11 @@ namespace DemoSalesSystem
             }
         }
 
-
-
-
-
+        /// <summary>
+        /// Updates the current SLA
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnUpdateSLA_Click(object sender, EventArgs e)
         {
             try
@@ -293,6 +327,11 @@ namespace DemoSalesSystem
             }
         }
 
+        /// <summary>
+        /// deletes the current SLA
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnDeleteSLA_Click(object sender, EventArgs e)
         {
             try
@@ -311,18 +350,33 @@ namespace DemoSalesSystem
             }
         }
 
+        /// <summary>
+        /// checks if a string is an int
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
         private bool CheckIfIsWholeNumber(string input)
         {
             int i;
             return int.TryParse(input, out i);
         }
 
+        /// <summary>
+        /// checks if a string is a double
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
         private bool CheckIfIsDecimalNumber(string input)
         {
             double d;
             return double.TryParse(input, out d);
         }
 
+        /// <summary>
+        /// Updates form fields with selected finding's information
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void lsvFindings_SelectedIndexChanged(object sender, EventArgs e)
         {
             
@@ -347,6 +401,9 @@ namespace DemoSalesSystem
             }
         }
 
+        /// <summary>
+        /// clears the SLA information
+        /// </summary>
         private void ClearSLA()
         {
             foreach (Control c in gbxSLA.Controls)
@@ -358,6 +415,10 @@ namespace DemoSalesSystem
             }
         }
 
+        /// <summary>
+        /// updates the SLA fields with the current finding's SLA info
+        /// </summary>
+        /// <param name="f"></param>
         private void DisplaySLA(Findings f)
         {
             txtSLAAmount.Text = f.Sla.Amount.ToString();
@@ -367,7 +428,9 @@ namespace DemoSalesSystem
           
         }
        
-
+        /// <summary>
+        /// Toggle's the SLA box on or off
+        /// </summary>
         private void ToggleSLABox(){
             if (findings.Count > 0)
             {
@@ -376,17 +439,6 @@ namespace DemoSalesSystem
             else
             {
                 gbxSLA.Enabled = false;
-            }
-        }
-
-        private void ClearBoxFields(GroupBox b)
-        {
-            foreach (Control c in b.Controls)
-            {
-                if (c is TextBox)
-                {
-                    c.Text = "";
-                }
             }
         }
     }
