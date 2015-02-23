@@ -10,6 +10,13 @@ namespace DemoSalesSystem
         #region class level variables
         private DateTime orderDate;
         private Company company;
+        private Supplier supplier;
+
+        public Supplier Supplier
+        {
+            get { return supplier; }
+            set { supplier = value; }
+        }
         private OrderStatus orderStatus;
         private CompanyContact companyContact;
         private List<OrderDetails> orderDetailsList;
@@ -73,6 +80,14 @@ namespace DemoSalesSystem
         {
             this.company = c;
             this.companyContact = cc;
+            this.type = type;
+            this.id = id;
+            orderDetailsList = new List<OrderDetails>();
+        }
+
+        public Order(Supplier s, string type, int id)
+        {
+            this.supplier = s;
             this.type = type;
             this.id = id;
             orderDetailsList = new List<OrderDetails>();

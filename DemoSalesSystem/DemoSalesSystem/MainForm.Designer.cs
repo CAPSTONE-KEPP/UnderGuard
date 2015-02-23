@@ -185,27 +185,28 @@
             // suppliersToolStripMenuItem
             // 
             this.suppliersToolStripMenuItem.Name = "suppliersToolStripMenuItem";
-            this.suppliersToolStripMenuItem.Size = new System.Drawing.Size(133, 24);
+            this.suppliersToolStripMenuItem.Size = new System.Drawing.Size(175, 24);
             this.suppliersToolStripMenuItem.Text = "Supplier";
             this.suppliersToolStripMenuItem.Click += new System.EventHandler(this.suppliersToolStripMenuItem_Click_1);
             // 
             // ordersToolStripMenuItem1
             // 
             this.ordersToolStripMenuItem1.Name = "ordersToolStripMenuItem1";
-            this.ordersToolStripMenuItem1.Size = new System.Drawing.Size(133, 24);
+            this.ordersToolStripMenuItem1.Size = new System.Drawing.Size(175, 24);
             this.ordersToolStripMenuItem1.Text = "Order";
+            this.ordersToolStripMenuItem1.Click += new System.EventHandler(this.ordersToolStripMenuItem1_Click);
             // 
             // productsToolStripMenuItem2
             // 
             this.productsToolStripMenuItem2.Name = "productsToolStripMenuItem2";
-            this.productsToolStripMenuItem2.Size = new System.Drawing.Size(133, 24);
+            this.productsToolStripMenuItem2.Size = new System.Drawing.Size(175, 24);
             this.productsToolStripMenuItem2.Text = "Product";
             this.productsToolStripMenuItem2.Click += new System.EventHandler(this.productsToolStripMenuItem2_Click_1);
             // 
             // findingsToolStripMenuItem1
             // 
             this.findingsToolStripMenuItem1.Name = "findingsToolStripMenuItem1";
-            this.findingsToolStripMenuItem1.Size = new System.Drawing.Size(133, 24);
+            this.findingsToolStripMenuItem1.Size = new System.Drawing.Size(175, 24);
             this.findingsToolStripMenuItem1.Text = "Finding";
             this.findingsToolStripMenuItem1.Click += new System.EventHandler(this.findingsToolStripMenuItem1_Click_1);
             // 
@@ -291,7 +292,6 @@
             this.btnMFUpdate.TabIndex = 17;
             this.btnMFUpdate.Text = "Update";
             this.btnMFUpdate.UseVisualStyleBackColor = true;
-            this.btnMFUpdate.Click += new System.EventHandler(this.btnMFUpdate_Click);
             // 
             // btnMFSave
             // 
@@ -303,7 +303,6 @@
             this.btnMFSave.TabIndex = 16;
             this.btnMFSave.Text = "Save";
             this.btnMFSave.UseVisualStyleBackColor = true;
-            this.btnMFSave.Click += new System.EventHandler(this.btnMFSave_Click);
             // 
             // btnMFDelete
             // 
@@ -315,7 +314,6 @@
             this.btnMFDelete.TabIndex = 15;
             this.btnMFDelete.Text = "Delete";
             this.btnMFDelete.UseVisualStyleBackColor = true;
-            this.btnMFDelete.Click += new System.EventHandler(this.btnMFDelete_Click);
             // 
             // btnMFClear
             // 
@@ -326,7 +324,6 @@
             this.btnMFClear.TabIndex = 14;
             this.btnMFClear.Text = "Clear";
             this.btnMFClear.UseVisualStyleBackColor = true;
-            this.btnMFClear.Click += new System.EventHandler(this.btnMFClear_Click);
             // 
             // txtMFPrice
             // 
@@ -550,7 +547,6 @@
             this.btnMOSave.TabIndex = 15;
             this.btnMOSave.Text = "Save";
             this.btnMOSave.UseVisualStyleBackColor = true;
-            this.btnMOSave.Click += new System.EventHandler(this.btnMOSave_Click);
             // 
             // btnMODelete
             // 
@@ -562,7 +558,6 @@
             this.btnMODelete.TabIndex = 14;
             this.btnMODelete.Text = "Delete";
             this.btnMODelete.UseVisualStyleBackColor = true;
-            this.btnMODelete.Click += new System.EventHandler(this.btnMODelete_Click);
             // 
             // btnMOClear
             // 

@@ -13,46 +13,46 @@ namespace DemoSalesSystem
     /// <summary>
     /// Order form class used by companies to place orders
     /// </summary>
-    public partial class OrderForm : Form
+    public partial class SupplierOrderForm : Form
     {
-        List<Product> products;
+        List<Findings> findings;
         List<OrderDetails> orderDetails;
         List<Order> orders;
+        
 
         public List<Order> Orders
         {
             get { return orders; }
             set { orders = value; }
         }
-        List<Company> companies;
+        List<Supplier> suppliers;
         int orderId = 0;
 
-        public List<Company> Companies
+        public List<Supplier> Suppliers
         {
-            get { return companies; }
-            set { companies = value; }
+            get { return suppliers; }
+            set { suppliers = value; }
         }
 
         /// <summary>
         /// Sets some dummy product data, sets necessary settings on all UI elements
         /// </summary>
-        public OrderForm()
+        public SupplierOrderForm()
         {
             InitializeComponent();
-            products = new List<Product>();
+            findings = new List<Findings>();
             orderDetails = new List<OrderDetails>();
             orders = new List<Order>();
-            products.Add(new Product(0, "shirt"));
-            products.Add(new Product(1, "pants"));
-            products.Add(new Product(2, "shoes"));
-            products.Add(new Product(3, "hat"));
-            products.Add(new Product(4, "gloves"));
+            findings.Add(new Findings(0, "button"));
+            findings.Add(new Findings(1, "sleeve"));
+            findings.Add(new Findings(2, "laces"));
+            findings.Add(new Findings(3, "rubber"));
             cboStatus.DataSource = Enum.GetValues(typeof(OrderStatus));
-            for(int i=0;i<products.Count;i++){
-                lstProducts.Items.Add(products.ElementAt(i).Name);
+            for(int i=0;i<findings.Count;i++){
+                lstProducts.Items.Add(findings.ElementAt(i).Name);
             }
             cboCompany.DropDownStyle = ComboBoxStyle.DropDownList;
-            cboContact.DropDownStyle = ComboBoxStyle.DropDownList;
+            
             cboStatus.DropDownStyle = ComboBoxStyle.DropDownList;
 
             lsvCurrentOrder.Columns.Add("Product");
@@ -65,6 +65,12 @@ namespace DemoSalesSystem
             lsvOrders.Columns.Add("Date");
             lsvOrders.View = View.Details;
             lsvOrders.MultiSelect = false;
+            suppliers = new List<Supplier>();
+            suppliers.Add(new Supplier(0, "Supplier 1"));
+            suppliers.Add(new Supplier(1, "Supplier 2"));
+            suppliers.Add(new Supplier(2, "Supplier 3"));
+            suppliers.Add(new Supplier(3, "Supplier 4"));
+            UpdateCompanyList();
         }
 
         /// <summary>
@@ -73,9 +79,9 @@ namespace DemoSalesSystem
         public void UpdateCompanyList()
         {
             cboCompany.Items.Clear();
-            for (int i = 0; i < companies.Count; i++)
+            for (int i = 0; i < suppliers.Count; i++)
             {
-                cboCompany.Items.Add(companies.ElementAt(i).Name);
+                cboCompany.Items.Add(suppliers.ElementAt(i).Name);
             }
         }
 
@@ -97,7 +103,7 @@ namespace DemoSalesSystem
                 return;
             }
             {
-                orderDetails.Add(new OrderDetails(products.ElementAt(lstProducts.SelectedIndex), Convert.ToInt32(nudQuantity.Value)));
+                orderDetails.Add(new OrderDetails(findings.ElementAt(lstProducts.SelectedIndex), Convert.ToInt32(nudQuantity.Value)));
                 updateCurrentOrderList();
                 btnRemove.Enabled = true;
             }
@@ -113,7 +119,7 @@ namespace DemoSalesSystem
             lsvCurrentOrder.Items.Clear();
             for (int i = 0; i < orderDetails.Count; i++)
             {
-                var addItem = new ListViewItem(new string[] { orderDetails.ElementAt(i).Product.Name, orderDetails.ElementAt(i).Quantity.ToString() });
+                var addItem = new ListViewItem(new string[] { orderDetails.ElementAt(i).Finding.Name, orderDetails.ElementAt(i).Quantity.ToString() });
                 lsvCurrentOrder.Items.Add(addItem);
             }
         }
@@ -155,14 +161,13 @@ namespace DemoSalesSystem
         {
             try
             {
-                if (companies.Count > 0 && cboContact.SelectedItem != null)
+                if (suppliers.Count > 0 && orderDetails.Count>0)
                 {
-                    if (companies.ElementAt(cboCompany.SelectedIndex).CompanyContact.Count > 0)
-                    {
+
                         try
                         {
                             orderId = GetNextOrderId();
-                            orders.Add(new Order(companies.ElementAt(cboCompany.SelectedIndex), companies.ElementAt(cboCompany.SelectedIndex).CompanyContact.ElementAt(cboContact.SelectedIndex), "sales", orderId));
+                            orders.Add(new Order(suppliers.ElementAt(cboCompany.SelectedIndex),  "sales", orderId));
                             orders.ElementAt(orderId).OrderDate = DateTime.Now;
                             orders.ElementAt(orderId).Note = txtNotes.Text;
                             orders.ElementAt(orderId).OrderStatus = (OrderStatus)Enum.Parse(typeof(OrderStatus), cboStatus.Text);
@@ -182,15 +187,11 @@ namespace DemoSalesSystem
                         {
                             System.Console.WriteLine(nre);
                         }
-                    }
-                    else
-                    {
-                        MessageBox.Show("Contact is required");
-                    }
+                  
              }
                 else
                 {
-                    MessageBox.Show("Cannot place order without a company");
+                    MessageBox.Show("Cannot place empty order");
                 }
             }
             catch (Exception ex)
@@ -231,8 +232,7 @@ namespace DemoSalesSystem
                     int orderId = lsvOrders.FocusedItem.Index;
                     orders.ElementAt(orderId).Note = txtNotes.Text;
                     orders.ElementAt(orderId).OrderStatus = (OrderStatus)Enum.Parse(typeof(OrderStatus), cboStatus.Text);
-                    orders.ElementAt(orderId).Company = companies.ElementAt(cboCompany.SelectedIndex);
-                    orders.ElementAt(orderId).CompanyContact = companies.ElementAt(cboCompany.SelectedIndex).CompanyContact.ElementAt(cboContact.SelectedIndex);
+                    orders.ElementAt(orderId).Supplier = suppliers.ElementAt(cboCompany.SelectedIndex);
                     for (int i = 0; i < orderDetails.Count; i++)
                     {
                         orderDetails.ElementAt(i).Order = orders.ElementAt(orderId);
@@ -301,31 +301,12 @@ namespace DemoSalesSystem
             lsvOrders.Items.Clear();
             for (int i = 0; i < orders.Count; i++)
             {
-                var addItem = new ListViewItem(new string[] { orders.ElementAt(i).Id.ToString(), orders.ElementAt(i).Company.Name, orders.ElementAt(i).OrderDate.ToString() });
+                var addItem = new ListViewItem(new string[] { orders.ElementAt(i).Id.ToString(), orders.ElementAt(i).Supplier.Name, orders.ElementAt(i).OrderDate.ToString() });
                 lsvOrders.Items.Add(addItem);
             }
         }
 
-        /// <summary>
-        /// Sets the product info when product is selected from add list
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void lstProducts_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            lblID.Text = products.ElementAt(lstProducts.SelectedIndex).ProductID.ToString();
-            lblName.Text = products.ElementAt(lstProducts.SelectedIndex).Name;         
-        }
 
-        /// <summary>
-        /// Sets all contacts of currently selected company to contact combo box
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void cboCompany_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            UpdateContactList();
-        }
 
         /// <summary>
         /// Sets all UI elements of currently selected order
@@ -341,10 +322,8 @@ namespace DemoSalesSystem
                 updateCurrentOrderList();
                 txtNotes.Text = orders.ElementAt(lsvOrders.FocusedItem.Index).Note;
                 txtDate.Text = orders.ElementAt(lsvOrders.FocusedItem.Index).OrderDate.ToString();
-                cboCompany.Text = orders.ElementAt(lsvOrders.FocusedItem.Index).Company.Name;
-                UpdateContactList();
+                cboCompany.Text = orders.ElementAt(lsvOrders.FocusedItem.Index).Supplier.Name;
                 cboStatus.Text = orders.ElementAt(lsvOrders.FocusedItem.Index).OrderStatus.ToString();
-                cboContact.Text = orders.ElementAt(lsvOrders.FocusedItem.Index).CompanyContact.FirstName + " " + orders.ElementAt(lsvOrders.FocusedItem.Index).CompanyContact.LastName;
             }
         }
 
@@ -358,23 +337,6 @@ namespace DemoSalesSystem
             {
                 orderDetails.Add(orders.ElementAt(lsvOrders.FocusedItem.Index).OrderDetailsList.ElementAt(i));
             }
-        }
-
-        /// <summary>
-        /// Sets all contacts of currently selected company to contact combo box
-        /// </summary>
-        private void UpdateContactList()
-        {
-            if (companies.ElementAt(cboCompany.SelectedIndex).CompanyContact.Count > 0)
-            {
-                cboContact.Items.Clear();
-                for (int i = 0; i < companies.ElementAt(cboCompany.SelectedIndex).CompanyContact.Count; i++)
-                {
-                    cboContact.Items.Add(companies.ElementAt(cboCompany.SelectedIndex).CompanyContact.ElementAt(i).FirstName + " " + companies.ElementAt(cboCompany.SelectedIndex).CompanyContact.ElementAt(i).LastName);
-                }
-            }
-            cboContact.SelectedIndex = 0;
-
         }
     }
 }

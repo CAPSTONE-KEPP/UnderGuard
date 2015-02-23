@@ -23,6 +23,7 @@ namespace DemoSalesSystem
         FindingForm ff;
         FindingUpdateForm fuf;
         InventoryProductForm ipf;
+        SupplierOrderForm sof;
         List<Company> companyList;
         List<Order> orderList;
         Findings currentFinding;
@@ -59,6 +60,14 @@ namespace DemoSalesSystem
             ipf.MdiParent = this;
             ipf.Visible = false;
             ipf.WindowState = FormWindowState.Maximized;
+            sof = new SupplierOrderForm();
+            sof.MdiParent = this;
+            sof.Visible = false;
+            sof.WindowState = FormWindowState.Maximized;
+            fuf = new FindingUpdateForm(ff.Findings);
+            fuf.MdiParent = this;
+            fuf.Visible = false;
+            fuf.WindowState = FormWindowState.Maximized;
             MakeFakeData();
             childForm = new SupplierForm(suppliers);
             childForm.Visible = false;
@@ -150,10 +159,7 @@ namespace DemoSalesSystem
         private void findingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-            fuf = new FindingUpdateForm(ff.Findings);
-            fuf.MdiParent = this;
-            fuf.Visible = false;
-            fuf.WindowState = FormWindowState.Maximized;
+            
             Point l = this.Location;
             this.Bounds = fuf.Bounds;
             this.Location = l;
@@ -399,6 +405,15 @@ namespace DemoSalesSystem
             txtMOType.Text = orderList.ElementAt(lstMOOrders.SelectedIndex).Type;
             dtpMODate.Value = orderList.ElementAt(lstMOOrders.SelectedIndex).OrderDate;
             txtMONotes.Text = orderList.ElementAt(lstMOOrders.SelectedIndex).Note;
+        }
+
+        private void ordersToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Point l = this.Location;
+            this.Bounds = sof.Bounds;
+            this.Location = l;
+            HidePanels();
+            sof.Show();
         }
 
 
